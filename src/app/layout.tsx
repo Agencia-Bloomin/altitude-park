@@ -112,7 +112,6 @@ export default function RootLayout({
                 const root = document.documentElement;
                 root.style.setProperty('--font-primary', '${siteConfig.theme.fonts.primary}');
                 root.style.setProperty('--font-secondary', '${siteConfig.theme.fonts.secondary}');
-                root.style.setProperty('--font-tertiary', '${siteConfig.theme.fonts.tertiary}');
               })();
             `,
           }}

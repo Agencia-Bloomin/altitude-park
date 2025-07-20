@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 interface HeroBannerProps {
@@ -22,6 +23,9 @@ export function HeroBanner({
   secondaryButtonLink
 }: HeroBannerProps) {
   const bannerRef = useRef<HTMLDivElement>(null);
+  const image1Ref = useRef<HTMLDivElement>(null);
+  const image2Ref = useRef<HTMLDivElement>(null);
+  const backgroundElementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Importar GSAP apenas no cliente
@@ -46,6 +50,97 @@ export function HeroBanner({
             }
           );
         }
+
+        // Animação do elemento de background
+        if (backgroundElementRef.current) {
+          gsap.fromTo(backgroundElementRef.current,
+            {
+              scale: 0.5,
+              opacity: 0,
+              y: 50
+            },
+            {
+              scale: 1,
+              opacity: 0.3,
+              y: 0,
+              duration: 1.5,
+              delay: 0.3,
+              ease: "power2.out"
+            }
+          );
+
+          // Animação contínua de flutuação
+          gsap.to(backgroundElementRef.current, {
+            y: -20,
+            duration: 4,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut",
+            delay: 1.8
+          });
+        }
+
+        // Animação da primeira imagem (abaixo/à esquerda)
+        if (image1Ref.current) {
+          gsap.fromTo(image1Ref.current,
+            {
+              scale: 0,
+              opacity: 0,
+              x: -200,
+              y: 100
+            },
+            {
+              scale: 1,
+              opacity: 1,
+              x: 0,
+              y: 0,
+              duration: 1.2,
+              delay: 0.6,
+              ease: "back.out(1.7)"
+            }
+          );
+
+          // Animação contínua de flutuação
+          gsap.to(image1Ref.current, {
+            y: -15,
+            duration: 4,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut",
+            delay: 1.8
+          });
+        }
+
+        // Animação da segunda imagem (acima/à direita)
+        if (image2Ref.current) {
+          gsap.fromTo(image2Ref.current,
+            {
+              scale: 0,
+              opacity: 0,
+              x: 200,
+              y: -100
+            },
+            {
+              scale: 1,
+              opacity: 1,
+              x: 0,
+              y: 0,
+              duration: 1.2,
+              delay: 0.9,
+              ease: "back.out(1.7)"
+            }
+          );
+
+          // Animação contínua de flutuação
+          gsap.to(image2Ref.current, {
+            y: 15,
+            duration: 3.5,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut",
+            delay: 2.1
+          });
+        }
       }
     };
 
@@ -53,28 +148,84 @@ export function HeroBanner({
   }, []);
 
   return (
-    <section ref={bannerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={bannerRef} className="relative min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-96px)] lg:min-h-screen flex items-center justify-center overflow-hidden pt-20 lg:pt-24 pb-8 md:pb-12 lg:pb-16">
       <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-secondary-500/20 to-tertiary-500/20"></div>
       <div className="absolute inset-0 bg-black/50"></div>
       
       <div className="container-custom relative z-10 text-center">
-        <h1 className="heading-1 text-white mb-6 animate-bounce-altitude">
-          {title}
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-          {subtitle}
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild className="btn-highlight text-lg px-8 py-4">
-            <Link href={primaryButtonLink}>
-              {primaryButtonText}
-            </Link>
-          </Button>
-          <Button asChild className="btn-secondary text-lg px-8 py-4">
-            <Link href={secondaryButtonLink}>
-              {secondaryButtonText}
-            </Link>
-          </Button>
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-4 xl:gap-16">
+          {/* Conteúdo de texto */}
+          <div className="flex-1 max-w-2xl">
+            <h1 className="heading-1 text-white mb-6 animate-bounce-altitude">
+              {title}
+            </h1>
+            <p className="text-xl md:text-1xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              {subtitle}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Button asChild className="btn-highlight text-lg px-8 py-4">
+                <Link href={primaryButtonLink}>
+                  {primaryButtonText}
+                </Link>
+              </Button>
+              <Button asChild className="btn-secondary text-lg px-8 py-4">
+                <Link href={secondaryButtonLink}>
+                  {secondaryButtonText}
+                </Link>
+              </Button>
+            </div>
+          </div>
+
+          {/* Container das imagens animadas */}
+          <div className="flex-1 relative flex justify-center lg:justify-end">
+            <div className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[450px] md:h-[450px] lg:w-[500px] lg:h-[500px] xl:w-[600px] xl:h-[600px]">
+              
+              {/* Elemento de background da pasta elements */}
+              <div 
+                ref={backgroundElementRef}
+                className="absolute -bottom-8 -right-16 flex items-center justify-center opacity-50"
+              >
+                <Image
+                  src="/images/elements/radius.png"
+                  alt="Elemento banner"
+                  title="Elemento banner"
+                  width={400}
+                  height={400}
+                  className="w-full h-60 xl:h-80 object-contain"
+                />
+              </div>
+
+              {/* Primeira imagem (abaixo/à esquerda) */}
+              <div 
+                ref={image1Ref}
+                className="absolute bottom-0 left-0 w-48 h-48 lg:w-96 lg:h-96"
+              >
+                <Image
+                  src="/images/unidades/alphaville.jpg"
+                  alt="Banner Hero 1"
+                  title="Banner Hero 1"
+                  width={600}
+                  height={600}
+                  className="w-full h-full object-cover rounded-xl shadow-2xl"
+                />
+              </div>
+
+              {/* Segunda imagem (acima/à direita) */}
+              <div 
+                ref={image2Ref}
+                className="absolute top-10 right-0 w-48 h-48 lg:w-80 lg:h-80"
+              >
+                <Image
+                  src="/images/unidades/campinas.jpg"
+                  alt="Banner Hero 2"
+                  title="Banner Hero 2"
+                  width={500}
+                  height={500}
+                  className="w-full h-full object-cover rounded-xl shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
