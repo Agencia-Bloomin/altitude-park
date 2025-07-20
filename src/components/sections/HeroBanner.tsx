@@ -148,7 +148,7 @@ export function HeroBanner({
   }, []);
 
   return (
-    <section ref={bannerRef} className="relative min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-96px)] lg:min-h-screen flex items-center justify-center overflow-hidden pt-20 lg:pt-24 pb-8 md:pb-12 lg:pb-16">
+    <section ref={bannerRef} className="relative min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-96px)] lg:min-h-screen flex items-center justify-center overflow-hidden pt-52 lg:pt-40 pb-20 lg:pb-16">
       <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-secondary-500/20 to-tertiary-500/20"></div>
       <div className="absolute inset-0 bg-black/50"></div>
       
@@ -176,14 +176,14 @@ export function HeroBanner({
             </div>
           </div>
 
-          {/* Container das imagens animadas */}
+          {/* Container das imagens */}
           <div className="flex-1 relative flex justify-center lg:justify-end">
-            <div className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[450px] md:h-[450px] lg:w-[500px] lg:h-[500px] xl:w-[600px] xl:h-[600px]">
+            <div className="relative w-[320px] h-[320px] sm:w-[430px] sm:h-[430px] md:w-[500px] md:h-[500px] lg:w-[450px] lg:h-[600px] xl:w-[600px] xl:h-[600px]">
               
-              {/* Elemento de background da pasta elements */}
+              {/* Elemento de background */}
               <div 
                 ref={backgroundElementRef}
-                className="absolute -bottom-8 -right-16 flex items-center justify-center opacity-50"
+                className="absolute -bottom-8 -right-8 lg:-bottom-8 lg:-right-16 flex items-center justify-center opacity-50"
               >
                 <Image
                   src="/images/elements/radius.png"
@@ -191,14 +191,14 @@ export function HeroBanner({
                   title="Elemento banner"
                   width={400}
                   height={400}
-                  className="w-full h-60 xl:h-80 object-contain"
+                  className="w-full h-48 md:h-52 lg:h-60 xl:h-80 object-contain"
                 />
               </div>
 
               {/* Primeira imagem (abaixo/à esquerda) */}
               <div 
                 ref={image1Ref}
-                className="absolute bottom-0 left-0 w-48 h-48 lg:w-96 lg:h-96"
+                className="absolute bottom-0 left-0 w-56 h-56 sm:w-80 sm:h-80 md:w-96 md:h-96"
               >
                 <Image
                   src="/images/unidades/alphaville.jpg"
@@ -213,7 +213,7 @@ export function HeroBanner({
               {/* Segunda imagem (acima/à direita) */}
               <div 
                 ref={image2Ref}
-                className="absolute top-10 right-0 w-48 h-48 lg:w-80 lg:h-80"
+                className="absolute top-6 sm:top-8 md:top-10 right-0 w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80"
               >
                 <Image
                   src="/images/unidades/campinas.jpg"
@@ -230,7 +230,7 @@ export function HeroBanner({
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 animate-bounce">
         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
