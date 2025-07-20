@@ -169,7 +169,7 @@ export function HeroBanner() {
                         {banner.title}
                       </h1>
                       {banner.subtitle && (
-                        <p className="text-xl md:text-2xl text-primary-300 mb-6 font-medium">
+                        <p className="text-xl md:text-2xl text-quinary-300 mb-6 font-medium">
                           {banner.subtitle}
                         </p>
                       )}

@@ -82,7 +82,7 @@ export function ReviewsSection() {
             >
               {/* Quote Icon */}
               <div className="flex justify-end mb-4">
-                <Quote size={24} className="text-primary-600 opacity-50" />
+                <Quote size={24} className="text-quinary-600 opacity-50" />
               </div>
 
               {/* Rating */}
@@ -103,11 +103,11 @@ export function ReviewsSection() {
 
               {/* Author */}
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-primary-600 font-semibold text-lg">
-                    {review.name.charAt(0)}
-                  </span>
-                </div>
+                              <div className="w-12 h-12 bg-quinary-100 rounded-full flex items-center justify-center mr-4">
+                <span className="text-quinary-600 font-semibold text-lg">
+                  {review.name.charAt(0)}
+                </span>
+              </div>
                 <div>
                   <h4 className="font-semibold text-gray-900">{review.name}</h4>
                   <p className="text-sm text-gray-600">{review.company}</p>
@@ -121,19 +121,19 @@ export function ReviewsSection() {
         <div ref={statsRef} className="bg-white rounded-2xl p-8 shadow-lg">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-primary-600 mb-2">500+</div>
+              <div className="text-4xl font-bold text-quinary-600 mb-2">500+</div>
               <div className="text-gray-600">Projetos Entregues</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary-600 mb-2">98%</div>
+              <div className="text-4xl font-bold text-quinary-600 mb-2">98%</div>
               <div className="text-gray-600">Clientes Satisfeitos</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary-600 mb-2">4.9</div>
+              <div className="text-4xl font-bold text-quinary-600 mb-2">4.9</div>
               <div className="text-gray-600">Avaliação Média</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary-600 mb-2">24/7</div>
+              <div className="text-4xl font-bold text-quinary-600 mb-2">24/7</div>
               <div className="text-gray-600">Suporte Disponível</div>
             </div>
           </div>

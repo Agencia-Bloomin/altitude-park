@@ -126,6 +126,10 @@
     @apply bg-gradient-to-r from-quaternary-600 to-quaternary-700;
   }
 
+  .gradient-quinary {
+    @apply bg-gradient-to-r from-quinary-600 to-quinary-700;
+  }
+
   .gradient-hero {
     @apply bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-800;
   }

@@ -6,6 +6,7 @@ export { GSAPProvider } from './GSAPProvider';
 // Section Components
 export { HeroBanner } from './sections/HeroBanner';
 export { AboutSection } from './sections/AboutSection';
+export { AddressesSection } from './sections/AddressesSection';
 export { ProductsSection } from './sections/ProductsSection';
 export { FAQSection } from './sections/FAQSection';
 export { ReviewsSection } from './sections/ReviewsSection';

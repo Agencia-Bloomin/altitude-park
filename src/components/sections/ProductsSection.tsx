@@ -174,8 +174,8 @@ export function ProductsSection() {
             return (
               <Card key={product.id} className="card-hover group">
                 <CardHeader className="text-center pb-4">
-                  <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-200 transition-colors duration-200">
-                    <IconComponent size={32} className="text-primary-600" />
+                  <div className="w-16 h-16 bg-quinary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-quinary-200 transition-colors duration-200">
+                    <IconComponent size={32} className="text-quinary-600" />
                   </div>
                   <CardTitle className="text-xl mb-2">{product.title}</CardTitle>
                   <CardDescription className="text-base">
@@ -186,18 +186,18 @@ export function ProductsSection() {
                   <ul className="space-y-2">
                     {product.features.map((feature, index) => (
                       <li key={index} className="flex items-center text-sm text-gray-600">
-                        <div className="w-2 h-2 bg-primary-500 rounded-full mr-3" />
+                        <div className="w-2 h-2 bg-quinary-500 rounded-full mr-3" />
                         {feature}
                       </li>
                     ))}
                   </ul>
                   
                   <div className="pt-4 border-t border-gray-100">
-                    <p className="text-lg font-semibold text-primary-600 mb-3">
+                    <p className="text-lg font-semibold text-quinary-600 mb-3">
                       {product.price}
                     </p>
                     <Link href={product.link}>
-                      <Button className="w-full group-hover:bg-primary-700 transition-colors duration-200">
+                      <Button variant="quinary" className="w-full">
                         Saiba Mais
                         <ArrowRight size={16} className="ml-2" />
                       </Button>

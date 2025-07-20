@@ -24,7 +24,7 @@ export const siteMetadata: SiteMetadata = {
   siteName: siteConfig.siteName,
   siteUrl: siteConfig.siteUrl,
   defaultTitle: `${siteConfig.siteName} - Soluções em Marketing Digital`,
-  defaultDescription: siteConfig.siteDescription,
+  defaultDescription: 'Transforme sua presença online com nossas soluções de marketing digital. SEO, design e desenvolvimento web para resultados reais.',
   defaultKeywords: ['marketing digital', 'SEO', 'design', 'desenvolvimento web', 'agência digital'],
   defaultOgImage: '/images/og-default.jpg',
   twitterHandle: '@suaempresa',
@@ -33,14 +33,14 @@ export const siteMetadata: SiteMetadata = {
 // Metadados por página
 export const pagesMetadata: Record<string, PageMetadata> = {
   home: {
-    title: 'Sua Empresa - Marketing Digital de Resultados',
+    title: `${siteConfig.siteName} - Marketing Digital de Resultados`,
     description: 'Transforme sua presença online com nossas soluções de marketing digital. SEO, design e desenvolvimento web para resultados reais.',
     keywords: ['marketing digital', 'SEO', 'design', 'desenvolvimento web', 'agência digital'],
     h1: 'Transforme sua presença online com marketing digital de resultados',
     canonical: '/',
   },
   about: {
-    title: 'Sobre Nós - Sua Empresa',
+    title: `Sobre Nós - ${siteConfig.siteName}`,
     description: 'Conheça nossa história, valores e equipe especializada em marketing digital. Mais de 10 anos transformando negócios.',
     keywords: ['sobre nós', 'história', 'equipe', 'valores', 'marketing digital'],
     h1: 'Sobre Nós - Especialistas em Marketing Digital',
@@ -54,14 +54,14 @@ export const pagesMetadata: Record<string, PageMetadata> = {
     canonical: '/servicos',
   },
   contact: {
-    title: 'Contato - Sua Empresa',
+    title: `Contato - ${siteConfig.siteName}`,
     description: 'Entre em contato conosco para transformar sua presença digital. Atendimento personalizado e soluções sob medida.',
     keywords: ['contato', 'atendimento', 'orçamento', 'marketing digital'],
     h1: 'Entre em Contato Conosco',
     canonical: '/contato',
   },
   blog: {
-    title: 'Blog - Marketing Digital e Tendências',
+    title: `Blog - ${siteConfig.siteName} - Marketing Digital e Tendências`,
     description: 'Fique por dentro das últimas tendências em marketing digital, SEO, design e tecnologia. Artigos exclusivos e insights valiosos.',
     keywords: ['blog', 'marketing digital', 'tendências', 'SEO', 'design'],
     h1: 'Blog - Tendências em Marketing Digital',
@@ -75,7 +75,7 @@ export function getPageMetadata(page: string): PageMetadata {
     title: siteMetadata.defaultTitle,
     description: siteMetadata.defaultDescription,
     keywords: siteMetadata.defaultKeywords,
-    h1: 'Sua Empresa',
+    h1: siteConfig.siteName,
   };
 }
 

@@ -11,7 +11,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'],
+      options: ['default', 'destructive', 'outline', 'secondary', 'tertiary', 'quaternary', 'quinary', 'ghost', 'link'],
     },
     size: {
       control: { type: 'select' },
@@ -67,6 +67,27 @@ export const Link: Story = {
   },
 };
 
+export const Tertiary: Story = {
+  args: {
+    variant: 'tertiary',
+    children: 'Tertiary',
+  },
+};
+
+export const Quaternary: Story = {
+  args: {
+    variant: 'quaternary',
+    children: 'Quaternary',
+  },
+};
+
+export const Quinary: Story = {
+  args: {
+    variant: 'quinary',
+    children: 'Quinary',
+  },
+};
+
 export const Small: Story = {
   args: {
     size: 'sm',
@@ -100,6 +121,9 @@ export const AllVariants: Story = {
     <div className="flex flex-wrap gap-4">
       <Button variant="default">Default</Button>
       <Button variant="secondary">Secondary</Button>
+      <Button variant="tertiary">Tertiary</Button>
+      <Button variant="quaternary">Quaternary</Button>
+      <Button variant="quinary">Quinary</Button>
       <Button variant="destructive">Destructive</Button>
       <Button variant="outline">Outline</Button>
       <Button variant="ghost">Ghost</Button>

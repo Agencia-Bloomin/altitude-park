@@ -50,6 +50,11 @@ const menuItems: MenuItem[] = [
     href: '/blog',
   },
   {
+    id: 'units',
+    label: 'Unidades',
+    href: '/unidades',
+  },
+  {
     id: 'contact',
     label: 'Contato',
     href: '/contato',

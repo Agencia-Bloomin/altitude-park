@@ -110,7 +110,7 @@ export function CTASection() {
         <div className="text-center text-white">
           <div ref={headerRef}>
             <h2 className="heading-2 mb-6">
-              Pronto para transformar sua <span className="text-yellow-300">presença digital</span>?
+              Pronto para transformar sua <span className="text-quinary-300">presença digital</span>?
             </h2>
             
             <p className="text-xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed">
@@ -171,7 +171,7 @@ export function CTASection() {
               <ArrowRight size={20} className="ml-2" />
             </Button>
             
-            <Button variant="quaternary" size="lg" className="text-lg px-8 py-4">
+            <Button variant="quinary" size="lg" className="text-lg px-8 py-4">
               Ver Portfólio
             </Button>
           </div>

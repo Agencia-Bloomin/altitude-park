@@ -20,6 +20,8 @@ const buttonVariants = cva(
           "bg-tertiary text-white hover:bg-tertiary/90",
         quaternary:
           "bg-quaternary text-white hover:bg-quaternary/90",
+        quinary:
+          "bg-quinary text-white hover:bg-quinary/90",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
