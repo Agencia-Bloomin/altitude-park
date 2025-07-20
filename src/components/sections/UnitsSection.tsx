@@ -1,8 +1,98 @@
+'use client';
+
 import Image from 'next/image';
 import { siteConfig } from '@/data/config';
-import { FloatingElements } from './FloatingElements';
+import { useEffect, useRef } from 'react';
 
 export function UnitsSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    // Importar GSAP apenas no cliente
+    const loadGSAP = async () => {
+      if (typeof window !== 'undefined') {
+        const { gsap } = await import('gsap');
+        const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+        
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animação para o elemento verde (fade-right)
+        const greenElement = sectionRef.current?.querySelector('.bg-element-green');
+        if (greenElement) {
+          gsap.fromTo(greenElement,
+            { 
+              x: -200
+            },
+            { 
+              x: 0,
+              duration: 2.5,
+              delay: 0.5,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 70%",
+                end: "bottom 30%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        }
+
+        // Animação para o elemento rosa (fade-left)
+        const pinkElement = sectionRef.current?.querySelector('.bg-element-pink');
+        if (pinkElement) {
+          gsap.fromTo(pinkElement,
+            { 
+              x: 200
+            },
+            { 
+              x: 0,
+              duration: 2.5,
+              delay: 1.2,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 70%",
+                end: "bottom 30%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        }
+
+        // Animação para os cards
+        const cards = sectionRef.current?.querySelectorAll('.card');
+        cards?.forEach((card, index) => {
+          gsap.fromTo(card,
+            { 
+              opacity: 0,
+              y: 50,
+              scale: 0.9
+            },
+            { 
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1.2,
+              delay: 0.2 + (index * 0.3),
+              ease: "back.out(1.7)",
+              scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        });
+      }
+    };
+
+    loadGSAP();
+  }, []);
+
   // Mapear nomes das unidades para nomes de arquivos
   const getImagePath = (name: string) => {
     const imageMap: { [key: string]: string } = {
@@ -19,8 +109,15 @@ export function UnitsSection() {
   };
 
   return (
-    <section className="section-padding section-animate relative">
-      <FloatingElements />
+    <section ref={sectionRef} className="section-padding section-animate relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Elemento topo esquerdo */}
+        <div className="bg-element-green absolute top-56 -left-4 w-1/2 h-64 border-2 border-quinary-400 opacity-70" style={{ borderRadius: '0 200px 200px 0' }}></div>
+        {/* Elemento inferior direito */}
+        <div className="bg-element-pink absolute bottom-10 -right-4 w-1/2 h-64 border-2 border-primary-400 opacity-70" style={{ borderRadius: '200px 0 0 200px' }}></div>
+      </div>
+      
       <div className="container-custom relative z-10">
         <div className="text-center mb-16">
           <h2 className="heading-2 text-white mb-4">Nossas Unidades</h2>
