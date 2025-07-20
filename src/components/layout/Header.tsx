@@ -124,8 +124,8 @@ export function Header() {
                 </Link>
                 
                 {/* Botão Ingressos em destaque */}
-                <Button asChild className="btn-highlight transition-all duration-300 ease-out transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-2xl hover:shadow-primary-500/25 active:scale-95">
-                  <Link href="/ingressos">
+                <Button asChild className="btn-highlight py-5 text-base transition-all duration-300 ease-out">
+                  <Link href="/">
                     Ingressos
                   </Link>
                 </Button>

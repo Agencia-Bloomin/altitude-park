@@ -25,6 +25,8 @@
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
     
+
+    
     /* Fontes do site - Sincronizadas automaticamente com config.ts */
     --font-primary: 'Itim';
     --font-secondary: 'Poppins';
@@ -94,19 +96,57 @@
 
   /* Botões */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200 transform hover:scale-105;
+    @apply inline-flex items-center justify-center border border-transparent font-normal rounded-lg text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200 transform hover:scale-105 !important;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 border border-secondary-500 text-base font-medium rounded-lg text-secondary-400 bg-transparent hover:bg-secondary-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-500 transition-all duration-200 transform hover:scale-105;
+    @apply inline-flex items-center justify-center border border-secondary-500 font-normal rounded-lg text-secondary-400 bg-transparent hover:bg-secondary-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-500 transition-all duration-200 transform hover:scale-105 !important;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center px-6 py-3 border border-primary-500 text-base font-medium rounded-lg text-primary-500 bg-transparent hover:bg-primary-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200 transform hover:scale-105;
+    @apply inline-flex items-center justify-center border border-primary-500 font-normal rounded-lg text-primary-500 bg-transparent hover:bg-primary-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-200 transform hover:scale-105 !important;
   }
 
   .btn-highlight {
-    @apply inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-xl text-white bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 ease-out transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-2xl hover:shadow-primary-500/25 active:scale-95;
+    @apply inline-flex items-center justify-center border border-transparent font-semibold rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 ease-out transform hover:scale-105 hover:-translate-y-1 active:scale-95 !important;
+    background-image: linear-gradient(to right, #ea258e, #00b4f5) !important;
+    background-color: transparent !important;
+  }
+
+  /* Botões com transições melhoradas */
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline,
+  .btn-highlight {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-outline:hover,
+  .btn-highlight:hover {
+    transform: translateY(-2px) scale(1.02) !important;
+  }
+
+  .btn-primary:active,
+  .btn-secondary:active,
+  .btn-outline:active,
+  .btn-highlight:active {
+    transform: translateY(0) scale(0.98) !important;
+  }
+
+  /* Efeitos específicos para btn-highlight */
+  .btn-highlight {
+    box-shadow: 0 4px 15px rgba(234, 37, 142, 0.3) !important;
+  }
+
+  .btn-highlight:hover {
+    box-shadow: 0 8px 25px rgba(234, 37, 142, 0.4) !important;
+  }
+
+  /* Efeitos específicos para btn-secondary */
+  .btn-secondary {
+    @apply border-secondary-500 text-secondary-400 hover:bg-secondary-500 hover:text-white hover:shadow-lg hover:shadow-secondary-500/25 !important;
   }
 
   /* Cards */

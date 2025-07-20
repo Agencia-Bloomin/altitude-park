@@ -163,12 +163,12 @@ export function HeroBanner({
               {subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button asChild className="btn-highlight text-lg px-8 py-4">
+              <Button asChild className="btn-highlight text-lg px-8 py-6 transition-all duration-300 ease-out">
                 <Link href={primaryButtonLink}>
                   {primaryButtonText}
                 </Link>
               </Button>
-              <Button asChild className="btn-secondary text-lg px-8 py-4">
+              <Button asChild className="btn-secondary font-semibold text-lg px-8 py-6 transition-all duration-300 ease-out">
                 <Link href={secondaryButtonLink}>
                   {secondaryButtonText}
                 </Link>
@@ -195,7 +195,7 @@ export function HeroBanner({
                 />
               </div>
 
-              {/* Primeira imagem (abaixo/à esquerda) */}
+              {/* Primeira imagem */}
               <div 
                 ref={image1Ref}
                 className="absolute bottom-0 left-0 w-56 h-56 sm:w-80 sm:h-80 md:w-96 md:h-96"
@@ -210,7 +210,7 @@ export function HeroBanner({
                 />
               </div>
 
-              {/* Segunda imagem (acima/à direita) */}
+              {/* Segunda imagem */}
               <div 
                 ref={image2Ref}
                 className="absolute top-6 sm:top-8 md:top-10 right-0 w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80"
