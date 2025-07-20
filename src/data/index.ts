@@ -82,8 +82,8 @@ export {
   tailwindTheme,
   getPrimaryColor,
   getSecondaryColor,
-  getAccentColor,
-  getNeutralColor,
+  getTertiaryColor,
+  getQuaternaryColor,
   getPrimaryFont,
   getSecondaryFont
 } from './theme';
