@@ -11,13 +11,11 @@ export { FormField } from './ui/form-field';
 
 // Section Components
 export { HeroBanner } from './sections/HeroBanner';
-export { AboutSection } from './sections/AboutSection';
-export { ProductsSection } from './sections/ProductsSection';
+export { UnitsSection } from './sections/UnitsSection';
+export { PricingSection } from './sections/PricingSection';
+export { AttractionsSection } from './sections/AttractionsSection';
 export { FAQSection } from './sections/FAQSection';
-export { ReviewsSection } from './sections/ReviewsSection';
-export { BlogSection } from './sections/BlogSection';
-export { CTASection } from './sections/CTASection';
-export { AddressesSection } from './sections/AddressesSection';
+export { PartySection } from './sections/PartySection';
 export { FloatingElements } from './sections/FloatingElements';
 
 // Other Components

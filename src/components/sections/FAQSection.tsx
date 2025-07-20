@@ -1,204 +1,58 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
-// GSAP será carregado dinamicamente
+import { FloatingElements } from './FloatingElements';
 
-const faqs = [
+const faqItems = [
   {
-    id: '1',
-    question: 'Quanto tempo leva para desenvolver um site?',
-    answer: 'O tempo de desenvolvimento varia de acordo com a complexidade do projeto. Sites institucionais simples levam de 2 a 4 semanas, enquanto e-commerces mais complexos podem levar de 6 a 12 semanas. Sempre fornecemos um cronograma detalhado no início do projeto.',
+    question: 'QUAIS AS IDADES PERMITIDAS NO JUMP?',
+    answer: 'Pessoas de todas as idades são bem vindas no Altitude Park. Entretanto, crianças de até 4 anos pagam ingresso normalmente e só podem pular mediante apresentação de um documento, que comprove sua idade e devem, obrigatoriamente, estar acompanhadas de um adulto pagante. Crianças de 5 anos comprovado com um documento de identidade válido já podem entrar sozinhos. IMPORTANTE: O acesso às camas elásticas, para menores de 18 anos, é permitido somente mediante assinatura do Termo de Responsabilidade por uma pessoa maior de idade, responsável pelo menor.'
   },
   {
-    id: '2',
-    question: 'Vocês fazem manutenção dos sites após o lançamento?',
-    answer: 'Sim! Oferecemos planos de manutenção que incluem atualizações de segurança, backups, monitoramento de performance e suporte técnico. É fundamental manter seu site sempre atualizado e seguro.',
+    question: 'COMO O PARQUE FUNCIONA?',
+    answer: 'O Altitude Park é um parque de camas elásticas e espumas com diversas atrações distintas mas, todas elas baseiam-se neste cenário. O valor dos ingressos equivale a 01 hora dentro das dependências das camas elásticas. O acesso ao parque não é cobrado.'
   },
   {
-    id: '3',
-    question: 'Como funciona o processo de SEO?',
-    answer: 'Nosso processo de SEO inclui análise técnica do site, pesquisa de palavras-chave, otimização de conteúdo, link building e monitoramento contínuo dos resultados. Os primeiros resultados aparecem em 3-6 meses, dependendo da competitividade do mercado.',
+    question: 'MEIAS ANTI-DERRAPANTES SÃO OBRIGATÓRIAS?',
+    answer: 'Sim! Para a sua segurança, as meias antiderrapantes são de uso obrigatório nas dependências das camas elásticas. Caso não as possua, poderá adquirir (comprar) as suas nos caixas do Altitude Park ou em nosso site. O valor atual do par é de R$ 35,00 e temos todos os tamanhos disponíveis. Caso ja tenha adquirido, em uma visita anterior ou caso tenha meias com solado de borracha, poderá utilizá-las sem problemas.'
   },
   {
-    id: '4',
-    question: 'Vocês trabalham com empresas de qualquer tamanho?',
-    answer: 'Sim! Atendemos desde startups e pequenas empresas até grandes corporações. Adaptamos nossas soluções e metodologias para atender às necessidades específicas de cada cliente, independentemente do porte da empresa.',
+    question: 'AS CAMAS ELÁSTICAS SÃO SEGURAS?',
+    answer: 'As camas elásticas do Altitude Park são projetadas para oferecer o máximo de segurança aos usuários. Todas elas dispõe de proteções e os materiais são de máxima segurança. Porém, por se tratar de uma atividade de movimento, é aconselhável, ao cliente, respeitar algumas regras de segurança, expostas no parque em diversos cartazes.'
   },
   {
-    id: '5',
-    question: 'Posso ver exemplos de trabalhos anteriores?',
-    answer: 'Claro! Temos um portfólio completo com casos de sucesso e projetos realizados. Você pode conferir em nossa seção de portfólio ou solicitar uma apresentação personalizada durante nossa conversa inicial.',
-  },
-  {
-    id: '6',
-    question: 'Como funciona o pagamento dos projetos?',
-    answer: 'Trabalhamos com parcelamento flexível. Geralmente, 50% na assinatura do contrato, 25% na aprovação do layout e 25% na entrega final. Para projetos de marketing digital, oferecemos planos mensais com diferentes pacotes de serviços.',
-  },
-  {
-    id: '7',
-    question: 'Vocês oferecem suporte após o projeto?',
-    answer: 'Sim! Oferecemos suporte técnico por 30 dias após a entrega do projeto. Além disso, temos planos de manutenção contínua que incluem suporte prioritário, atualizações e monitoramento do site.',
-  },
-  {
-    id: '8',
-    question: 'Como posso começar um projeto com vocês?',
-    answer: 'É simples! Entre em contato conosco através do WhatsApp, email ou formulário do site. Agendamos uma reunião para entender suas necessidades, apresentar nossas soluções e elaborar uma proposta personalizada para seu projeto.',
-  },
+    question: 'PETS podem entrar no Altitude Park?',
+    answer: 'Sim, animais domésticos podem entrar nas áreas comuns. Durante todo o tempo, o pet precisa usar a guia e a coleira. Ainda, conforme a Lei Estadual n° 11.531/03 e Lei Municipal n° 13.131/01, é obrigatório o uso de focinheira para cães das raças Pit Bull, Rottweiller, Mastim Napolitano, American Staffordshire Terrier e raças mestiças.'
+  }
 ];
 
 export function FAQSection() {
-  const [openFaq, setOpenFaq] = useState<string | null>('1');
-  const headerRef = useRef<HTMLDivElement>(null);
-  const faqsRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-
-  // Animações com scroll trigger
-  useEffect(() => {
-    const animate = async () => {
-      // Carregar GSAP dinamicamente
-      const gsapModule = await import('gsap');
-      const scrollTriggerModule = await import('gsap/ScrollTrigger');
-      
-      const gsap = gsapModule.gsap;
-      const ScrollTrigger = scrollTriggerModule.ScrollTrigger;
-      
-      gsap.registerPlugin(ScrollTrigger);
-      
-      const header = headerRef.current;
-      const faqs = faqsRef.current;
-      const cta = ctaRef.current;
-
-      if (!header || !faqs || !cta) return;
-
-      // Timeline para animações sequenciais
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: header,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse',
-        },
-      });
-
-      // Animação do header (fade in)
-      tl.fromTo(
-        header,
-        {
-          opacity: 0,
-          y: 50,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power2.out',
-        }
-      );
-
-      // Animação dos FAQs (stagger)
-      tl.fromTo(
-        faqs.children,
-        {
-          opacity: 0,
-          x: -50,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: 'power2.out',
-        },
-        '-=0.5'
-      );
-
-      // Animação do CTA (scale in)
-      tl.fromTo(
-        cta,
-        {
-          opacity: 0,
-          scale: 0.8,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.6,
-          ease: 'back.out(1.7)',
-        },
-        '-=0.3'
-      );
-    };
-
-    animate();
-
-    return () => {
-      // Cleanup será feito automaticamente
-    };
-  }, []);
-
-  const toggleFaq = (id: string) => {
-    setOpenFaq(openFaq === id ? null : id);
-  };
-
   return (
-    <section className="section-padding bg-white">
-      <div className="container-custom">
-        <div ref={headerRef} className="text-center mb-16">
-          <h2 className="heading-2 mb-4">
-            Perguntas <span className="text-gradient">Frequentes</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Tire suas dúvidas sobre nossos serviços e processos. 
-            Se não encontrar a resposta que procura, entre em contato conosco!
+    <section className="section-padding section-animate bg-gray-800 relative">
+      <FloatingElements />
+      <div className="container-custom relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="heading-2 text-white mb-4">Perguntas Frequentes</h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Tire suas dúvidas sobre o Altitude Park
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div ref={faqsRef} className="space-y-4">
-            {faqs.map((faq) => (
-              <div
-                key={faq.id}
-                className="border border-gray-200 rounded-lg overflow-hidden"
-              >
-                <button
-                  onClick={() => toggleFaq(faq.id)}
-                  className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors duration-200 flex items-center justify-between"
-                >
-                  <span className="font-semibold text-lg text-gray-900">
-                    {faq.question}
-                  </span>
-                  {openFaq === faq.id ? (
-                    <ChevronUp size={20} className="text-primary-600" />
-                  ) : (
-                    <ChevronDown size={20} className="text-gray-500" />
-                  )}
-                </button>
-                
-                {openFaq === faq.id && (
-                  <div className="px-6 py-4 bg-white border-t border-gray-200">
-                    <p className="text-gray-700 leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div ref={ctaRef} className="text-center mt-12">
-          <p className="text-gray-600 mb-4">
-            Ainda tem dúvidas? Entre em contato conosco!
-          </p>
-          <a
-            href="https://wa.me/5511999999999?text=Olá! Gostaria de tirar algumas dúvidas sobre os serviços."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary text-lg px-8 py-4"
-          >
-            Falar com Especialista
-          </a>
+        <div className="max-w-4xl mx-auto space-y-6">
+          {faqItems.map((item, index) => (
+            <div key={index} className="card">
+              <details className="group">
+                <summary className="flex items-center justify-between cursor-pointer p-6 text-left">
+                  <h3 className="text-lg font-bold text-white pr-4">{item.question}</h3>
+                  <svg className="w-5 h-5 text-primary-400 transform group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div className="px-6 pb-6">
+                  <p className="text-gray-400 leading-relaxed">{item.answer}</p>
+                </div>
+              </details>
+            </div>
+          ))}
         </div>
       </div>
     </section>
