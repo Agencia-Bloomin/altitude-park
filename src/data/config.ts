@@ -85,6 +85,7 @@ export interface SiteConfig {
     fonts: {
       primary: string;
       secondary: string;
+      tertiary: string;
     };
   };
   
@@ -295,8 +296,9 @@ export const siteConfig: SiteConfig = {
       quinary: '#a1da00',
     },
     fonts: {
-      primary: 'Inter',
-      secondary: 'Poppins',
+      primary: 'Orbitron',
+      secondary: 'Inter',
+      tertiary: 'Poppins',
     },
   },
   

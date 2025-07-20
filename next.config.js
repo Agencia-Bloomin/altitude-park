@@ -4,7 +4,14 @@ const nextConfig = {
     serverComponentsExternalPackages: ['gsap'],
   },
   images: {
-    domains: ['localhost'],
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '',
+        pathname: '/**',
+      },
+    ],
     formats: ['image/webp', 'image/avif'],
   },
   webpack: (config, { isServer }) => {

@@ -21,6 +21,13 @@ const poppins = Poppins({
   display: 'swap',
 });
 
+const orbitron = {
+  className: 'font-orbitron',
+  style: {
+    fontFamily: 'Orbitron, sans-serif',
+  },
+};
+
 export const metadata: Metadata = {
   title: {
     default: siteMetadata.defaultTitle,
@@ -94,11 +101,16 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#3b82f6" />
+        <meta name="theme-color" content="#ea258e" />
+        
+        {/* Google Fonts - Orbitron para animação */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
         
         {/* Google Tag Manager será carregado após interação do usuário */}
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased bg-gray-900 text-white`}>
         <GSAPProvider>
           <div className="flex min-h-screen flex-col">
             <Header />

@@ -1,283 +1,219 @@
-# Template Next.js para Agências de Marketing
+# Altitude Park - Template Website
 
-Um template moderno e completo para agências de marketing, construído com Next.js 14, TypeScript, Tailwind CSS e focado em SEO e performance.
+Um template moderno e responsivo para o website do Altitude Park, desenvolvido com Next.js 14, TypeScript, Tailwind CSS e GSAP para animações.
 
-## 🚀 Características
+## 🎯 Características
 
-### ✨ Funcionalidades Principais
+- **Design Moderno**: Interface escura com cores vibrantes do Altitude Park
+- **Fonte Animada**: Orbitron para títulos, criando uma identidade visual única
+- **Animações GSAP**: Efeitos de scroll, parallax e animações suaves
+- **Totalmente Responsivo**: Otimizado para todos os dispositivos
+- **Performance**: Otimizado para SEO e velocidade de carregamento
+- **Acessibilidade**: Seguindo as melhores práticas de acessibilidade
 
-- **Next.js 14** com App Router
-- **TypeScript** para type safety
-- **Tailwind CSS** para estilização
-- **shadcn/ui** para componentes UI reutilizáveis
-- **GSAP** para animações avançadas
-- **Swiper** para carrosséis
-- **Lucide React** para ícones
-- **SEO otimizado** com next-seo
-- **Responsivo** e acessível
-- **Lazy loading** para performance
-- **Storybook** para documentação visual
-- **Jest + Testing Library** para testes
+## 🎨 Cores do Brand
 
-### 📱 Páginas Implementadas
+- **Primary (Pink)**: `#ea258e` - Cor principal do Altitude Park
+- **Secondary (Blue)**: `#00b4f5` - Cor secundária
+- **Tertiary (Orange)**: `#fe8d35` - Cor terciária
+- **Quaternary (Yellow)**: `#f0e410` - Cor quaternária
+- **Quinary (Green)**: `#a1da00` - Cor quinária
 
-- **Home** - Landing page principal
-- **Sobre Nós** - História, valores e equipe
-- **Produtos** - Catálogo de serviços com filtros
-- **Produto Individual** - Página detalhada de cada serviço
-- **Contato** - Formulário e informações de contato
-
-### 🎨 Componentes UI
-
-- **Button** - Múltiplas variantes e tamanhos
-- **Card** - Componente de cartão flexível
-- **Breadcrumb** - Navegação hierárquica
-- **PageHero** - Hero section com breadcrumb
-
-### 🏗️ Estrutura Organizada
+## 🏗️ Estrutura do Projeto
 
 ```
-src/
-├── app/                    # App Router (Next.js 14)
-│   ├── globals.css        # Estilos globais
-│   ├── layout.tsx         # Layout principal
-│   ├── page.tsx           # Página inicial
-│   ├── sobre/             # Página Sobre Nós
-│   ├── produtos/          # Página de Produtos
-│   └── contato/           # Página de Contato
-├── components/
-│   ├── layout/            # Componentes de layout
-│   │   ├── Header.tsx
-│   │   └── Footer.tsx
-│   ├── sections/          # Seções de página
-│   │   ├── HeroBanner.tsx
-│   │   ├── AboutSection.tsx
-│   │   ├── ProductsSection.tsx
-│   │   ├── FAQSection.tsx
-│   │   ├── TestimonialsSection.tsx
-│   │   ├── CTASection.tsx
-│   │   └── PageHero.tsx
-│   ├── ui/                # Componentes UI reutilizáveis
-│   │   ├── button.tsx
-│   │   ├── card.tsx
-│   │   └── breadcrumb.tsx
-│   └── index.ts           # Exportações centralizadas
-├── lib/
-│   └── utils.ts           # Utilitários (shadcn/ui)
-├── types/
-│   └── index.ts           # Tipos TypeScript
-└── data/
-    ├── metadata.ts        # Metadados das páginas
-    └── contact.ts         # Dados de contato
+altitude-park/
+├── src/
+│   ├── app/                 # Páginas Next.js 14 (App Router)
+│   ├── components/          # Componentes React
+│   │   ├── layout/         # Header, Footer
+│   │   ├── sections/       # Seções da página
+│   │   └── ui/            # Componentes de UI
+│   ├── data/              # Configurações e dados
+│   ├── lib/               # Utilitários e bibliotecas
+│   ├── types/             # Tipos TypeScript
+│   └── utils/             # Funções utilitárias
+├── public/
+│   ├── images/            # Imagens do site
+│   │   ├── atracoes/      # Imagens das atrações
+│   │   ├── elementos/     # Elementos decorativos
+│   │   ├── logo/          # Logos
+│   │   └── unidades/      # Imagens das unidades
+└── docs/                  # Documentação
 ```
 
-## 🛠️ Instalação
+## 🚀 Tecnologias Utilizadas
 
-1. **Clone o repositório**
+- **Next.js 14** - Framework React com App Router
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS** - Framework CSS utilitário
+- **GSAP** - Animações avançadas
+- **Radix UI** - Componentes acessíveis
+- **Framer Motion** - Animações de transição
+- **Swiper** - Carrosséis e sliders
+
+## 📱 Seções do Website
+
+### 1. Header
+
+- Faixa superior com "Acesse sua conta" e "Carrinho"
+- Logo do Altitude Park
+- Menu de navegação com dropdown
+- Botão "Ingressos" em destaque
+
+### 2. Banner Hero
+
+- Banner animado com GSAP
+- Título com animação de bounce
+- Botões de call-to-action
+- Indicador de scroll
+
+### 3. Seção Unidades
+
+- Grid responsivo com todas as unidades
+- Imagens das unidades
+- Informações de endereço e horários
+- Elementos flutuantes animados
+
+### 4. Seção Valores
+
+- Cards com preços especiais
+- Destaque para promoção especial
+- Informações sobre meias antiderrapantes
+- Políticas de desconto
+
+### 5. Seção Atrações
+
+- Grid com todas as atrações
+- Imagens das atrações
+- Descrições
+- Efeitos hover
+
+### 6. Seção FAQ
+
+- Accordion interativo
+- Perguntas frequentes completas
+- Animações suaves
+
+### 7. Seção Faça sua Festa
+
+- Call-to-action para festas
+- Botão para solicitar cotação
+- Design em gradiente
+
+### 8. Footer
+
+- Logo do Altitude Park
+- Links rápidos
+- Informações de contato
+- Redes sociais
+- Elementos flutuantes
+
+## 🎭 Animações e Efeitos
+
+### GSAP Animations
+
+- **Banner Hero**: Animação de entrada com scale e fade
+- **Scroll Triggers**: Animações baseadas no scroll
+- **Floating Elements**: Elementos decorativos flutuantes
+- **Section Animations**: Fade-in das seções
+
+### CSS Animations
+
+- **Bounce Altitude**: Animação personalizada para o título
+- **Float Animations**: Animações de flutuação para elementos
+- **Hover Effects**: Efeitos de hover nos cards
+- **Transitions**: Transições suaves em todos os elementos
+
+## 🛠️ Configuração
+
+### Pré-requisitos
+
+- Node.js 18+
+- npm ou yarn
+
+### Instalação
+
+1. Clone o repositório:
 
 ```bash
-git clone <repository-url>
-cd template-next-marketing
+git clone [url-do-repositorio]
+cd altitude-park
 ```
 
-2. **Instale as dependências**
+2. Instale as dependências:
 
 ```bash
 npm install
 ```
 
-3. **Configure as variáveis de ambiente**
+3. Configure as variáveis de ambiente:
 
 ```bash
 cp .env.example .env.local
 ```
 
-4. **Execute o projeto**
+4. Execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
 ```
 
-## 📦 Scripts Disponíveis
+5. Abra [http://localhost:3000](http://localhost:3000) no seu navegador.
 
-```bash
-# Desenvolvimento
-npm run dev              # Inicia servidor de desenvolvimento
-npm run build            # Build para produção
-npm run start            # Inicia servidor de produção
-npm run lint             # Executa ESLint
-npm run type-check       # Verifica tipos TypeScript
+## 📝 Configuração de Dados
 
-# Storybook
-npm run storybook        # Inicia Storybook
-npm run build-storybook  # Build do Storybook
+### Configuração Principal (`src/data/config.ts`)
 
-# Testes
-npm run test             # Executa testes
-npm run test:watch       # Executa testes em modo watch
-npm run test:coverage    # Executa testes com cobertura
-```
+- Informações da empresa
+- Endereços das unidades
+- Horários de funcionamento
+- Cores e fontes
+- Redes sociais
+- Configurações de contato
 
-## 🎨 shadcn/ui
+### Personalização
 
-Este projeto utiliza o shadcn/ui para componentes UI reutilizáveis. Para adicionar novos componentes:
+1. Edite `src/data/config.ts` com os dados da sua empresa
+2. Substitua as imagens em `public/images/`
+3. Ajuste as cores no `tailwind.config.js`
+4. Modifique os textos nas páginas
 
-```bash
-npx shadcn@latest add <component-name>
-```
+## 🎨 Customização
 
-### Componentes Disponíveis
+### Cores
 
-- `Button` - Botões com múltiplas variantes
-- `Card` - Cartões flexíveis
-- `Breadcrumb` - Navegação hierárquica
-
-## 📚 Storybook
-
-O Storybook está configurado para documentação visual dos componentes:
-
-```bash
-npm run storybook
-```
-
-Acesse `http://localhost:6006` para ver a documentação.
-
-### 📖 Guia Completo
-
-Consulte o [**STORYBOOK_GUIDE.md**](./STORYBOOK_GUIDE.md) para um tutorial detalhado sobre:
-
-- Como criar e configurar stories
-- Tipos de controles e parâmetros
-- Testando responsividade e acessibilidade
-- Boas práticas e troubleshooting
-
-### Estrutura das Stories
-
-```
-src/components/ui/
-├── button.tsx
-├── button.stories.tsx    # Stories do Button
-├── floating-whatsapp.tsx
-├── floating-whatsapp.stories.tsx  # Stories do WhatsApp
-├── scroll-to-top.tsx
-├── scroll-to-top.stories.tsx      # Stories do ScrollToTop
-└── button.test.tsx       # Testes do Button
-```
-
-## 🧪 Testes
-
-O projeto inclui configuração completa de testes com Jest e Testing Library:
-
-```bash
-npm run test             # Executa todos os testes
-npm run test:watch       # Modo watch
-npm run test:coverage    # Com cobertura
-```
-
-### Cobertura de Testes
-
-- **Branches**: 70%
-- **Functions**: 70%
-- **Lines**: 70%
-- **Statements**: 70%
-
-## 🎯 Páginas Internas
-
-### Sobre Nós (`/sobre`)
-
-- Hero section com breadcrumb
-- História da empresa
-- Valores e missão
-- Equipe
-- Arquivos CSS/JS específicos: `sobre.css`, `sobre.js`
-
-### Produtos (`/produtos`)
-
-- Catálogo de serviços
-- Filtros por categoria
-- Busca em tempo real
-- Cards interativos
-- Arquivos CSS/JS específicos: `produtos.css`, `produtos.js`
-
-### Produto Individual (`/produtos/[slug]`)
-
-- Página dinâmica por produto
-- Breadcrumb hierárquico
-- Detalhes completos do serviço
-- Depoimentos de clientes
-- Call-to-action
-
-### Contato (`/contato`)
-
-- Formulário de contato completo
-- Validação em tempo real
-- Informações de contato
-- Mapa interativo
-- Arquivos CSS/JS específicos: `contato.css`, `contato.js`
-
-## 🎨 Estilos e Animações
-
-### CSS Modular
-
-Cada página interna possui seus próprios arquivos CSS e JS:
-
-- Estilos específicos para cada página
-- Animações personalizadas
-- Responsividade otimizada
-- Performance otimizada
-
-### Animações GSAP
-
-- Animações de entrada
-- Scroll-triggered animations
-- Hover effects
-- Parallax effects
-
-### Tailwind CSS
-
-- Sistema de design consistente
-- Componentes responsivos
-- Dark mode support
-- Customização avançada
-
-## 🔧 Configurações
-
-### Tailwind CSS
+As cores podem ser personalizadas no arquivo `tailwind.config.js`:
 
 ```javascript
-// tailwind.config.js
-module.exports = {
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
-  theme: {
-    extend: {
-      colors: {
-        primary: 'var(--primary)',
-        secondary: 'var(--secondary)',
-        // ... outras cores
-      },
-    },
+colors: {
+  primary: {
+    DEFAULT: "#ea258e", // Cor principal
+    500: "#ea258e",
+    // ... outras variações
   },
-  plugins: [],
-};
-```
-
-### TypeScript
-
-```json
-// tsconfig.json
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
+  // ... outras cores
 }
 ```
 
-### ESLint + Prettier
+### Fontes
 
-Configuração otimizada para Next.js e TypeScript.
+As fontes estão configuradas no `tailwind.config.js`:
+
+```javascript
+fontFamily: {
+  orbitron: ['Orbitron', 'sans-serif'],
+  inter: ['Inter', 'sans-serif'],
+  poppins: ['Poppins', 'sans-serif'],
+}
+```
+
+### Animações
+
+As animações GSAP podem ser personalizadas nos componentes:
+
+- `src/app/page.tsx` - Animações da página principal
+- `src/components/sections/FloatingElements.tsx` - Elementos flutuantes
 
 ## 📱 Responsividade
 
@@ -287,95 +223,56 @@ O template é totalmente responsivo com breakpoints:
 - **Tablet**: 768px - 1024px
 - **Desktop**: > 1024px
 
-## ♿ Acessibilidade
-
-- Semântica HTML correta
-- Navegação por teclado
-- Screen reader friendly
-- Contraste adequado
-- ARIA labels
-
-## 🚀 Performance
-
-- **Lazy loading** de componentes
-- **Image optimization** com Next.js
-- **Code splitting** automático
-- **Bundle analysis** disponível
-- **Core Web Vitals** otimizados
-
-## 🔍 SEO
-
-- **Meta tags** dinâmicas
-- **Open Graph** tags
-- **Structured data** (JSON-LD)
-- **Sitemap** automático
-- **Robots.txt** configurado
-
-## 📈 Analytics e Tracking
-
-Preparado para integração com:
-
-- Google Analytics 4
-- Google Tag Manager
-- Facebook Pixel
-- Hotjar
-- Outras ferramentas
-
 ## 🚀 Deploy
 
 ### Vercel (Recomendado)
 
-```bash
-npm run build
-vercel --prod
-```
+1. Conecte seu repositório ao Vercel
+2. Configure as variáveis de ambiente
+3. Deploy automático
 
-### Netlify
+### Outras Plataformas
 
-```bash
-npm run build
-# Upload da pasta .next
-```
+- **Netlify**: Compatível com Next.js
+- **AWS Amplify**: Suporte completo
+- **DigitalOcean App Platform**: Deploy simples
 
-### Outros
+## 📊 Performance
 
-O projeto é compatível com qualquer plataforma que suporte Next.js.
+### Otimizações Implementadas
 
-## 🤝 Contribuição
+- **Image Optimization**: Next.js Image component
+- **Code Splitting**: Automático com Next.js
+- **Lazy Loading**: Componentes e imagens
+- **CSS Purge**: Tailwind CSS otimizado
+- **Bundle Analysis**: Análise de tamanho do bundle
 
-1. Fork o projeto
-2. Crie uma branch para sua feature
-3. Commit suas mudanças
-4. Push para a branch
-5. Abra um Pull Request
+### Métricas Esperadas
 
-## 📄 Licença
+- **Lighthouse Score**: 90+ em todas as categorias
+- **First Contentful Paint**: < 1.5s
+- **Largest Contentful Paint**: < 2.5s
+- **Cumulative Layout Shift**: < 0.1
 
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
-
-## 🆘 Suporte
-
-Para suporte e dúvidas:
-
-- Abra uma issue no GitHub
-- Consulte a documentação do Storybook
-- Verifique os testes para exemplos de uso
-
-## 🔄 Atualizações
-
-Para manter o projeto atualizado:
+## 🔧 Scripts Disponíveis
 
 ```bash
-# Atualizar dependências
-npm update
-
-# Atualizar shadcn/ui
-npx shadcn@latest update
-
-# Atualizar Storybook
-npx storybook@latest upgrade
+npm run dev          # Servidor de desenvolvimento
+npm run build        # Build de produção
+npm run start        # Servidor de produção
+npm run lint         # Linting do código
+npm run type-check   # Verificação de tipos TypeScript
+npm run test         # Executar testes
+npm run storybook    # Abrir Storybook
 ```
+
+## 📚 Documentação Adicional
+
+- [GSAP Animations Guide](./GSAP_ANIMATIONS_GUIDE.md)
+- [Shadcn UI Guide](./SHADCN_UI_GUIDE.md)
+- [Storybook Guide](./STORYBOOK_GUIDE.md)
+- [Formulário Guide](./FORMULARIO_GUIDE.md)
 
 ---
 
-**Desenvolvido com ❤️ para agências de marketing**
+**Altitude Park** - Diversão garantida para toda a família! 🎪
