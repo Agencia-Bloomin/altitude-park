@@ -85,7 +85,10 @@ export interface SiteConfig {
     fonts: {
       primary: string;
       secondary: string;
-      tertiary: string;
+    };
+    googleFonts: {
+      primary: string;
+      secondary: string;
     };
   };
   
@@ -296,9 +299,12 @@ export const siteConfig: SiteConfig = {
       quinary: '#a1da00',
     },
     fonts: {
-      primary: 'Orbitron',
-      secondary: 'Inter',
-      tertiary: 'Poppins',
+      primary: 'Itim',
+      secondary: 'Poppins',
+    },
+    googleFonts: {
+      primary: 'https://fonts.googleapis.com/css2?family=Itim&display=swap',
+      secondary: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap',
     },
   },
   
@@ -378,4 +384,17 @@ export function getCanonicalUrl(path: string = ''): string {
     : siteConfig.siteUrl.replace('https://www.', 'https://');
   
   return `${baseUrl}${path}`;
+}
+
+// Função para obter todas as fontes do Google Fonts
+export function getGoogleFontsLinks(): string[] {
+  return [
+    siteConfig.theme.googleFonts.primary,
+    siteConfig.theme.googleFonts.secondary,
+  ];
+}
+
+// Função para obter o nome da fonte primária
+export function getPrimaryFontName(): string {
+  return siteConfig.theme.fonts.primary;
 } 

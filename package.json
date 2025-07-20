@@ -4,7 +4,9 @@
   "description": "Template Next.js para agências de marketing com foco em SEO",
   "private": true,
   "scripts": {
+    "predev": "tsx scripts/sync-fonts.ts",
     "dev": "next dev",
+    "prebuild": "tsx scripts/sync-fonts.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -13,7 +15,9 @@
     "build-storybook": "storybook build",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "sync-fonts": "tsx scripts/sync-fonts.ts",
+    "sync-fonts:watch": "tsx scripts/sync-fonts.ts --watch"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.1.7",
@@ -66,6 +70,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.5.0",
-    "storybook": "^7.6.20"
+    "storybook": "^7.6.20",
+    "tsx": "^4.0.0"
   }
 }

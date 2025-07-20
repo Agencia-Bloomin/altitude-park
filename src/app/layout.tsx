@@ -1,32 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter, Poppins } from 'next/font/google';
+
 import './globals.css';
 import { Header, Footer, FloatingWhatsApp, ScrollToTop } from '@/components';
 import { siteMetadata } from '@/data/metadata';
-import { siteConfig } from '@/data/config';
+import { siteConfig, getGoogleFontsLinks } from '@/data/config';
 import GoogleTagManager from '@/components/GoogleTagManager';
 import { Toaster } from 'sonner';
 import { GSAPProvider } from '@/components/GSAPProvider';
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-poppins',
-  display: 'swap',
-});
-
-const orbitron = {
-  className: 'font-orbitron',
-  style: {
-    fontFamily: 'Orbitron, sans-serif',
-  },
-};
 
 export const metadata: Metadata = {
   title: {
@@ -94,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="pt-BR">
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -103,14 +83,16 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#ea258e" />
         
-        {/* Google Fonts - Orbitron para animação */}
+        {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        {getGoogleFontsLinks().map((fontLink, index) => (
+          <link key={index} href={fontLink} rel="stylesheet" />
+        ))}
         
         {/* Google Tag Manager será carregado após interação do usuário */}
       </head>
-      <body className={`${inter.className} antialiased bg-gray-900 text-white`}>
+      <body className="antialiased bg-gray-900 text-white font-secondary">
         <GSAPProvider>
           <div className="flex min-h-screen flex-col">
             <Header />
@@ -122,6 +104,19 @@ export default function RootLayout({
           <Toaster position="top-right" richColors />
           {/* <GoogleTagManager /> */}
         </GSAPProvider>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Sincronização automática de fontes
+              (function() {
+                const root = document.documentElement;
+                root.style.setProperty('--font-primary', '${siteConfig.theme.fonts.primary}');
+                root.style.setProperty('--font-secondary', '${siteConfig.theme.fonts.secondary}');
+                root.style.setProperty('--font-tertiary', '${siteConfig.theme.fonts.tertiary}');
+              })();
+            `,
+          }}
+        />
       </body>
     </html>
   );

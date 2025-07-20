@@ -58,13 +58,8 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        orbitron: ['Orbitron', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
-        poppins: ['Poppins', 'sans-serif'],
-        primary: ['Orbitron', 'sans-serif'],
-        secondary: ['Inter', 'sans-serif'],
-        tertiary: ['Poppins', 'sans-serif'],
+        primary: ['var(--font-primary)', 'cursive'],
+        secondary: ['var(--font-secondary)', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {

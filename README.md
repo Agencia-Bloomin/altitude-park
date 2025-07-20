@@ -5,7 +5,7 @@ Um template moderno e responsivo para o website do Altitude Park, desenvolvido c
 ## 🎯 Características
 
 - **Design Moderno**: Interface escura com cores vibrantes do Altitude Park
-- **Fonte Animada**: Orbitron para títulos, criando uma identidade visual única
+- **Fonte Divertida**: Fredoka One para títulos, criando uma identidade visual alegre e amigável
 - **Animações GSAP**: Efeitos de scroll, parallax e animações suaves
 - **Totalmente Responsivo**: Otimizado para todos os dispositivos
 - **Performance**: Otimizado para SEO e velocidade de carregamento
@@ -202,7 +202,7 @@ As fontes estão configuradas no `tailwind.config.js`:
 
 ```javascript
 fontFamily: {
-  orbitron: ['Orbitron', 'sans-serif'],
+          'fredoka-one': ['Fredoka One', 'cursive'],
   inter: ['Inter', 'sans-serif'],
   poppins: ['Poppins', 'sans-serif'],
 }
