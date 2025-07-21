@@ -104,7 +104,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti rosa"
         width={40}
         height={40}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -112,7 +112,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti azul"
         width={35}
         height={35}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-green.png"
@@ -120,7 +120,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti verde"
         width={45}
         height={45}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -128,7 +128,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti laranja"
         width={30}
         height={30}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-yellow.png"
@@ -136,7 +136,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti amarelo"
         width={40}
         height={40}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       
       {/* Mais confetti espalhados */}
@@ -146,7 +146,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti rosa pequeno"
         width={25}
         height={25}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -154,7 +154,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti azul médio"
         width={35}
         height={35}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-green.png"
@@ -162,7 +162,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti verde médio"
         width={30}
         height={30}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -170,7 +170,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti laranja médio"
         width={40}
         height={40}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-yellow.png"
@@ -178,7 +178,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti amarelo médio"
         width={35}
         height={35}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       
       {/* Confetti adicionais para mais densidade */}
@@ -188,7 +188,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti rosa denso"
         width={20}
         height={20}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -196,7 +196,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti azul denso"
         width={30}
         height={30}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-green.png"
@@ -204,7 +204,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti verde denso"
         width={25}
         height={25}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -212,7 +212,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti laranja denso"
         width={35}
         height={35}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-yellow.png"
@@ -220,7 +220,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti amarelo denso"
         width={30}
         height={30}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
 
       {/* Confetti extras - Canto superior esquerdo */}
@@ -230,7 +230,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti rosa superior esquerdo"
         width={15}
         height={15}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -238,7 +238,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti azul superior esquerdo"
         width={25}
         height={25}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-green.png"
@@ -246,7 +246,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti verde superior esquerdo"
         width={20}
         height={20}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
 
       {/* Confetti extras - Canto superior direito */}
@@ -256,7 +256,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti laranja superior direito"
         width={18}
         height={18}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-yellow.png"
@@ -264,7 +264,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti amarelo superior direito"
         width={22}
         height={22}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-pink.png"
@@ -272,7 +272,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti rosa superior direito"
         width={16}
         height={16}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
 
       {/* Confetti extras - Canto inferior esquerdo */}
@@ -282,7 +282,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti azul inferior esquerdo"
         width={28}
         height={28}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-green.png"
@@ -290,7 +290,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti verde inferior esquerdo"
         width={32}
         height={32}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -298,7 +298,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti laranja inferior esquerdo"
         width={24}
         height={24}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
 
       {/* Confetti extras - Canto inferior direito */}
@@ -308,7 +308,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti amarelo inferior direito"
         width={26}
         height={26}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-pink.png"
@@ -316,7 +316,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti rosa inferior direito"
         width={19}
         height={19}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -324,7 +324,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti azul inferior direito"
         width={31}
         height={31}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
 
       {/* Confetti extras - Centro superior */}
@@ -334,7 +334,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti verde centro superior"
         width={17}
         height={17}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -342,7 +342,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti laranja centro superior"
         width={23}
         height={23}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-yellow.png"
@@ -350,7 +350,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti amarelo centro superior"
         width={21}
         height={21}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
 
       {/* Confetti extras - Centro inferior */}
@@ -360,7 +360,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti rosa centro inferior"
         width={27}
         height={27}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -368,7 +368,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti azul centro inferior"
         width={13}
         height={13}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-green.png"
@@ -376,7 +376,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti verde centro inferior"
         width={31}
         height={31}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
 
       {/* Confetti extras - Centro esquerdo */}
@@ -386,7 +386,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti laranja centro esquerdo"
         width={29}
         height={29}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-yellow.png"
@@ -394,7 +394,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti amarelo centro esquerdo"
         width={12}
         height={12}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-pink.png"
@@ -402,7 +402,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti rosa centro esquerdo"
         width={33}
         height={33}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
 
       {/* Confetti extras - Centro direito */}
@@ -412,7 +412,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti azul centro direito"
         width={34}
         height={34}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-green.png"
@@ -420,7 +420,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti verde centro direito"
         width={11}
         height={11}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -428,7 +428,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti laranja centro direito"
         width={36}
         height={36}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
 
       {/* Confetti extras - Áreas intermediárias */}
@@ -438,7 +438,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti amarelo intermediário"
         width={18}
         height={18}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-pink.png"
@@ -446,7 +446,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti rosa intermediário"
         width={24}
         height={24}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -454,7 +454,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti azul intermediário"
         width={20}
         height={20}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-green.png"
@@ -462,7 +462,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti verde intermediário"
         width={26}
         height={26}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -470,7 +470,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti laranja intermediário"
         width={22}
         height={22}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-yellow.png"
@@ -478,7 +478,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti amarelo intermediário 2"
         width={28}
         height={28}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-pink.png"
@@ -486,7 +486,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti rosa intermediário 2"
         width={16}
         height={16}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -494,7 +494,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti azul intermediário 2"
         width={30}
         height={30}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
 
       {/* Confetti extras - Pequenos detalhes */}
@@ -504,7 +504,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti verde detalhe"
         width={10}
         height={10}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -512,7 +512,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti laranja detalhe"
         width={15}
         height={15}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-yellow.png"
@@ -520,7 +520,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti amarelo detalhe"
         width={12}
         height={12}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
       <Image
         src="/images/elements/radius-pink.png"
@@ -528,7 +528,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         title="Confetti rosa detalhe"
         width={14}
         height={14}
-        className="confetti-element absolute"
+        className="confetti-element absolute image-auto-ratio"
       />
     </div>
   );

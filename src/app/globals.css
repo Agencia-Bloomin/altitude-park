@@ -345,6 +345,12 @@
   .backdrop-blur-lg {
     backdrop-filter: blur(16px);
   }
+
+  /* Classe para manter proporção das imagens */
+  .image-auto-ratio {
+    width: auto !important;
+    height: auto !important;
+  }
 }
 
 @keyframes fadeIn {

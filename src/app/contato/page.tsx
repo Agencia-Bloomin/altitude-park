@@ -169,7 +169,6 @@ export default function ContatoPage() {
         page="contact"
         description="Estamos aqui para ajudar! Entre em contato conosco e venha conhecer a Altitude Park!"
         breadcrumbItems={breadcrumbItems}
-        backgroundImage="/images/contact-hero-bg.jpg"
       />
       
       <section className="py-20 bg-gray-900">

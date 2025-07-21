@@ -27,7 +27,6 @@ export function GSAPProvider({ children }: GSAPProviderProps) {
         // Registrar o plugin apenas se ambos existirem
         if (gsapInstance && scrollTriggerInstance) {
           gsapInstance.registerPlugin(scrollTriggerInstance);
-          console.log('GSAP loaded successfully');
         }
       } catch (error) {
         console.error('Failed to load GSAP:', error);

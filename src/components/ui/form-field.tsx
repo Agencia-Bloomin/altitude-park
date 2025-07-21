@@ -32,6 +32,12 @@ const FormField = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, FormF
     checked,
     ...props 
   }, ref) => {
+    // Filtrar props para remover atributos não reconhecidos
+    const filteredProps = Object.fromEntries(
+      Object.entries(props).filter(([key]) => 
+        !['data-np-intersection-state'].includes(key)
+      )
+    )
     const id = name
     
     if (type === "radio") {
@@ -52,7 +58,7 @@ const FormField = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, FormF
                   onChange={onChange}
                   disabled={disabled}
                   className="text-blue-600"
-                  {...props}
+                  {...filteredProps}
                 />
                 <label 
                   htmlFor={`${name}-${option.value}`} 
@@ -91,7 +97,7 @@ const FormField = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, FormF
               "flex min-h-[80px] w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
             )}
             ref={ref as React.Ref<HTMLTextAreaElement>}
-            {...props}
+            {...filteredProps}
           />
         ) : (
           <input
@@ -107,7 +113,7 @@ const FormField = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, FormF
               "flex h-10 w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
             )}
             ref={ref as React.Ref<HTMLInputElement>}
-            {...props}
+            {...filteredProps}
           />
         )}
       </div>
