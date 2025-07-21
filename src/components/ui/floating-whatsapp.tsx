@@ -37,7 +37,7 @@ export function FloatingWhatsApp() {
   const handleWhatsAppClick = () => {
     if (!isClient) return;
     
-    const message = `Olá! Gostaria de saber mais sobre a ${siteConfig.siteName}!`;
+    const message = `Olá, vim pelo site! Gostaria de tirar algumas dúvidas.`;
     window.open(getWhatsAppLink(message), '_blank');
   };
 
