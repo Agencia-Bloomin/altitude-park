@@ -3,66 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
-    
-
-    
-    /* Fontes do site - Sincronizadas automaticamente com config.ts */
-    --font-primary: '#ea258e';
-    --font-secondary: '#00b4f5';
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 84% 4.9%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 94.1%;
-  }
-}
-
-@layer base {
   * {
-    @apply border-border;
+    @apply border-gray-700;
   }
   
   body {
     @apply bg-gray-900 text-white;
-    font-family: var(--font-secondary), sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
@@ -80,11 +27,11 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary-500 rounded-full;
+    @apply bg-blue-600 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-600;
+    @apply bg-blue-700;
   }
 }
 
@@ -100,7 +47,7 @@
   }
 
   .card-special {
-    @apply bg-gray-800 rounded-xl shadow-lg border-2 border-primary-500 overflow-visible hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2;
+    @apply bg-gray-800 rounded-xl shadow-lg border-2 border-blue-600 overflow-visible hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2;
   }
 
   /* Imagens dentro dos cards */
@@ -127,37 +74,37 @@
 
   /* Gradientes */
   .gradient-primary {
-    @apply bg-gradient-to-r from-primary-500 to-primary-600;
+    @apply bg-gradient-to-r from-blue-600 to-blue-700;
   }
 
   .gradient-secondary {
-    @apply bg-gradient-to-r from-secondary-500 to-secondary-600;
+    @apply bg-gradient-to-r from-green-600 to-green-700;
   }
 
   .gradient-tertiary {
-    @apply bg-gradient-to-r from-tertiary-500 to-tertiary-600;
+    @apply bg-gradient-to-r from-orange-600 to-orange-700;
   }
 
   .gradient-quaternary {
-    @apply bg-gradient-to-r from-quaternary-500 to-quaternary-600;
+    @apply bg-gradient-to-r from-yellow-500 to-yellow-600;
   }
 
   .gradient-quinary {
-    @apply bg-gradient-to-r from-quinary-500 to-quinary-600;
+    @apply bg-gradient-to-r from-lime-600 to-lime-700;
   }
 
   .gradient-hero {
-    @apply bg-gradient-to-br from-primary-500 via-secondary-500 to-tertiary-500;
+    @apply bg-gradient-to-br from-blue-600 via-green-600 to-orange-600;
   }
 
   /* Textos */
   .text-gradient {
-    @apply bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent;
   }
 
   /* Headings com fonte primária */
   .heading-1 {
-    font-family: var(--font-primary), cursive !important;
+    font-family: 'Itim', cursive !important;
     font-size: 2.25rem;
     line-height: 2.5rem;
     font-weight: 700;
@@ -178,7 +125,7 @@
   }
 
   .heading-2 {
-    font-family: var(--font-primary), cursive !important;
+    font-family: 'Itim', cursive !important;
     font-size: 1.875rem;
     line-height: 2.25rem;
     font-weight: 700;
@@ -199,7 +146,7 @@
   }
 
   .heading-3 {
-    font-family: var(--font-primary), cursive !important;
+    font-family: 'Itim', cursive !important;
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 700;
@@ -213,7 +160,7 @@
   }
 
   .heading-4 {
-    font-family: var(--font-primary), cursive !important;
+    font-family: 'Itim', cursive !important;
     font-size: 1.25rem;
     line-height: 1.75rem;
     font-weight: 600;
@@ -294,12 +241,12 @@
   }
 
   .swiper-pagination-bullet-active {
-    @apply bg-primary-500 opacity-100;
+    @apply bg-blue-600 opacity-100;
   }
 
   .swiper-button-next,
   .swiper-button-prev {
-    @apply text-primary-500;
+    @apply text-blue-600;
   }
 
   /* Custom pagination for hero banner */
@@ -317,7 +264,7 @@
 
   /* Formulários */
   .form-input {
-    @apply block w-full px-4 py-3 border border-gray-600 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200;
+    @apply block w-full px-4 py-3 border border-gray-600 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors duration-200;
   }
 
   .form-label {

@@ -126,49 +126,49 @@ export default function ContatoPage() {
         backgroundImage="/images/contact-hero-bg.jpg"
       />
       
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
             {/* Informações de Contato */}
             <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">
+              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-8">
                 Vamos Conversar?
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-lg text-gray-300 mb-8">
                 Nossa equipe está pronta para entender suas necessidades e criar 
                 estratégias personalizadas para o sucesso do seu negócio.
               </p>
               
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Telefone</h3>
-                    <p className="text-gray-600">+55 (11) 99999-9999</p>
-                    <p className="text-gray-600">+55 (11) 88888-8888</p>
+                    <h3 className="text-lg font-semibold text-white mb-1">Telefone</h3>
+                    <p className="text-gray-300">+55 (11) 99999-9999</p>
+                    <p className="text-gray-300">+55 (11) 88888-8888</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Email</h3>
-                    <p className="text-gray-600">contato@agencia.com.br</p>
-                    <p className="text-gray-600">comercial@agencia.com.br</p>
+                    <h3 className="text-lg font-semibold text-white mb-1">Email</h3>
+                    <p className="text-gray-300">contato@agencia.com.br</p>
+                    <p className="text-gray-300">comercial@agencia.com.br</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Endereço</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-lg font-semibold text-white mb-1">Endereço</h3>
+                    <p className="text-gray-300">
                       Rua das Flores, 123 - Centro<br />
                       São Paulo - SP, 01234-567
                     </p>
@@ -176,21 +176,21 @@ export default function ContatoPage() {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Clock className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Horário de Atendimento</h3>
-                    <p className="text-gray-600">Segunda a Sexta: 9h às 18h</p>
-                    <p className="text-gray-600">Sábado: 9h às 14h</p>
+                    <h3 className="text-lg font-semibold text-white mb-1">Horário de Atendimento</h3>
+                    <p className="text-gray-300">Segunda a Sexta: 9h às 18h</p>
+                    <p className="text-gray-300">Sábado: 9h às 14h</p>
                   </div>
                 </div>
               </div>
             </div>
             
             {/* Formulário de Contato */}
-            <div className="bg-gray-50 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            <div className="bg-gray-800 p-8 rounded-2xl border border-gray-700">
+              <h3 className="text-2xl font-bold text-white mb-6">
                 Envie sua Mensagem
               </h3>
               
@@ -304,25 +304,25 @@ export default function ContatoPage() {
       </section>
       
       {/* Mapa */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
               Nossa Localização
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-300">
               Venha nos visitar em nosso escritório
             </p>
           </div>
           
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gray-300 h-96 rounded-2xl flex items-center justify-center">
+            <div className="bg-gray-700 h-96 rounded-2xl flex items-center justify-center border border-gray-600">
               <div className="text-center">
-                <MapPin className="w-16 h-16 text-gray-500 mx-auto mb-4" />
-                <p className="text-gray-600 text-lg">
+                <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                <p className="text-gray-300 text-lg">
                   Mapa interativo será integrado aqui
                 </p>
-                <p className="text-gray-500">
+                <p className="text-gray-400">
                   Rua das Flores, 123 - Centro, São Paulo - SP
                 </p>
               </div>

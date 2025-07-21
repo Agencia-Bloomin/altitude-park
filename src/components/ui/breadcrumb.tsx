@@ -18,11 +18,11 @@ const Breadcrumb = ({ items, className }: BreadcrumbProps) => {
   return (
     <nav
       aria-label="Breadcrumb"
-      className={cn("flex items-center space-x-1 text-sm text-muted-foreground", className)}
+      className={cn("flex items-center space-x-1 text-sm text-gray-300", className)}
     >
       <Link
         href="/"
-        className="flex items-center hover:text-foreground transition-colors"
+        className="flex items-center hover:text-white transition-colors"
       >
         <Home className="h-4 w-4" />
         <span className="sr-only">Home</span>
@@ -34,12 +34,12 @@ const Breadcrumb = ({ items, className }: BreadcrumbProps) => {
           {item.href ? (
             <Link
               href={item.href}
-              className="hover:text-foreground transition-colors"
+              className="hover:text-white transition-colors"
             >
               {item.label}
             </Link>
           ) : (
-            <span className="text-foreground font-medium">{item.label}</span>
+            <span className="text-white font-medium">{item.label}</span>
           )}
         </React.Fragment>
       ))}

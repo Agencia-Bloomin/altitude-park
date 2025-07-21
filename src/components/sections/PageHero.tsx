@@ -18,7 +18,7 @@ const PageHero: React.FC<PageHeroProps> = ({
 }) => {
   return (
     <section 
-      className={`relative py-20 lg:py-32 ${className}`}
+      className={`relative py-20 lg:py-32 bg-gray-900 ${className}`}
       style={{
         backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
         backgroundSize: 'cover',
@@ -27,7 +27,7 @@ const PageHero: React.FC<PageHeroProps> = ({
     >
       {/* Overlay */}
       {backgroundImage && (
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/60" />
       )}
       
       <div className="container mx-auto px-4 relative z-10">
@@ -44,7 +44,7 @@ const PageHero: React.FC<PageHeroProps> = ({
           
           {/* Description */}
           {description && (
-            <p className="text-xl lg:text-2xl text-white/90 max-w-2xl mx-auto">
+            <p className="text-xl lg:text-2xl text-gray-200 max-w-2xl mx-auto">
               {description}
             </p>
           )}
