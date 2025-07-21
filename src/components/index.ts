@@ -1,30 +1,25 @@
 // Layout Components
 export { Header } from './layout/Header';
 export { Footer } from './layout/Footer';
-export { GSAPProvider } from './GSAPProvider';
-
-// Section Components
-export { HeroBanner } from './sections/HeroBanner';
-export { AboutSection } from './sections/AboutSection';
-export { ProductsSection } from './sections/ProductsSection';
-export { FAQSection } from './sections/FAQSection';
-export { ReviewsSection } from './sections/ReviewsSection';
-export { BlogSection } from './sections/BlogSection';
-export { CTASection } from './sections/CTASection';
-export { default as PageHero } from './sections/PageHero';
 
 // UI Components
-export { Button, buttonVariants } from './ui/button';
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from './ui/card';
-export { Breadcrumb } from './ui/breadcrumb';
+export { Button } from './ui/button';
+export { Card } from './ui/card';
 export { FloatingWhatsApp } from './ui/floating-whatsapp';
 export { ScrollToTop } from './ui/scroll-to-top';
 export { FormField } from './ui/form-field';
+export { FloatingElements } from './ui/FloatingElements';
+export { ConfettiElements } from './ui/ConfettiElements';
+export { BackgroundElements } from './ui/BackgroundElements';
 
-// Types
-export type { BreadcrumbItem } from './ui/breadcrumb';
+// Section Components
+export { HeroBanner } from './sections/HeroBanner';
+export { UnitsSection } from './sections/UnitsSection';
+export { PricingSection } from './sections/PricingSection';
+export { AttractionsSection } from './sections/AttractionsSection';
+export { FAQSection } from './sections/FAQSection';
+export { PartySection } from './sections/PartySection';
 
-// Feature Components (futuros)
-// export { Newsletter } from './features/Newsletter';
-// export { Search } from './features/Search';
-// export { Pagination } from './features/Pagination'; 
+// Other Components
+export { default as GoogleTagManager } from './GoogleTagManager';
+export { GSAPProvider } from './GSAPProvider'; 

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { cn } from "@/utils/cn"
+import { cn } from "@/lib/utils"
 
 export interface FormFieldProps {
   label: string
@@ -32,12 +32,18 @@ const FormField = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, FormF
     checked,
     ...props 
   }, ref) => {
+    // Filtrar props para remover atributos não reconhecidos
+    const filteredProps = Object.fromEntries(
+      Object.entries(props).filter(([key]) => 
+        !['data-np-intersection-state'].includes(key)
+      )
+    )
     const id = name
     
     if (type === "radio") {
       return (
         <div className={cn("space-y-4", className)}>
-          <label className="block text-sm font-medium text-gray-700 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+          <label className="block text-sm font-medium text-white leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
             {label} {required && "*"}
           </label>
           <div className="flex gap-4">
@@ -52,11 +58,11 @@ const FormField = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, FormF
                   onChange={onChange}
                   disabled={disabled}
                   className="text-blue-600"
-                  {...props}
+                  {...filteredProps}
                 />
                 <label 
                   htmlFor={`${name}-${option.value}`} 
-                  className="flex items-center gap-2 cursor-pointer text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  className="flex items-center gap-2 cursor-pointer text-sm font-medium text-gray-300 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
                   {option.icon}
                   {option.label}
@@ -72,7 +78,7 @@ const FormField = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, FormF
       <div className={cn("space-y-2", className)}>
         <label 
           htmlFor={id} 
-          className="block text-sm font-medium text-gray-700 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          className="block text-sm font-medium text-white leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
         >
           {label} {required && "*"}
         </label>
@@ -88,10 +94,10 @@ const FormField = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, FormF
             rows={rows}
             disabled={disabled}
             className={cn(
-              "flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              "flex min-h-[80px] w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
             )}
             ref={ref as React.Ref<HTMLTextAreaElement>}
-            {...props}
+            {...filteredProps}
           />
         ) : (
           <input
@@ -104,10 +110,10 @@ const FormField = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, FormF
             required={required}
             disabled={disabled}
             className={cn(
-              "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              "flex h-10 w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
             )}
             ref={ref as React.Ref<HTMLInputElement>}
-            {...props}
+            {...filteredProps}
           />
         )}
       </div>

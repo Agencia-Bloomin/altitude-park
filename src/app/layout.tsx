@@ -1,25 +1,13 @@
 import type { Metadata } from 'next';
-import { Inter, Poppins } from 'next/font/google';
+
 import './globals.css';
 import { Header, Footer, FloatingWhatsApp, ScrollToTop } from '@/components';
 import { siteMetadata } from '@/data/metadata';
-import { siteConfig } from '@/data/config';
+import { siteConfig, getGoogleFontsLinks } from '@/data/config';
 import GoogleTagManager from '@/components/GoogleTagManager';
 import { Toaster } from 'sonner';
 import { GSAPProvider } from '@/components/GSAPProvider';
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-poppins',
-  display: 'swap',
-});
+import { CSSVariablesProvider } from '@/components/CSSVariablesProvider';
 
 export const metadata: Metadata = {
   title: {
@@ -87,18 +75,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="pt-BR">
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" href="/images/logo/favicon.ico" />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#3b82f6" />
+        <meta name="theme-color" content="#ea258e" />
+        
+        {/* Google Fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        {getGoogleFontsLinks().map((fontLink, index) => (
+          <link key={index} href={fontLink} rel="stylesheet" />
+        ))}
         
         {/* Google Tag Manager será carregado após interação do usuário */}
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className="antialiased bg-gray-900 text-white font-secondary">
+        <CSSVariablesProvider />
         <GSAPProvider>
           <div className="flex min-h-screen flex-col">
             <Header />

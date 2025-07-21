@@ -2,89 +2,36 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown, Phone, Mail } from 'lucide-react';
-import { contactInfo, getWhatsAppLink } from '@/data';
-
-interface MenuItem {
-  id: string;
-  label: string;
-  href: string;
-  children?: MenuItem[];
-}
-
-const menuItems: MenuItem[] = [
-  {
-    id: 'home',
-    label: 'Início',
-    href: '/',
-  },
-  {
-    id: 'about',
-    label: 'Sobre',
-    href: '/sobre',
-  },
-  {
-    id: 'services',
-    label: 'Serviços',
-    href: '/servicos',
-    children: [
-      { id: 'seo', label: 'SEO', href: '/servicos/seo' },
-      { id: 'design', label: 'Design', href: '/servicos/design' },
-      { id: 'development', label: 'Desenvolvimento', href: '/servicos/desenvolvimento' },
-      { id: 'marketing', label: 'Marketing Digital', href: '/servicos/marketing' },
-    ],
-  },
-  {
-    id: 'products',
-    label: 'Produtos',
-    href: '/produtos',
-    children: [
-      { id: 'product1', label: 'Produto 1', href: '/produtos/produto-1' },
-      { id: 'product2', label: 'Produto 2', href: '/produtos/produto-2' },
-      { id: 'product3', label: 'Produto 3', href: '/produtos/produto-3' },
-    ],
-  },
-  {
-    id: 'blog',
-    label: 'Blog',
-    href: '/blog',
-  },
-  {
-    id: 'contact',
-    label: 'Contato',
-    href: '/contato',
-  },
-];
+import Image from 'next/image';
+import { User, ShoppingCart, ChevronDown, Menu, X } from 'lucide-react';
+import { siteConfig } from '@/data/config';
+import { Button } from '@/components/ui/button';
 
 export function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
-  const [mobileDropdowns, setMobileDropdowns] = useState<Set<string>>(new Set());
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isClient]);
 
-
-
-  // Cleanup timeout quando componente for desmontado
+  // Prevenir scroll do body quando menu mobile estiver aberto
   useEffect(() => {
-    return () => {
-      if (dropdownTimeout) {
-        clearTimeout(dropdownTimeout);
-      }
-    };
-  }, [dropdownTimeout]);
+    if (!isClient) return;
 
-  // Controlar overflow do body quando menu mobile estiver aberto
-  useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -94,279 +41,232 @@ export function Header() {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isMobileMenuOpen]);
-
-  const handleDropdownEnter = (itemId: string) => {
-    // Limpar timeout se existir
-    if (dropdownTimeout) {
-      clearTimeout(dropdownTimeout);
-      setDropdownTimeout(null);
-    }
-    setActiveDropdown(itemId);
-  };
-
-  const handleDropdownLeave = () => {
-    // Adicionar delay antes de fechar o dropdown
-    const timeout = setTimeout(() => {
-      setActiveDropdown(null);
-    }, 150); // 150ms de delay
-    setDropdownTimeout(timeout);
-  };
-
-  const toggleMobileDropdown = (itemId: string) => {
-    const newDropdowns = new Set(mobileDropdowns);
-    if (newDropdowns.has(itemId)) {
-      newDropdowns.delete(itemId);
-    } else {
-      newDropdowns.add(itemId);
-    }
-    setMobileDropdowns(newDropdowns);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-    setMobileDropdowns(new Set());
-  };
-
-  const openMobileMenu = () => {
-    setIsMobileMenuOpen(true);
-  };
+  }, [isMobileMenuOpen, isClient]);
 
   return (
     <>
-      {/* Top bar */}
-      <div className="bg-primary-600 text-white py-2">
-        <div className="container-custom">
-          <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center space-x-4">
-              <a
-                href={`tel:${contactInfo.phone}`}
-                className="flex items-center space-x-1 hover:text-primary-200 transition-colors"
-              >
-                <Phone size={14} />
-                <span>{contactInfo.phone}</span>
-              </a>
-              <a
-                href={`mailto:${contactInfo.email}`}
-                className="flex items-center space-x-1 hover:text-primary-200 transition-colors"
-              >
-                <Mail size={14} />
-                <span>{contactInfo.email}</span>
-              </a>
-            </div>
-            <div className="hidden md:flex items-center space-x-4">
-              <span>{contactInfo.workingHours.weekdays}</span>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      }`}>
+        {/* Faixa superior */}
+        <div className="bg-gray-800 border-b border-gray-700">
+          <div className="container-custom">
+            <div className="flex items-center justify-between h-10 text-sm">
+              <div className="flex items-center space-x-4">
+                <Link href="/login" className="text-gray-300 hover:text-pink-400 transition-colors flex items-center space-x-1">
+                  <User className="w-4 h-4" />
+                  <span>Acesse sua conta</span>
+                </Link>
+              </div>
+              <div className="flex items-center space-x-4">
+                <Link href="/carrinho" className="text-gray-300 hover:text-pink-400 transition-colors flex items-center space-x-1">
+                  <ShoppingCart className="w-4 h-4" />
+                  <span>Carrinho</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Main header */}
-      <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200'
-            : 'bg-white'
-        }`}
-      >
-        <div className="container-custom">
-          <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">S</span>
-              </div>
-              <span className="text-xl lg:text-2xl font-bold text-gray-900">
-                Sua Empresa
-              </span>
-            </Link>
+        {/* Header principal */}
+        <div className="bg-gray-900/90 backdrop-blur-md border-b border-gray-700">
+          <div className="container-custom">
+            <div className="flex items-center justify-between h-20">
+              <Link href="/" className="flex items-center space-x-3">
+                <Image
+                  src="/images/logo/logo.png"
+                  alt="Altitude Park"
+                  title="Altitude Park"
+                  width={180}
+                  height={60}
+                  className="h-16 lg:h-14 xl:h-16 w-auto"
+                  priority
+                />
+              </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
-              {menuItems.map((item) => (
-                <div
-                  key={item.id}
-                  className="relative"
-                  onMouseEnter={() => handleDropdownEnter(item.id)}
-                  onMouseLeave={handleDropdownLeave}
-                >
-                  <Link
-                    href={item.href}
-                    className="flex items-center space-x-1 py-2 text-gray-700 hover:text-primary-600 transition-colors font-medium"
-                  >
-                    <span>{item.label}</span>
-                    {item.children && <ChevronDown size={16} />}
-                  </Link>
-
-                  {/* Dropdown Menu */}
-                  {item.children && activeDropdown === item.id && (
-                    <div 
-                      className="absolute top-full left-0 w-64 z-50"
-                      onMouseEnter={() => handleDropdownEnter(item.id)}
-                      onMouseLeave={handleDropdownLeave}
-                    >
-                      {/* Área de ponte invisível para evitar gap */}
-                      <div className="h-2 bg-transparent"></div>
-                      <div className="bg-white rounded-lg shadow-lg border border-gray-200 py-2 animate-slide-down">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.id}
-                            href={child.href}
-                            className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
+              {/* Menu desktop */}
+              <nav className="hidden lg:flex items-center space-x-8">
+                <Link href="/" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base relative group">
+                  <span>Home</span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+                
+                {/* Dropdown Sobre Nós */}
+                <div className="relative group">
+                  <div className="flex items-center space-x-1 relative">
+                    <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base relative group">
+                      <span className="relative">
+                        Sobre Nós
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                      </span>
+                    </Link>
+                    <button className="text-white hover:text-pink-400 transition-colors">
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-gray-800 rounded-lg shadow-xl border border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <div className="py-2">
+                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-gray-700 transition-colors">
+                        Trabalhe Conosco
+                      </Link>
+                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-gray-700 transition-colors">
+                        Perguntas Frequentes
+                      </Link>
+                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-gray-700 transition-colors">
+                        Galeria
+                      </Link>
                     </div>
-                  )}
+                  </div>
                 </div>
-              ))}
-            </nav>
 
-            {/* CTA Button */}
-            <div className="hidden lg:flex items-center space-x-4">
-              <a
-                href={getWhatsAppLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
+                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
+                  <span>Preços</span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
+                  <span>Unidades</span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
+                  <span>Faça sua Festa</span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
+                  <span>Contato</span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+                
+                {/* Botão Ingressos em destaque */}
+                <Button asChild variant="highlight" size="xl">
+                  <Link href="#">
+                    Ingressos
+                  </Link>
+                </Button>
+              </nav>
+
+              {/* Menu mobile */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="lg:hidden text-white hover:text-pink-400 transition-colors"
               >
-                Solicitar Orçamento
-              </a>
+                <Menu className="w-6 h-6" />
+              </button>
             </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={isMobileMenuOpen ? closeMobileMenu : openMobileMenu}
-              className="lg:hidden p-2 text-gray-700 hover:text-primary-600 transition-colors"
-              aria-label="Toggle mobile menu"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu - Fora do header para evitar conflitos */}
+      {/* Overlay para menu mobile */}
       {isMobileMenuOpen && (
-        <>
-          {/* Overlay de fundo */}
-          <div 
-            className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm" 
-            style={{ 
-              zIndex: 999999,
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0
-            }}
-          />
-          {/* Menu lateral */}
-          <div 
-            className="fixed top-0 right-0 h-full w-80 bg-white shadow-xl"
-            style={{ 
-              zIndex: 1000000,
-              position: 'fixed',
-              top: 0,
-              right: 0,
-              height: '100vh',
-              width: '320px'
-            }}
-          >
-            <div className="flex items-center justify-between p-6 border-b border-gray-200">
-              <span className="text-lg font-semibold text-gray-900">Menu</span>
-              <button
-                onClick={closeMobileMenu}
-                className="p-2 text-gray-700 hover:text-primary-600 transition-colors"
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-[55] lg:hidden"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Menu mobile lateral */}
+      <div className={`fixed top-0 right-0 h-full w-80 bg-gray-900 shadow-2xl z-[60] transform transition-transform duration-300 ease-in-out lg:hidden ${
+        isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      }`}>
+        <div className="flex flex-col h-full">
+          {/* Header do menu mobile */}
+          <div className="flex items-center justify-between p-6 border-b border-gray-700">
+            <span className="text-white text-lg font-semibold">Menu</span>
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Conteúdo do menu mobile */}
+          <div className="flex-1 overflow-y-auto">
+            <nav className="p-6 space-y-6">
+              <Link 
+                href="/" 
+                className="block text-white hover:text-pink-400 transition-colors font-medium text-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
-                <X size={24} />
-              </button>
-            </div>
-
-            <nav className="p-6">
-              <div className="space-y-4">
-                {menuItems.map((item) => (
-                  <div key={item.id}>
-                    {item.children ? (
-                      <div>
-                        <button
-                          onClick={() => toggleMobileDropdown(item.id)}
-                          className="flex items-center justify-between w-full py-2 text-gray-700 hover:text-primary-600 transition-colors font-medium"
-                        >
-                          <span>{item.label}</span>
-                          <ChevronDown 
-                            size={16} 
-                            className={`transition-transform duration-200 ${
-                              mobileDropdowns.has(item.id) ? 'rotate-180' : ''
-                            }`}
-                          />
-                        </button>
-                        
-                        {/* Mobile Submenu */}
-                        {mobileDropdowns.has(item.id) && (
-                          <div className="ml-4 mt-2 space-y-2 animate-slide-down">
-                            {item.children.map((child) => (
-                              <Link
-                                key={child.id}
-                                href={child.href}
-                                onClick={closeMobileMenu}
-                                className="block py-1 text-gray-600 hover:text-primary-600 transition-colors"
-                              >
-                                {child.label}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        onClick={closeMobileMenu}
-                        className="block py-2 text-gray-700 hover:text-primary-600 transition-colors font-medium"
-                      >
-                        {item.label}
-                      </Link>
-                    )}
+                Home
+              </Link>
+              
+              <div>
+                <button
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="text-white hover:text-pink-400 transition-colors font-medium flex items-center justify-between w-full text-lg"
+                >
+                  <span>Sobre Nós</span>
+                  <ChevronDown className={`w-5 h-5 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isDropdownOpen && (
+                  <div className="mt-4 ml-4 space-y-3">
+                    <Link 
+                      href="/trabalhe-conosco" 
+                      className="block text-gray-300 hover:text-pink-400 transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Trabalhe Conosco
+                    </Link>
+                    <Link 
+                      href="/faq" 
+                      className="block text-gray-300 hover:text-pink-400 transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Perguntas Frequentes
+                    </Link>
+                    <Link 
+                      href="/galeria" 
+                      className="block text-gray-300 hover:text-pink-400 transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Galeria
+                    </Link>
                   </div>
-                ))}
+                )}
               </div>
 
-              {/* Mobile CTA */}
-              <div className="mt-8 pt-6 border-t border-gray-200">
-                <a
-                  href={getWhatsAppLink()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={closeMobileMenu}
-                  className="btn-primary w-full justify-center"
-                >
-                  Solicitar Orçamento
-                </a>
-              </div>
-
-              {/* Mobile Contact Info */}
-              <div className="mt-6 pt-6 border-t border-gray-200 space-y-3">
-                <a
-                  href={`tel:${contactInfo.phone}`}
-                  className="flex items-center space-x-2 text-gray-600 hover:text-primary-600 transition-colors"
-                >
-                  <Phone size={16} />
-                  <span>{contactInfo.phone}</span>
-                </a>
-                <a
-                  href={`mailto:${contactInfo.email}`}
-                  className="flex items-center space-x-2 text-gray-600 hover:text-primary-600 transition-colors"
-                >
-                  <Mail size={16} />
-                  <span>{contactInfo.email}</span>
-                </a>
-              </div>
+              <Link 
+                href="/precos" 
+                className="block text-white hover:text-pink-400 transition-colors font-medium text-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Preços
+              </Link>
+              <Link 
+                href="/unidades" 
+                className="block text-white hover:text-pink-400 transition-colors font-medium text-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Unidades
+              </Link>
+              <Link 
+                href="/faca-sua-festa" 
+                className="block text-white hover:text-pink-400 transition-colors font-medium text-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Faça sua Festa
+              </Link>
+              <Link 
+                href="/contato" 
+                className="block text-white hover:text-pink-400 transition-colors font-medium text-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contato
+              </Link>
             </nav>
           </div>
-        </>
-      )}
+
+          {/* Footer do menu mobile */}
+          <div className="p-6 border-t border-gray-700">
+            <Button asChild variant="highlight" size="xl" className="w-full">
+              <Link href="/ingressos" onClick={() => setIsMobileMenuOpen(false)}>
+                Ingressos
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </div>
     </>
   );
 } 

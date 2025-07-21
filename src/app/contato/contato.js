@@ -329,9 +329,9 @@ document.addEventListener('DOMContentLoaded', function() {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
       // Aqui você poderia integrar com Google Maps ou outra API de mapas
-      console.log(`Localização: ${latitude}, ${longitude}`);
+      // console.log(`Localização: ${latitude}, ${longitude}`);
     }, (error) => {
-      console.log('Erro ao obter localização:', error.message);
+      // console.log('Erro ao obter localização:', error.message);
     });
   }
   

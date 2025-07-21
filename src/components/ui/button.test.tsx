@@ -24,6 +24,15 @@ describe('Button', () => {
 
     rerender(<Button variant="link">Link</Button>)
     expect(screen.getByRole('button')).toHaveClass('text-primary')
+
+    rerender(<Button variant="tertiary">Tertiary</Button>)
+    expect(screen.getByRole('button')).toHaveClass('bg-tertiary')
+
+    rerender(<Button variant="quaternary">Quaternary</Button>)
+    expect(screen.getByRole('button')).toHaveClass('bg-quaternary')
+
+    rerender(<Button variant="quinary">Quinary</Button>)
+    expect(screen.getByRole('button')).toHaveClass('bg-quinary')
   })
 
   it('renders with different sizes', () => {

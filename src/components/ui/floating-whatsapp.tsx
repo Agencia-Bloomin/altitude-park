@@ -8,8 +8,15 @@ export function FloatingWhatsApp() {
   const [isVisible, setIsVisible] = useState(false);
   const [isPulsing, setIsPulsing] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+
     // Mostrar o WhatsApp após 3 segundos
     const timer = setTimeout(() => {
       setIsVisible(true);
@@ -25,14 +32,17 @@ export function FloatingWhatsApp() {
       clearTimeout(timer);
       clearTimeout(pulseTimer);
     };
-  }, []);
+  }, [isClient]);
 
   const handleWhatsAppClick = () => {
-    const message = 'Olá! Gostaria de saber mais sobre os serviços de marketing digital.';
+    if (!isClient) return;
+    
+    const message = `Olá, vim pelo site! Gostaria de tirar algumas dúvidas.`;
     window.open(getWhatsAppLink(message), '_blank');
   };
 
-  if (!isVisible) return null;
+  // Não renderizar nada até que o cliente esteja pronto
+  if (!isClient || !isVisible) return null;
 
   return (
     <div className="fixed bottom-24 right-6 z-50 group">

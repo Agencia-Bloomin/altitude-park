@@ -5,7 +5,6 @@
 import { 
   ContactForm, 
   NewsletterForm, 
-  Product, 
   BlogPost,
   SocialPlatform,
   ContactMethod 
@@ -77,52 +76,7 @@ export function validateNewsletterForm(form: NewsletterForm): { isValid: boolean
   };
 }
 
-// ============================================================================
-// VALIDAÇÕES DE PRODUTOS
-// ============================================================================
 
-export function validateProduct(product: Product): { isValid: boolean; errors: string[] } {
-  const errors: string[] = [];
-
-  if (!product.name?.trim()) {
-    errors.push('Nome do produto é obrigatório');
-  }
-
-  if (!product.description?.trim()) {
-    errors.push('Descrição é obrigatória');
-  }
-
-  if (!product.shortDescription?.trim()) {
-    errors.push('Descrição curta é obrigatória');
-  }
-
-  if (product.price < 0) {
-    errors.push('Preço não pode ser negativo');
-  }
-
-  if (product.originalPrice && product.originalPrice < product.price) {
-    errors.push('Preço original não pode ser menor que o preço atual');
-  }
-
-  if (!product.image?.trim()) {
-    errors.push('Imagem principal é obrigatória');
-  }
-
-  if (!product.category?.trim()) {
-    errors.push('Categoria é obrigatória');
-  }
-
-  if (!product.slug?.trim()) {
-    errors.push('Slug é obrigatório');
-  } else if (!/^[a-z0-9-]+$/.test(product.slug)) {
-    errors.push('Slug deve conter apenas letras minúsculas, números e hífens');
-  }
-
-  return {
-    isValid: errors.length === 0,
-    errors
-  };
-}
 
 // ============================================================================
 // VALIDAÇÕES DE BLOG

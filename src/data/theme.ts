@@ -44,6 +44,7 @@ export const themeColors = {
   secondary: generateColorVariations(siteConfig.theme.colors.secondary),
   tertiary: generateColorVariations(siteConfig.theme.colors.tertiary),
   quaternary: generateColorVariations(siteConfig.theme.colors.quaternary),
+  quinary: generateColorVariations(siteConfig.theme.colors.quinary),
 };
 
 // Configuração de fontes personalizadas
@@ -102,6 +103,11 @@ export function getTertiaryColor(): string {
 // Função para obter cor quaternária
 export function getQuaternaryColor(): string {
   return siteConfig.theme.colors.quaternary;
+}
+
+// Função para obter cor quinária
+export function getQuinaryColor(): string {
+  return siteConfig.theme.colors.quinary;
 }
 
 

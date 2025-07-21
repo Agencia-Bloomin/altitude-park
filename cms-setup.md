@@ -61,6 +61,7 @@ DATABASE_SSL=false
 ### 1. Tipos de Conteúdo (Content Types)
 
 #### Banner/Carrossel
+
 ```javascript
 // Banner
 {
@@ -78,45 +79,8 @@ DATABASE_SSL=false
 }
 ```
 
-#### Produtos
-```javascript
-// Product
-{
-  name: String (required),
-  description: Text,
-  shortDescription: String,
-  price: Number,
-  originalPrice: Number,
-  image: Media (required),
-  images: Media (multiple),
-  category: Relation (many-to-one),
-  tags: JSON,
-  features: JSON,
-  specifications: JSON,
-  inStock: Boolean,
-  slug: String (unique),
-  isActive: Boolean,
-  createdAt: DateTime,
-  updatedAt: DateTime
-}
-```
-
-#### Categorias
-```javascript
-// Category
-{
-  name: String (required),
-  description: Text,
-  image: Media,
-  slug: String (unique),
-  parentId: Relation (self),
-  isActive: Boolean,
-  createdAt: DateTime,
-  updatedAt: DateTime
-}
-```
-
 #### Depoimentos
+
 ```javascript
 // Testimonial
 {
@@ -136,6 +100,7 @@ DATABASE_SSL=false
 ```
 
 #### FAQ
+
 ```javascript
 // FAQ
 {
@@ -150,6 +115,7 @@ DATABASE_SSL=false
 ```
 
 #### Blog Posts
+
 ```javascript
 // Blog Post
 {
@@ -172,6 +138,7 @@ DATABASE_SSL=false
 ### 2. Componentes Reutilizáveis
 
 #### SEO Component
+
 ```javascript
 // SEO Component
 {
@@ -184,6 +151,7 @@ DATABASE_SSL=false
 ```
 
 #### Author Component
+
 ```javascript
 // Author Component
 {
@@ -222,8 +190,8 @@ module.exports = [
     config: {
       enabled: true,
       headers: '*',
-      origin: ['http://localhost:3000', 'https://yourdomain.com']
-    }
+      origin: ['http://localhost:3000', 'https://yourdomain.com'],
+    },
   },
   'strapi::poweredBy',
   'strapi::logger',
@@ -305,7 +273,6 @@ export default async function HomePage() {
   return (
     <div>
       <HeroBanner banners={banners.data} />
-      <ProductsSection products={products.data} />
     </div>
   );
 }
@@ -316,6 +283,7 @@ export default async function HomePage() {
 ### 1. Strapi (Backend)
 
 #### Vercel
+
 ```bash
 # vercel.json
 {
@@ -330,12 +298,14 @@ export default async function HomePage() {
 ```
 
 #### Railway
+
 ```bash
 # Conecte diretamente no Railway
 # Configure as variáveis de ambiente
 ```
 
 #### Heroku
+
 ```bash
 # Procfile
 web: npm start
@@ -352,6 +322,7 @@ NEXT_PUBLIC_STRAPI_URL=https://your-strapi-app.vercel.app
 ## 📊 Monitoramento
 
 ### 1. Logs
+
 ```bash
 # Strapi logs
 npm run strapi logs
@@ -361,6 +332,7 @@ pm2 logs strapi
 ```
 
 ### 2. Health Check
+
 ```bash
 curl https://your-strapi-app.com/healthcheck
 ```
@@ -368,12 +340,14 @@ curl https://your-strapi-app.com/healthcheck
 ## 🔒 Segurança
 
 ### 1. API Tokens
+
 ```bash
 # Gerar token no admin do Strapi
 # Settings > API Tokens > Create new API Token
 ```
 
 ### 2. Rate Limiting
+
 ```javascript
 // config/middlewares.js
 {
@@ -388,6 +362,7 @@ curl https://your-strapi-app.com/healthcheck
 ## 📈 Performance
 
 ### 1. Cache
+
 ```javascript
 // config/plugins.js
 module.exports = {
@@ -401,11 +376,7 @@ module.exports = {
         },
       },
       strategy: {
-        contentTypes: [
-          'api::banner.banner',
-          'api::product.product',
-          'api::testimonial.testimonial',
-        ],
+        contentTypes: ['api::banner.banner', 'api::testimonial.testimonial'],
       },
     },
   },
@@ -413,6 +384,7 @@ module.exports = {
 ```
 
 ### 2. Image Optimization
+
 ```javascript
 // config/plugins.js
 module.exports = {
@@ -439,4 +411,4 @@ module.exports = {
 
 ---
 
-**Strapi é a escolha ideal para agências que precisam de flexibilidade e controle total sobre o conteúdo.** 
+**Strapi é a escolha ideal para agências que precisam de flexibilidade e controle total sobre o conteúdo.**

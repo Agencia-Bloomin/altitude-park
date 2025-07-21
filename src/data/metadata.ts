@@ -1,3 +1,6 @@
+import { siteConfig } from './config';
+import type { Metadata } from 'next';
+
 export interface PageMetadata {
   title: string;
   description: string;
@@ -17,70 +20,49 @@ export interface SiteMetadata {
   twitterHandle: string;
 }
 
-import { siteConfig } from './config';
+// Metadados por página
+export const pagesMetadata: Record<string, PageMetadata> = {
+  home: {
+    title: `${siteConfig.siteName} | Diversão em Trampolins e Atrações`,
+    description: 'Venha se divertir no Altitude Park com trampolins, brinquedos radicais e festas incríveis. Confira unidades, preços e viva essa experiência hoje!',
+    keywords: ['trampolins', 'brinquedos radicais', 'festas incríveis', 'unidades', 'preços'],
+    h1: 'Diversão em Trampolins e Atrações',
+    canonical: '/',
+  },
+  about: {
+    title: `Sobre Nós - ${siteConfig.siteName}`,
+    description: 'Saiba tudo sobre o Altitude Park, nossa história, missão e valores, e descubra porque somos referência em diversão e trampolins no Brasil. Confira agora!',
+    keywords: ['sobre nós', 'história', 'equipe', 'valores', 'trampolins', 'brinquedos radicais'],
+    h1: 'Sobre Nós',
+    canonical: '/sobre-nos',
+  },
+  contact: {
+    title: `Contato - ${siteConfig.siteName}`,
+    description: 'Entre em contato com o Altitude Park para tirar dúvidas, agendar festas ou saber tudo sobre unidades, horários e preços. Clique aqui e fale com a gente!',
+    keywords: ['contato', 'atendimento', 'orçamento', 'trampolins', 'brinquedos radicais'],
+    h1: 'Entre em Contato',
+    canonical: '/contato',
+  },
+};
 
-// Configuração global do site
+// Configuração global do site (usando metadados da home como padrão)
 export const siteMetadata: SiteMetadata = {
   siteName: siteConfig.siteName,
   siteUrl: siteConfig.siteUrl,
-  defaultTitle: `${siteConfig.siteName} - Soluções em Marketing Digital`,
-  defaultDescription: siteConfig.siteDescription,
-  defaultKeywords: ['marketing digital', 'SEO', 'design', 'desenvolvimento web', 'agência digital'],
+  defaultTitle: pagesMetadata.home.title,
+  defaultDescription: pagesMetadata.home.description,
+  defaultKeywords: pagesMetadata.home.keywords,
   defaultOgImage: '/images/og-default.jpg',
   twitterHandle: '@suaempresa',
 };
 
-// Metadados por página
-export const pagesMetadata: Record<string, PageMetadata> = {
-  home: {
-    title: 'Sua Empresa - Marketing Digital de Resultados',
-    description: 'Transforme sua presença online com nossas soluções de marketing digital. SEO, design e desenvolvimento web para resultados reais.',
-    keywords: ['marketing digital', 'SEO', 'design', 'desenvolvimento web', 'agência digital'],
-    h1: 'Transforme sua presença online com marketing digital de resultados',
-    canonical: '/',
-  },
-  about: {
-    title: 'Sobre Nós - Sua Empresa',
-    description: 'Conheça nossa história, valores e equipe especializada em marketing digital. Mais de 10 anos transformando negócios.',
-    keywords: ['sobre nós', 'história', 'equipe', 'valores', 'marketing digital'],
-    h1: 'Sobre Nós - Especialistas em Marketing Digital',
-    canonical: '/sobre',
-  },
-  services: {
-    title: 'Nossos Serviços - Marketing Digital',
-    description: 'Oferecemos serviços completos de marketing digital: SEO, design, desenvolvimento web, mídia social e muito mais.',
-    keywords: ['serviços', 'SEO', 'design', 'desenvolvimento web', 'mídia social'],
-    h1: 'Nossos Serviços de Marketing Digital',
-    canonical: '/servicos',
-  },
-  contact: {
-    title: 'Contato - Sua Empresa',
-    description: 'Entre em contato conosco para transformar sua presença digital. Atendimento personalizado e soluções sob medida.',
-    keywords: ['contato', 'atendimento', 'orçamento', 'marketing digital'],
-    h1: 'Entre em Contato Conosco',
-    canonical: '/contato',
-  },
-  blog: {
-    title: 'Blog - Marketing Digital e Tendências',
-    description: 'Fique por dentro das últimas tendências em marketing digital, SEO, design e tecnologia. Artigos exclusivos e insights valiosos.',
-    keywords: ['blog', 'marketing digital', 'tendências', 'SEO', 'design'],
-    h1: 'Blog - Tendências em Marketing Digital',
-    canonical: '/blog',
-  },
-};
-
 // Função para obter metadados de uma página específica
 export function getPageMetadata(page: string): PageMetadata {
-  return pagesMetadata[page] || {
-    title: siteMetadata.defaultTitle,
-    description: siteMetadata.defaultDescription,
-    keywords: siteMetadata.defaultKeywords,
-    h1: 'Sua Empresa',
-  };
+  return pagesMetadata[page] || pagesMetadata.home;
 }
 
 // Função para gerar metadados completos
-export function generateMetadata(page: string, customData?: Partial<PageMetadata>) {
+export function generateMetadata(page: string, customData?: Partial<PageMetadata>): Metadata {
   const baseMetadata = getPageMetadata(page);
   const metadata = { ...baseMetadata, ...customData };
 
@@ -113,6 +95,17 @@ export function generateMetadata(page: string, customData?: Partial<PageMetadata
     },
     alternates: {
       canonical: `${siteMetadata.siteUrl}${metadata.canonical || '/'}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   };
 } 

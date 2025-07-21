@@ -4,6 +4,7 @@
  */
 
 import { siteConfig } from '@/data/config';
+import { siteMetadata } from '@/data/metadata';
 
 // ============================================================================
 // SCHEMA PRINCIPAL - ORGANIZATION
@@ -14,17 +15,17 @@ export function getOrganizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": siteConfig.siteName,
-    "description": siteConfig.siteDescription,
+    "description": siteMetadata.defaultDescription,
     "url": siteConfig.siteUrl,
     "logo": `${siteConfig.siteUrl}/images/logo.png`,
     "image": `${siteConfig.siteUrl}/images/og-default.jpg`,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": siteConfig.contact.address.street,
-      "addressLocality": siteConfig.contact.address.city,
-      "addressRegion": siteConfig.contact.address.state,
-      "postalCode": siteConfig.contact.address.zipCode,
-      "addressCountry": siteConfig.contact.address.country
+      "streetAddress": siteConfig.contact.addresses[0].street,
+      "addressLocality": siteConfig.contact.addresses[0].city,
+      "addressRegion": siteConfig.contact.addresses[0].state,
+      "postalCode": siteConfig.contact.addresses[0].zipCode,
+      "addressCountry": siteConfig.contact.addresses[0].country
     },
     "contactPoint": [
       {
@@ -50,8 +51,8 @@ export function getOrganizationSchema() {
       siteConfig.social.tiktok
     ].filter(url => url && url.trim() !== ''),
     "openingHours": [
-      `Mo-Fr ${siteConfig.contact.workingHours.weekdays}`,
-      `Sa ${siteConfig.contact.workingHours.weekends}`
+      `Mo-Fr ${siteConfig.contact.addresses[0].workingHours.weekdays}`,
+      `Sa ${siteConfig.contact.addresses[0].workingHours.weekends}`
     ],
     "priceRange": "$$",
     "areaServed": "Brasil",
@@ -71,7 +72,7 @@ export function getHomePageSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": siteConfig.siteName,
-    "description": siteConfig.siteDescription,
+    "description": siteMetadata.defaultDescription,
     "url": siteConfig.siteUrl,
     "potentialAction": {
       "@type": "SearchAction",
@@ -92,57 +93,7 @@ export function getHomePageSchema() {
   };
 }
 
-// ============================================================================
-// SCHEMA PARA SERVIÇOS/PRODUTOS
-// ============================================================================
 
-export function getServiceSchema(service: {
-  name: string;
-  description: string;
-  price?: number;
-  image?: string;
-  url: string;
-  category?: string;
-  features?: string[];
-}) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": service.name,
-    "description": service.description,
-    "url": service.url,
-    "image": service.image || `${siteConfig.siteUrl}/images/services/default.jpg`,
-    "provider": {
-      "@type": "Organization",
-      "name": siteConfig.siteName,
-      "url": siteConfig.siteUrl
-    },
-    "serviceType": service.category || "Marketing Digital",
-    "areaServed": {
-      "@type": "Country",
-      "name": "Brasil"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Serviços de Marketing Digital",
-      "itemListElement": service.features?.map(feature => ({
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": feature
-        }
-      })) || []
-    },
-    ...(service.price && {
-      "offers": {
-        "@type": "Offer",
-        "price": service.price,
-        "priceCurrency": "BRL",
-        "availability": "https://schema.org/InStock"
-      }
-    })
-  };
-}
 
 // ============================================================================
 // SCHEMA PARA ARTIGOS DO BLOG
@@ -222,11 +173,11 @@ export function getContactPageSchema() {
       ],
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": siteConfig.contact.address.street,
-        "addressLocality": siteConfig.contact.address.city,
-        "addressRegion": siteConfig.contact.address.state,
-        "postalCode": siteConfig.contact.address.zipCode,
-        "addressCountry": siteConfig.contact.address.country
+        "streetAddress": siteConfig.contact.addresses[0].street,
+        "addressLocality": siteConfig.contact.addresses[0].city,
+        "addressRegion": siteConfig.contact.addresses[0].state,
+        "postalCode": siteConfig.contact.addresses[0].zipCode,
+        "addressCountry": siteConfig.contact.addresses[0].country
       }
     }
   };
@@ -326,17 +277,17 @@ export function getLocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": siteConfig.siteName,
-    "description": siteConfig.siteDescription,
+    "description": siteMetadata.defaultDescription,
     "url": siteConfig.siteUrl,
     "telephone": siteConfig.contact.phone,
     "email": siteConfig.contact.email,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": siteConfig.contact.address.street,
-      "addressLocality": siteConfig.contact.address.city,
-      "addressRegion": siteConfig.contact.address.state,
-      "postalCode": siteConfig.contact.address.zipCode,
-      "addressCountry": siteConfig.contact.address.country
+      "streetAddress": siteConfig.contact.addresses[0].street,
+      "addressLocality": siteConfig.contact.addresses[0].city,
+      "addressRegion": siteConfig.contact.addresses[0].state,
+      "postalCode": siteConfig.contact.addresses[0].zipCode,
+      "addressCountry": siteConfig.contact.addresses[0].country
     },
     "geo": {
       "@type": "GeoCoordinates",
@@ -364,6 +315,40 @@ export function getLocalBusinessSchema() {
       "@type": "Country",
       "name": "Brasil"
     }
+  };
+}
+
+// ============================================================================
+// SCHEMA PARA SERVIÇOS
+// ============================================================================
+
+export function getServiceSchema(service: {
+  name: string;
+  description: string;
+  price?: string;
+  url: string;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.name,
+    "description": service.description,
+    "url": service.url,
+    "image": service.image || `${siteConfig.siteUrl}/images/og-default.jpg`,
+    "provider": {
+      "@type": "Organization",
+      "name": siteConfig.siteName,
+      "url": siteConfig.siteUrl
+    },
+    ...(service.price && {
+      "offers": {
+        "@type": "Offer",
+        "price": service.price,
+        "priceCurrency": "BRL",
+        "availability": "https://schema.org/InStock"
+      }
+    })
   };
 }
 

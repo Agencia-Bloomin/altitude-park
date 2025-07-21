@@ -113,21 +113,21 @@ export function MeuComponente() {
 ### Exemplo 1: Seção com Header e Cards
 
 ```typescript
-export function ProductsSection() {
+export function ServicesSection() {
   const headerRef = useFadeInAnimation(0);
   const cardsRef = useStaggerAnimation(0.2, 0.15);
 
   return (
     <section>
       <div ref={headerRef} className="text-center">
-        <h2>Nossos Produtos</h2>
-        <p>Descrição dos produtos</p>
+        <h2>Nossos Serviços</h2>
+        <p>Descrição dos serviços</p>
       </div>
 
       <div ref={cardsRef} className="grid grid-cols-3">
-        <Card>Produto 1</Card>
-        <Card>Produto 2</Card>
-        <Card>Produto 3</Card>
+        <Card>Serviço 1</Card>
+        <Card>Serviço 2</Card>
+        <Card>Serviço 3</Card>
       </div>
     </section>
   );
@@ -312,7 +312,7 @@ No projeto, você pode ver exemplos práticos nos seguintes componentes:
 
 - `HeroBanner.tsx` - Animação do conteúdo do banner
 - `AboutSection.tsx` - Layout com duas colunas animadas
-- `ProductsSection.tsx` - Cards com stagger animation
+- `ServicesSection.tsx` - Cards com stagger animation
 - `FAQSection.tsx` - Lista de FAQs com animação
 - `CTASection.tsx` - Seção de call-to-action
 - `ReviewsSection.tsx` - Usando hooks personalizados

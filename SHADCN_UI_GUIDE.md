@@ -5,6 +5,7 @@ Este guia explica como usar e estender o shadcn/ui no template de marketing.
 ## 🎯 O que é shadcn/ui?
 
 O shadcn/ui é uma biblioteca de componentes React que oferece:
+
 - **Componentes reutilizáveis** e acessíveis
 - **Totalmente customizáveis** com Tailwind CSS
 - **TypeScript** nativo
@@ -14,6 +15,7 @@ O shadcn/ui é uma biblioteca de componentes React que oferece:
 ## 🚀 Por que usar shadcn/ui?
 
 ### ✅ Vantagens
+
 - **Performance**: Sem bundle size desnecessário
 - **Flexibilidade**: Controle total sobre os componentes
 - **Consistência**: Design system unificado
@@ -49,6 +51,7 @@ O projeto já está configurado com shadcn/ui. Arquivos de configuração:
 ## 📦 Componentes Disponíveis
 
 ### 1. Button
+
 ```tsx
 import { Button } from '@/components/ui/button'
 
@@ -74,15 +77,16 @@ import { Button } from '@/components/ui/button'
 ```
 
 ### 2. Card
+
 ```tsx
-import { 
-  Card, 
-  CardHeader, 
-  CardTitle, 
-  CardDescription, 
-  CardContent, 
-  CardFooter 
-} from '@/components/ui/card'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from '@/components/ui/card';
 
 <Card>
   <CardHeader>
@@ -95,16 +99,17 @@ import {
   <CardFooter>
     <Button>Action</Button>
   </CardFooter>
-</Card>
+</Card>;
 ```
 
 ### 3. Breadcrumb
+
 ```tsx
 import { Breadcrumb } from '@/components/ui/breadcrumb'
 
 const items = [
   { label: 'Home', href: '/' },
-  { label: 'Produtos', href: '/produtos' },
+
   { label: 'Marketing Digital' }
 ]
 
@@ -114,11 +119,13 @@ const items = [
 ## 🛠️ Adicionando Novos Componentes
 
 ### 1. Via CLI (Recomendado)
+
 ```bash
 npx shadcn@latest add <component-name>
 ```
 
 Exemplos:
+
 ```bash
 npx shadcn@latest add input
 npx shadcn@latest add dialog
@@ -129,6 +136,7 @@ npx shadcn@latest add textarea
 ```
 
 ### 2. Manualmente
+
 1. Copie o componente do site do shadcn/ui
 2. Cole em `src/components/ui/`
 3. Ajuste as importações conforme necessário
@@ -136,6 +144,7 @@ npx shadcn@latest add textarea
 ## 🎨 Customização
 
 ### 1. Cores
+
 Edite o arquivo `src/app/globals.css`:
 
 ```css
@@ -172,11 +181,12 @@ Edite o arquivo `src/app/globals.css`:
 ```
 
 ### 2. Tema Personalizado
+
 ```css
 :root {
   --primary: 221.2 83.2% 53.3%; /* Azul */
   --primary-foreground: 210 40% 98%;
-  
+
   /* Cores da sua marca */
   --brand: 262.1 83.3% 57.8%; /* Roxo */
   --brand-foreground: 210 40% 98%;
@@ -184,29 +194,30 @@ Edite o arquivo `src/app/globals.css`:
 ```
 
 ### 3. Componentes Customizados
+
 ```tsx
 // src/components/ui/custom-button.tsx
-import { Button, ButtonProps } from './button'
-import { cn } from '@/lib/utils'
+import { Button, ButtonProps } from './button';
+import { cn } from '@/lib/utils';
 
 interface CustomButtonProps extends ButtonProps {
-  gradient?: boolean
+  gradient?: boolean;
 }
 
-export function CustomButton({ 
-  gradient = false, 
-  className, 
-  ...props 
+export function CustomButton({
+  gradient = false,
+  className,
+  ...props
 }: CustomButtonProps) {
   return (
     <Button
       className={cn(
-        gradient && "bg-gradient-to-r from-blue-500 to-purple-600",
+        gradient && 'bg-gradient-to-r from-blue-500 to-purple-600',
         className
       )}
       {...props}
     />
-  )
+  );
 }
 ```
 
@@ -227,6 +238,7 @@ Os componentes shadcn/ui são responsivos por padrão:
 ## ♿ Acessibilidade
 
 Todos os componentes incluem:
+
 - **ARIA labels** apropriados
 - **Navegação por teclado**
 - **Screen reader support**
@@ -241,34 +253,36 @@ Todos os componentes incluem:
 ## 🧪 Testes
 
 ### Testando Componentes shadcn/ui
+
 ```tsx
 // src/components/ui/button.test.tsx
-import { render, screen, fireEvent } from '@testing-library/react'
-import { Button } from './button'
+import { render, screen, fireEvent } from '@testing-library/react';
+import { Button } from './button';
 
 describe('Button', () => {
   it('renders with correct text', () => {
-    render(<Button>Click me</Button>)
-    expect(screen.getByRole('button')).toHaveTextContent('Click me')
-  })
+    render(<Button>Click me</Button>);
+    expect(screen.getByRole('button')).toHaveTextContent('Click me');
+  });
 
   it('handles click events', () => {
-    const handleClick = jest.fn()
-    render(<Button onClick={handleClick}>Click me</Button>)
-    
-    fireEvent.click(screen.getByRole('button'))
-    expect(handleClick).toHaveBeenCalledTimes(1)
-  })
-})
+    const handleClick = jest.fn();
+    render(<Button onClick={handleClick}>Click me</Button>);
+
+    fireEvent.click(screen.getByRole('button'));
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+});
 ```
 
 ## 📚 Storybook
 
 ### Stories para Componentes shadcn/ui
+
 ```tsx
 // src/components/ui/button.stories.tsx
-import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from './button'
+import type { Meta, StoryObj } from '@storybook/react';
+import { Button } from './button';
 
 const meta: Meta<typeof Button> = {
   title: 'UI/Button',
@@ -280,23 +294,30 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['default', 'secondary', 'destructive', 'outline', 'ghost', 'link'],
+      options: [
+        'default',
+        'secondary',
+        'destructive',
+        'outline',
+        'ghost',
+        'link',
+      ],
     },
     size: {
       control: { type: 'select' },
       options: ['default', 'sm', 'lg', 'icon'],
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
     children: 'Button',
   },
-}
+};
 
 export const AllVariants: Story = {
   render: () => (
@@ -309,17 +330,19 @@ export const AllVariants: Story = {
       <Button variant="link">Link</Button>
     </div>
   ),
-}
+};
 ```
 
 ## 🔄 Atualizações
 
 ### Atualizar shadcn/ui
+
 ```bash
 npx shadcn@latest update
 ```
 
 ### Atualizar Componentes Específicos
+
 ```bash
 npx shadcn@latest add button --overwrite
 ```
@@ -327,6 +350,7 @@ npx shadcn@latest add button --overwrite
 ## 🎯 Melhores Práticas
 
 ### 1. Composição
+
 ```tsx
 // ✅ Bom: Use composição
 <Card>
@@ -341,10 +365,11 @@ npx shadcn@latest add button --overwrite
 ```
 
 ### 2. Extensão de Componentes
+
 ```tsx
 // ✅ Bom: Estenda interfaces
 interface CustomButtonProps extends ButtonProps {
-  loading?: boolean
+  loading?: boolean;
 }
 
 // ✅ Bom: Use forwardRef
@@ -354,12 +379,13 @@ const CustomButton = React.forwardRef<HTMLButtonElement, CustomButtonProps>(
       <Button ref={ref} disabled={loading} {...props}>
         {loading ? 'Carregando...' : children}
       </Button>
-    )
+    );
   }
-)
+);
 ```
 
 ### 3. Utilitários
+
 ```tsx
 // ✅ Bom: Use cn() para classes condicionais
 import { cn } from '@/lib/utils'
@@ -374,11 +400,12 @@ import { cn } from '@/lib/utils'
 ## 🚀 Exemplos Práticos
 
 ### Formulário de Contato
+
 ```tsx
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export function ContactForm() {
   return (
@@ -393,14 +420,20 @@ export function ContactForm() {
         <Button className="w-full">Enviar</Button>
       </CardContent>
     </Card>
-  )
+  );
 }
 ```
 
 ### Modal de Confirmação
+
 ```tsx
-import { Button } from '@/components/ui/button'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 export function ConfirmationModal({ open, onConfirm, onCancel }) {
   return (
@@ -409,7 +442,7 @@ export function ConfirmationModal({ open, onConfirm, onCancel }) {
         <DialogHeader>
           <DialogTitle>Confirmar Ação</DialogTitle>
         </DialogHeader>
-        <div className="flex gap-2 justify-end">
+        <div className="flex justify-end gap-2">
           <Button variant="outline" onClick={onCancel}>
             Cancelar
           </Button>
@@ -419,7 +452,7 @@ export function ConfirmationModal({ open, onConfirm, onCancel }) {
         </div>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
 ```
 
@@ -432,4 +465,4 @@ export function ConfirmationModal({ open, onConfirm, onCancel }) {
 
 ---
 
-**Dica**: O shadcn/ui é uma ferramenta poderosa que permite criar interfaces consistentes e acessíveis. Use-o como base e estenda conforme necessário para seu projeto específico. 
+**Dica**: O shadcn/ui é uma ferramenta poderosa que permite criar interfaces consistentes e acessíveis. Use-o como base e estenda conforme necessário para seu projeto específico.

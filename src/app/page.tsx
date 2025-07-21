@@ -1,27 +1,38 @@
-import { Metadata } from 'next';
 import { 
   HeroBanner, 
-  AboutSection,
-  ProductsSection,
-  FAQSection,
-  ReviewsSection,
-  BlogSection,
-  CTASection
+  UnitsSection, 
+  PricingSection, 
+  AttractionsSection, 
+  FAQSection, 
+  PartySection 
 } from '@/components';
-import { generateMetadata } from '@/data/metadata';
+import { generateMetadata as generatePageMetadata } from '@/data/metadata';
+import type { Metadata } from 'next';
+import GSAPAnimations from '@/components/GSAPAnimations';
 
-export const metadata: Metadata = generateMetadata('home');
+// Gerar metadados específicos para a página home
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('home')
+}
 
 export default function HomePage() {
   return (
-    <>
-      <HeroBanner />
-      <AboutSection />
-      <ProductsSection />
-      <ReviewsSection />
+    <div className="min-h-screen bg-gray-900">
+      <GSAPAnimations />
+      <HeroBanner
+        title="Altitude Park"
+        subtitle="O melhor parque de trampolim do Brasil! Diversão garantida para toda a família com as melhores atrações e segurança."
+        primaryButtonText="Compre seu Ingresso"
+        primaryButtonLink="/ingressos"
+        secondaryButtonText="Faça sua Festa"
+        secondaryButtonLink="/faca-sua-festa"
+      />
+      
+      <UnitsSection />
+      <PricingSection />
+      <AttractionsSection />
       <FAQSection />
-      <BlogSection />
-      <CTASection />
-    </>
+      <PartySection />
+    </div>
   );
 } 

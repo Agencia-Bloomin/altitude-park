@@ -9,6 +9,8 @@ export {
   getEmailLink,
   getFullAddress,
   getWorkingHours,
+  getAllAddresses,
+  getAddress,
   getCanonicalUrl
 } from './config';
 
@@ -19,10 +21,10 @@ export const contactInfo = {
   whatsapp: siteConfig.contact.whatsapp,
   whatsappLink: siteConfig.contact.whatsappLink,
   email: siteConfig.contact.email,
-  address: siteConfig.contact.address,
-  workingHours: siteConfig.contact.workingHours,
-  mapIframe: siteConfig.contact.mapIframe,
-  mapLink: siteConfig.contact.mapLink,
+  addresses: siteConfig.contact.addresses,
+  // Para compatibilidade, mantém o primeiro endereço como padrão
+  address: siteConfig.contact.addresses[0],
+  workingHours: siteConfig.contact.addresses[0]?.workingHours,
 };
 
 // Função para verificar se uma rede social está configurada
@@ -82,8 +84,8 @@ export {
   tailwindTheme,
   getPrimaryColor,
   getSecondaryColor,
-  getAccentColor,
-  getNeutralColor,
+  getTertiaryColor,
+  getQuaternaryColor,
   getPrimaryFont,
   getSecondaryFont
 } from './theme';

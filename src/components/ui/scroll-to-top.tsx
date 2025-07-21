@@ -6,8 +6,15 @@ import { ChevronUp } from 'lucide-react';
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+
     const updateScrollProgress = () => {
       const scrollTop = window.pageYOffset;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -29,14 +36,21 @@ export function ScrollToTop() {
     return () => {
       window.removeEventListener('scroll', updateScrollProgress);
     };
-  }, []);
+  }, [isClient]);
 
   const scrollToTop = () => {
+    if (!isClient) return;
+    
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
   };
+
+  // Não renderizar nada até que o cliente esteja pronto
+  if (!isClient) {
+    return null;
+  }
 
   // Calcular o stroke-dasharray baseado no progresso
   const radius = 20;
