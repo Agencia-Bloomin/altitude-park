@@ -9,7 +9,6 @@ import { FormField } from '@/components/ui/form-field'
 import { toast } from 'sonner'
 import { ReCaptcha } from '@/components/ReCaptcha'
 import { siteConfig } from '@/data/config'
-
 const breadcrumbItems: BreadcrumbItem[] = [
   { label: 'Contato' }
 ]
@@ -167,7 +166,7 @@ export default function ContatoPage() {
   return (
     <main>
       <PageHero
-        title="Entre em Contato"
+        page="contact"
         description="Estamos aqui para ajudar! Entre em contato conosco e venha conhecer a Altitude Park!"
         breadcrumbItems={breadcrumbItems}
         backgroundImage="/images/contact-hero-bg.jpg"

@@ -1,12 +1,15 @@
 import React from 'react'
 import { Breadcrumb, BreadcrumbItem } from '@/components/ui/breadcrumb'
+import { getPageMetadata } from '@/data/metadata'
 
 interface PageHeroProps {
-  title: string
+  title?: string
   description?: string
   breadcrumbItems: BreadcrumbItem[]
   backgroundImage?: string
   className?: string
+  page?: string // Para buscar metadados automaticamente
+  h1?: string // H1 customizado (opcional)
 }
 
 const PageHero: React.FC<PageHeroProps> = ({
@@ -14,11 +17,18 @@ const PageHero: React.FC<PageHeroProps> = ({
   description,
   breadcrumbItems,
   backgroundImage,
-  className = ''
+  className = '',
+  page,
+  h1
 }) => {
+  // Obter metadados da página se especificada
+  const pageMetadata = page ? getPageMetadata(page) : null
+  
+  // Usar H1 dos metadados, H1 customizado, ou title como fallback
+  const heroTitle = h1 || pageMetadata?.h1 || title || 'Altitude Park'
   return (
     <section 
-      className={`relative h-[500px] flex items-center pt-32 pb-20 lg:pt-40 lg:pb-32 bg-gray-900 ${className}`}
+      className={`relative h-[500px] flex items-center pt-32 pb-20 lg:pt-56 lg:pb-32 bg-gray-900 ${className}`}
       style={{
         backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
         backgroundSize: 'cover',
@@ -39,7 +49,7 @@ const PageHero: React.FC<PageHeroProps> = ({
           
           {/* Title */}
           <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-            {title}
+            {heroTitle}
           </h1>
           
           {/* Description */}

@@ -1,17 +1,24 @@
 import React from 'react'
+import { Metadata } from 'next'
 import PageHero from '@/components/sections/PageHero'
 import { BreadcrumbItem } from '@/components/ui/breadcrumb'
+import { generateMetadata as generatePageMetadata } from '@/data/metadata'
 
 const breadcrumbItems: BreadcrumbItem[] = [
   { label: 'Sobre Nós' }
 ]
 
+// Gerar metadados específicos para a página sobre
+export async function generateMetadata(): Promise<Metadata> {
+  return generatePageMetadata('about')
+}
+
 export default function SobrePage() {
   return (
     <main>
       <PageHero
-        title="Sobre Nós"
-        description="Conheça nossa história, missão e valores que nos tornam referência em marketing digital"
+        page="about"
+        description="Conheça nossa história, missão e valores que nos tornam referência em diversão e segurança no Altitude Park."
         breadcrumbItems={breadcrumbItems}
         backgroundImage="/images/about-hero-bg.jpg"
       />

@@ -1,3 +1,6 @@
+import { siteConfig } from './config';
+import type { Metadata } from 'next';
+
 export interface PageMetadata {
   title: string;
   description: string;
@@ -17,12 +20,10 @@ export interface SiteMetadata {
   twitterHandle: string;
 }
 
-import { siteConfig } from './config';
-
 // Metadados por página
 export const pagesMetadata: Record<string, PageMetadata> = {
   home: {
-    title: `${siteConfig.siteName} | Diversão em Trampolins e Atrações			`,
+    title: `${siteConfig.siteName} | Diversão em Trampolins e Atrações`,
     description: 'Venha se divertir no Altitude Park com trampolins, brinquedos radicais e festas incríveis. Confira unidades, preços e viva essa experiência hoje!',
     keywords: ['trampolins', 'brinquedos radicais', 'festas incríveis', 'unidades', 'preços'],
     h1: 'Diversão em Trampolins e Atrações',
@@ -30,16 +31,16 @@ export const pagesMetadata: Record<string, PageMetadata> = {
   },
   about: {
     title: `Sobre Nós - ${siteConfig.siteName}`,
-    description: '',
+    description: 'Saiba tudo sobre o Altitude Park, nossa história, missão e valores, e descubra porque somos referência em diversão e trampolins no Brasil. Confira agora!',
     keywords: ['sobre nós', 'história', 'equipe', 'valores', 'trampolins', 'brinquedos radicais'],
-    h1: 'Sobree Nós',
-    canonical: '/sobre',
+    h1: 'Sobre Nós',
+    canonical: '/sobre-nos',
   },
   contact: {
     title: `Contato - ${siteConfig.siteName}`,
-    description: '',
+    description: 'Entre em contato com o Altitude Park para tirar dúvidas, agendar festas ou saber tudo sobre unidades, horários e preços. Clique aqui e fale com a gente!',
     keywords: ['contato', 'atendimento', 'orçamento', 'trampolins', 'brinquedos radicais'],
-    h1: 'Contato',
+    h1: 'Entre em Contato',
     canonical: '/contato',
   },
 };
@@ -61,7 +62,7 @@ export function getPageMetadata(page: string): PageMetadata {
 }
 
 // Função para gerar metadados completos
-export function generateMetadata(page: string, customData?: Partial<PageMetadata>) {
+export function generateMetadata(page: string, customData?: Partial<PageMetadata>): Metadata {
   const baseMetadata = getPageMetadata(page);
   const metadata = { ...baseMetadata, ...customData };
 
@@ -94,6 +95,17 @@ export function generateMetadata(page: string, customData?: Partial<PageMetadata
     },
     alternates: {
       canonical: `${siteMetadata.siteUrl}${metadata.canonical || '/'}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   };
 } 
