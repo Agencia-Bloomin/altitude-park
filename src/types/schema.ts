@@ -92,57 +92,7 @@ export function getHomePageSchema() {
   };
 }
 
-// ============================================================================
-// SCHEMA PARA SERVIÇOS/PRODUTOS
-// ============================================================================
 
-export function getServiceSchema(service: {
-  name: string;
-  description: string;
-  price?: number;
-  image?: string;
-  url: string;
-  category?: string;
-  features?: string[];
-}) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": service.name,
-    "description": service.description,
-    "url": service.url,
-    "image": service.image || `${siteConfig.siteUrl}/images/services/default.jpg`,
-    "provider": {
-      "@type": "Organization",
-      "name": siteConfig.siteName,
-      "url": siteConfig.siteUrl
-    },
-    "serviceType": service.category || "Marketing Digital",
-    "areaServed": {
-      "@type": "Country",
-      "name": "Brasil"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Serviços de Marketing Digital",
-      "itemListElement": service.features?.map(feature => ({
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": feature
-        }
-      })) || []
-    },
-    ...(service.price && {
-      "offers": {
-        "@type": "Offer",
-        "price": service.price,
-        "priceCurrency": "BRL",
-        "availability": "https://schema.org/InStock"
-      }
-    })
-  };
-}
 
 // ============================================================================
 // SCHEMA PARA ARTIGOS DO BLOG

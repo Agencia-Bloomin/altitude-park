@@ -188,39 +188,7 @@ export interface RewriteRule {
   conditions?: string[];
 }
 
-// ============================================================================
-// PRODUTOS E SERVIÇOS
-// ============================================================================
 
-export interface Product {
-  id: string;
-  name: string;
-  description: string;
-  shortDescription: string;
-  price: number;
-  originalPrice?: number;
-  image: string;
-  images: string[];
-  category: string;
-  tags: string[];
-  features: string[];
-  specifications?: Record<string, string>;
-  inStock: boolean;
-  slug: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface Category {
-  id: string;
-  name: string;
-  description: string;
-  image: string;
-  slug: string;
-  parentId?: string;
-  children?: Category[];
-  productCount: number;
-}
 
 // ============================================================================
 // CONTEÚDO E BLOG
@@ -377,7 +345,6 @@ export interface AnimationConfig {
 
 export interface FeaturesConfig {
   blog: boolean;
-  shop: boolean;
   testimonials: boolean;
   newsletter: boolean;
   chat: boolean;
@@ -399,7 +366,7 @@ export type SocialPlatform = 'facebook' | 'instagram' | 'linkedin' | 'youtube' |
 
 export type ContactMethod = 'email' | 'whatsapp' | 'phone';
 
-export type PageType = 'home' | 'about' | 'services' | 'contact' | 'blog' | 'products';
+export type PageType = 'home' | 'about' | 'services' | 'contact' | 'blog';
 
 export type ThemeMode = 'light' | 'dark' | 'auto';
 

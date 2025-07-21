@@ -70,10 +70,6 @@ const nextConfig = {
   async rewrites() {
     return [
       // Adicione seus rewrites aqui
-      // {
-      //   source: '/produto/:slug',
-      //   destination: '/produtos/[slug]',
-      // },
     ];
   },
   async headers() {

@@ -1,34 +1,4 @@
-// Tipos para produtos
-export interface Product {
-  id: string;
-  name: string;
-  description: string;
-  shortDescription: string;
-  price: number;
-  originalPrice?: number;
-  image: string;
-  images: string[];
-  category: string;
-  tags: string[];
-  features: string[];
-  specifications?: Record<string, string>;
-  inStock: boolean;
-  slug: string;
-  createdAt: string;
-  updatedAt: string;
-}
 
-// Tipos para categorias de produtos
-export interface Category {
-  id: string;
-  name: string;
-  description: string;
-  image: string;
-  slug: string;
-  parentId?: string;
-  children?: Category[];
-  productCount: number;
-}
 
 // Tipos para menu
 export interface MenuItem {

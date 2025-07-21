@@ -34,10 +34,6 @@ export const redirectRules: RedirectRule[] = [
 export const rewriteRules: RewriteRule[] = [
   // Exemplos de rewrite rules
   // {
-  //   source: '/produto/:slug',
-  //   destination: '/produtos/[slug]',
-  // },
-  // {
   //   source: '/categoria/:category',
   //   destination: '/categorias/[category]',
   // },
