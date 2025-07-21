@@ -18,7 +18,7 @@ const PageHero: React.FC<PageHeroProps> = ({
 }) => {
   return (
     <section 
-      className={`relative py-20 lg:py-32 bg-gray-900 ${className}`}
+      className={`relative h-[500px] flex items-center pt-32 pb-20 lg:pt-40 lg:pb-32 bg-gray-900 ${className}`}
       style={{
         backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
         backgroundSize: 'cover',
