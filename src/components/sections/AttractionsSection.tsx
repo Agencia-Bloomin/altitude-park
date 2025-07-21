@@ -1,9 +1,9 @@
 'use client';
 
+import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { BackgroundElements } from '@/components/ui/BackgroundElements';
 import { Button } from '@/components/ui/button';
-import { useSectionAnimation } from '@/lib/animations';
 
 const attractions = [
   { 
@@ -39,7 +39,134 @@ const attractions = [
 ];
 
 export function AttractionsSection() {
-  const sectionRef = useSectionAnimation();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const animate = async () => {
+      // Importação dinâmica do GSAP
+      const gsapModule = await import('gsap');
+      const scrollTriggerModule = await import('gsap/ScrollTrigger');
+      const gsap = gsapModule.gsap;
+      const ScrollTrigger = scrollTriggerModule.ScrollTrigger;
+      
+      gsap.registerPlugin(ScrollTrigger);
+      
+      const section = sectionRef.current;
+      if (!section) return;
+
+      // Animação para o título
+      const title = section.querySelector('.section-title');
+      if (title) {
+        gsap.fromTo(title,
+          { 
+            opacity: 0,
+            y: -30
+          },
+          { 
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 85%",
+              end: "bottom 15%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      }
+
+      // Animação para a descrição
+      const description = section.querySelector('.section-description');
+      if (description) {
+        gsap.fromTo(description,
+          { 
+            opacity: 0,
+            y: -20
+          },
+          { 
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 85%",
+              end: "bottom 15%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      }
+
+      // Animação específica para os cards de atrações
+      const cards = section.querySelectorAll('.attraction-card');
+      if (cards && cards.length > 0) {
+        gsap.fromTo(cards,
+          { 
+            opacity: 0,
+            y: 20
+          },
+          { 
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      }
+
+      // Animação para os botões CTA
+      const ctaButtons = section.querySelectorAll('.cta-buttons button');
+      if (ctaButtons && ctaButtons.length > 0) {
+        gsap.fromTo(ctaButtons,
+          { 
+            opacity: 0,
+            scale: 0.8,
+            y: 20
+          },
+          { 
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "back.out(1.4)",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 70%",
+              end: "bottom 30%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      }
+    };
+
+    animate();
+
+    return () => {
+      // Cleanup das animações
+      if (typeof window !== 'undefined') {
+        import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
+          ScrollTrigger.getAll().forEach((trigger: any) => {
+            if (trigger.vars.trigger === sectionRef.current) {
+              trigger.kill();
+            }
+          });
+        });
+      }
+    };
+  }, []);
 
   return (
     <section ref={sectionRef} className="section-padding section-animate relative overflow-hidden">

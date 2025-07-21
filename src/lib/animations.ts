@@ -518,18 +518,16 @@ export const useSectionAnimation = (cardSelector: string = '[class*="card"]') =>
         gsap.fromTo(cards,
           { 
             opacity: 0,
-            y: 50,
-            scale: 0.9,
-            rotationY: -5
+            y: 30,
+            scale: 0.95
           },
           { 
             opacity: 1,
             y: 0,
             scale: 1,
-            rotationY: 0,
-            duration: 0.7,
-            stagger: 0.08,
-            ease: "back.out(1.3)",
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: section,
               start: "top 80%",
