@@ -33,24 +33,6 @@ export function HeroBanner({
       if (typeof window !== 'undefined') {
         const { gsap } = await import('gsap');
         
-        // Animação do banner
-        if (bannerRef.current) {
-          gsap.fromTo(bannerRef.current, 
-            { 
-              scale: 0.8, 
-              opacity: 0,
-              y: 100
-            },
-            { 
-              scale: 1, 
-              opacity: 1,
-              y: 0,
-              duration: 1.5,
-              ease: "power2.out"
-            }
-          );
-        }
-
         // Animação do elemento de background
         if (backgroundElementRef.current) {
           gsap.fromTo(backgroundElementRef.current,
