@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { FormField } from '@/components/ui/form-field'
 import { toast } from 'sonner'
 import { ReCaptcha } from '@/components/ReCaptcha'
+import { siteConfig } from '@/data/config'
 
 const breadcrumbItems: BreadcrumbItem[] = [
   { label: 'Contato' }
@@ -23,7 +24,6 @@ export default function ContatoPage() {
   })
   
   const [loading, setLoading] = useState(false)
-  const [sendMethod, setSendMethod] = useState<'email' | 'whatsapp'>('email')
   const [config, setConfig] = useState<any>(null)
   const [recaptchaToken, setRecaptchaToken] = useState('')
 
@@ -67,13 +67,16 @@ export default function ContatoPage() {
     }
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    
+  const validateForm = () => {
     if (!formData.nome || !formData.email || !formData.mensagem) {
       toast.error('Nome, email e mensagem são obrigatórios')
-      return
+      return false
     }
+    return true
+  }
+
+  const handleSendEmail = async () => {
+    if (!validateForm()) return
 
     setLoading(true)
 
@@ -85,7 +88,7 @@ export default function ContatoPage() {
         },
         body: JSON.stringify({
           ...formData,
-          sendMethod,
+          sendMethod: 'email',
           recaptchaToken: config?.recaptcha?.enabled ? recaptchaToken : undefined
         }),
       })
@@ -93,7 +96,7 @@ export default function ContatoPage() {
       const data = await response.json()
 
       if (response.ok) {
-        toast.success('Mensagem enviada com sucesso!')
+        toast.success('Mensagem enviada por email com sucesso!')
         setFormData({
           nome: '',
           email: '',
@@ -101,16 +104,57 @@ export default function ContatoPage() {
           assunto: '',
           mensagem: ''
         })
-        
-        // Se foi enviado por WhatsApp, abrir o link
-        if (sendMethod === 'whatsapp' && data.results?.whatsapp?.url) {
-          window.open(data.results.whatsapp.url, '_blank')
-        }
       } else {
-        toast.error(data.error || 'Erro ao enviar mensagem')
+        toast.error(data.error || 'Erro ao enviar mensagem por email')
       }
     } catch (error) {
-      toast.error('Erro ao enviar mensagem')
+      toast.error('Erro ao enviar mensagem por email')
+      console.error(error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleSendWhatsApp = async () => {
+    if (!validateForm()) return
+
+    setLoading(true)
+
+    try {
+      const response = await fetch('/api/contato', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          sendMethod: 'whatsapp',
+          recaptchaToken: config?.recaptcha?.enabled ? recaptchaToken : undefined
+        }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        toast.success('Mensagem preparada para WhatsApp!')
+        
+        // Abrir WhatsApp em nova aba
+        if (data.results?.whatsapp?.url) {
+          window.open(data.results.whatsapp.url, '_blank')
+        }
+        
+        setFormData({
+          nome: '',
+          email: '',
+          telefone: '',
+          assunto: '',
+          mensagem: ''
+        })
+      } else {
+        toast.error(data.error || 'Erro ao preparar mensagem para WhatsApp')
+      }
+    } catch (error) {
+      toast.error('Erro ao preparar mensagem para WhatsApp')
       console.error(error)
     } finally {
       setLoading(false)
@@ -194,7 +238,7 @@ export default function ContatoPage() {
                 Envie sua Mensagem
               </h3>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <FormField
                     label="Nome Completo"
@@ -246,27 +290,6 @@ export default function ContatoPage() {
                   rows={4}
                 />
 
-                {/* Método de Envio */}
-                <FormField
-                  label="Método de Envio"
-                  name="sendMethod"
-                  type="radio"
-                  value={sendMethod}
-                  onChange={(e) => setSendMethod(e.target.value as 'email' | 'whatsapp')}
-                  options={[
-                    {
-                      value: 'email',
-                      label: 'Email',
-                      icon: <Mail size={16} />
-                    },
-                    {
-                      value: 'whatsapp',
-                      label: 'WhatsApp',
-                      icon: <MessageSquare size={16} />
-                    }
-                  ]}
-                />
-
                 {/* reCAPTCHA */}
                 {config?.recaptcha?.enabled && config?.recaptcha?.siteKey && (
                   <ReCaptcha
@@ -280,23 +303,46 @@ export default function ContatoPage() {
                   />
                 )}
                 
-                <Button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50"
-                >
-                  {loading ? (
-                    <>
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                      Enviando...
-                    </>
-                  ) : (
-                    <>
-                      <Send size={16} className="mr-2" />
-                      Enviar Mensagem
-                    </>
-                  )}
-                </Button>
+                {/* Botões de Envio */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <Button
+                    type="button"
+                    onClick={handleSendEmail}
+                    disabled={loading}
+                    className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50"
+                  >
+                    {loading ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                        Enviando...
+                      </>
+                    ) : (
+                      <>
+                        <Mail size={16} className="mr-2" />
+                        Enviar por Email
+                      </>
+                    )}
+                  </Button>
+                  
+                  <Button
+                    type="button"
+                    onClick={handleSendWhatsApp}
+                    disabled={loading}
+                    className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors disabled:opacity-50"
+                  >
+                    {loading ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                        Preparando...
+                      </>
+                    ) : (
+                      <>
+                        <MessageSquare size={16} className="mr-2" />
+                        Enviar por WhatsApp
+                      </>
+                    )}
+                  </Button>
+                </div>
               </form>
             </div>
           </div>
