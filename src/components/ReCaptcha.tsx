@@ -37,12 +37,14 @@ export function ReCaptcha({ siteKey, onVerify, onExpired, onError }: ReCaptchaPr
     // Verificar se o script já foi carregado
     if (window.grecaptcha) {
       window.grecaptcha.ready(() => {
-        widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current!, {
-          sitekey: siteKey,
-          callback: onVerify,
-          'expired-callback': onExpired,
-          'error-callback': onError,
-        })
+        if (recaptchaRef.current) {
+          widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
+            sitekey: siteKey,
+            callback: onVerify,
+            'expired-callback': onExpired,
+            'error-callback': onError,
+          })
+        }
       })
       return
     }
@@ -56,12 +58,14 @@ export function ReCaptcha({ siteKey, onVerify, onExpired, onError }: ReCaptchaPr
     script.onload = () => {
       if (window.grecaptcha && recaptchaRef.current) {
         window.grecaptcha.ready(() => {
-          widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current!, {
-            sitekey: siteKey,
-            callback: onVerify,
-            'expired-callback': onExpired,
-            'error-callback': onError,
-          })
+          if (recaptchaRef.current) {
+            widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
+              sitekey: siteKey,
+              callback: onVerify,
+              'expired-callback': onExpired,
+              'error-callback': onError,
+            })
+          }
         })
       }
     }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 interface ConfettiElementsProps {
@@ -9,82 +9,91 @@ interface ConfettiElementsProps {
 
 export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient || !containerRef.current) return;
 
     // Importar GSAP apenas no cliente
     const loadGSAP = async () => {
       if (typeof window !== 'undefined') {
-        const { gsap } = await import('gsap');
-        const { ScrollTrigger } = await import('gsap/ScrollTrigger');
-        
-        gsap.registerPlugin(ScrollTrigger);
+        try {
+          const { gsap } = await import('gsap');
+          const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+          
+          gsap.registerPlugin(ScrollTrigger);
 
-        const elements = containerRef.current?.querySelectorAll('.confetti-element');
-        
-        elements?.forEach((element, index) => {
-          // Função para criar animação de confete individual
-          const createConfettiAnimation = () => {
-            // Posições aleatórias para cada confete
-            const randomX = Math.random() * 100 - 50; // -50% a +50%
-            const randomY = Math.random() * 100 - 50; // -50% a +50%
-            
-            // Timeline para cada confete
-            const tl = gsap.timeline({
-              repeat: -1, // Loop infinito
-              repeatDelay: Math.random() * 3 + 1, // Delay aleatório entre repetições
-              scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top 90%",
-                end: "bottom 10%",
-                toggleActions: "play pause resume pause"
-              }
-            });
+          const elements = containerRef.current?.querySelectorAll('.confetti-element');
+          
+          elements?.forEach((element, index) => {
+            // Função para criar animação de confete individual
+            const createConfettiAnimation = () => {
+              // Posições aleatórias para cada confete
+              const randomX = Math.random() * 100 - 50; // -50% a +50%
+              const randomY = Math.random() * 100 - 50; // -50% a +50%
+              
+              // Timeline para cada confete
+              const tl = gsap.timeline({
+                repeat: -1, // Loop infinito
+                repeatDelay: Math.random() * 3 + 1, // Delay aleatório entre repetições
+                scrollTrigger: {
+                  trigger: containerRef.current,
+                  start: "top 90%",
+                  end: "bottom 10%",
+                  toggleActions: "play pause resume pause"
+                }
+              });
 
-            // Animação de aparecimento
-            tl.fromTo(element,
-              { 
+              // Animação de aparecimento
+              tl.fromTo(element,
+                { 
+                  opacity: 0,
+                  scale: 0,
+                  rotation: 0,
+                  y: -100,
+                  x: randomX,
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`
+                },
+                { 
+                  opacity: 0.8,
+                  scale: 1,
+                  rotation: Math.random() * 720 - 360,
+                  y: 0,
+                  x: 0,
+                  duration: 2 + Math.random() * 2,
+                  ease: "back.out(1.7)"
+                }
+              );
+
+              // Animação de desaparecimento
+              tl.to(element, {
                 opacity: 0,
                 scale: 0,
-                rotation: 0,
-                y: -100,
-                x: randomX,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`
-              },
-              { 
-                opacity: 0.8,
-                scale: 1,
-                rotation: Math.random() * 720 - 360,
-                y: 0,
-                x: 0,
-                duration: 2 + Math.random() * 2,
-                ease: "back.out(1.7)"
-              }
-            );
+                rotation: Math.random() * 360,
+                y: 50,
+                duration: 1,
+                ease: "power2.in"
+              }, "+=1"); // Delay de 1 segundo após aparecer
 
-            // Animação de desaparecimento
-            tl.to(element, {
-              opacity: 0,
-              scale: 0,
-              rotation: Math.random() * 360,
-              y: 50,
-              duration: 1,
-              ease: "power2.in"
-            }, "+=1"); // Delay de 1 segundo após aparecer
+              return tl;
+            };
 
-            return tl;
-          };
-
-          // Iniciar animação com delay escalonado
-          gsap.delayedCall(index * 0.3, createConfettiAnimation);
-        });
+            // Iniciar animação com delay escalonado
+            gsap.delayedCall(index * 0.3, createConfettiAnimation);
+          });
+        } catch (error) {
+          console.warn('GSAP failed to load:', error);
+        }
       }
     };
 
     loadGSAP();
-  }, []);
+  }, [isClient]);
 
   return (
     <div ref={containerRef} className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`}>

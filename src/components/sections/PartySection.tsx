@@ -1,9 +1,27 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ConfettiElements } from '@/components/ui/ConfettiElements';
 import { siteConfig } from '@/data/config';
 
 export function PartySection() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const handleWhatsAppClick = () => {
+    if (!isClient) return;
+    
+    const message = "Olá, vim pelo site, gostaria de realizar uma cotação de festa.";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappLink = `${siteConfig.contact.whatsappLink}?text=${encodedMessage}`;
+    window.open(whatsappLink, '_blank');
+  };
+
   return (
     <section className="section-padding section-animate relative">
       <ConfettiElements />
@@ -28,12 +46,7 @@ export function PartySection() {
               <Button 
                 variant="default" 
                 size="xl"
-                onClick={() => {
-                  const message = "Olá, vim pelo site, gostaria de realizar uma cotação de festa.";
-                  const encodedMessage = encodeURIComponent(message);
-                  const whatsappLink = `${siteConfig.contact.whatsappLink}?text=${encodedMessage}`;
-                  window.open(whatsappLink, '_blank');
-                }}
+                onClick={handleWhatsAppClick}
               >
                 Solicitar Cotação
               </Button>

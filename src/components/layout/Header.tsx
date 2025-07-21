@@ -11,18 +11,27 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isClient]);
 
   // Prevenir scroll do body quando menu mobile estiver aberto
   useEffect(() => {
+    if (!isClient) return;
+
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -32,7 +41,7 @@ export function Header() {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, isClient]);
 
   return (
     <>

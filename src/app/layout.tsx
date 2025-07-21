@@ -7,6 +7,7 @@ import { siteConfig, getGoogleFontsLinks } from '@/data/config';
 import GoogleTagManager from '@/components/GoogleTagManager';
 import { Toaster } from 'sonner';
 import { GSAPProvider } from '@/components/GSAPProvider';
+import { CSSVariablesProvider } from '@/components/CSSVariablesProvider';
 
 export const metadata: Metadata = {
   title: {
@@ -90,6 +91,7 @@ export default function RootLayout({
         {/* Google Tag Manager será carregado após interação do usuário */}
       </head>
       <body className="antialiased bg-gray-900 text-white font-secondary">
+        <CSSVariablesProvider />
         <GSAPProvider>
           <div className="flex min-h-screen flex-col">
             <Header />
@@ -101,18 +103,6 @@ export default function RootLayout({
           <Toaster position="top-right" richColors />
           {/* <GoogleTagManager /> */}
         </GSAPProvider>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              // Sincronização automática de fontes
-              (function() {
-                const root = document.documentElement;
-                root.style.setProperty('--font-primary', '${siteConfig.theme.fonts.primary}');
-                root.style.setProperty('--font-secondary', '${siteConfig.theme.fonts.secondary}');
-              })();
-            `,
-          }}
-        />
       </body>
     </html>
   );

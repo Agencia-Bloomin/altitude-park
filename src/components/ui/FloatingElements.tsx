@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 interface FloatingElementsProps {
@@ -9,50 +9,59 @@ interface FloatingElementsProps {
 
 export function FloatingElements({ className = '' }: FloatingElementsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient || !containerRef.current) return;
 
     // Importar GSAP apenas no cliente
     const loadGSAP = async () => {
       if (typeof window !== 'undefined') {
-        const { gsap } = await import('gsap');
-        const { ScrollTrigger } = await import('gsap/ScrollTrigger');
-        
-        gsap.registerPlugin(ScrollTrigger);
+        try {
+          const { gsap } = await import('gsap');
+          const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+          
+          gsap.registerPlugin(ScrollTrigger);
 
-        const elements = containerRef.current?.querySelectorAll('.floating-element');
-        
-        elements?.forEach((element, index) => {
-          gsap.fromTo(element,
-            { 
-              opacity: 0,
-              scale: 0,
-              rotation: 0,
-              y: 50
-            },
-            { 
-              opacity: 0.15,
-              scale: 1,
-              rotation: 360,
-              y: 0,
-              duration: 2,
-              delay: index * 0.2,
-              ease: "back.out(1.7)",
-              scrollTrigger: {
-                trigger: element,
-                start: "top 90%",
-                end: "bottom 10%",
-                toggleActions: "play none none reverse"
+          const elements = containerRef.current?.querySelectorAll('.floating-element');
+          
+          elements?.forEach((element, index) => {
+            gsap.fromTo(element,
+              { 
+                opacity: 0,
+                scale: 0,
+                rotation: 0,
+                y: 50
+              },
+              { 
+                opacity: 0.15,
+                scale: 1,
+                rotation: 360,
+                y: 0,
+                duration: 2,
+                delay: index * 0.2,
+                ease: "back.out(1.7)",
+                scrollTrigger: {
+                  trigger: element,
+                  start: "top 90%",
+                  end: "bottom 10%",
+                  toggleActions: "play none none reverse"
+                }
               }
-            }
-          );
-        });
+            );
+          });
+        } catch (error) {
+          console.warn('GSAP failed to load:', error);
+        }
       }
     };
 
     loadGSAP();
-  }, []);
+  }, [isClient]);
 
   return (
     <div ref={containerRef} className={`absolute inset-0 pointer-events-none overflow-hidden ${className}`}>
