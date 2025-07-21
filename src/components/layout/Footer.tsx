@@ -132,21 +132,21 @@ export function Footer() {
           {/* Seção inferior */}
           <div className="border-t border-gray-800 py-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-gray-400 text-sm">
+              <div className="text-gray-400 text-sm text-center md:text-left">
                 © {new Date().getFullYear()} Altitude Park. Todos os direitos reservados.
               </div>
-              <div className="flex items-center space-x-6">
-                <div className="flex space-x-6 text-sm">
-                  <Link href="#" className="text-gray-400 hover:text-pink-400 transition-colors">
+              <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
+                <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-sm">
+                  <Link href="#" className="text-gray-400 hover:text-pink-400 transition-colors text-center md:text-left">
                     Política de Privacidade
                   </Link>
-                  <Link href="#" className="text-gray-400 hover:text-pink-400 transition-colors">
+                  <Link href="#" className="text-gray-400 hover:text-pink-400 transition-colors text-center md:text-left">
                     Mapa do Site
                   </Link>
                 </div>
                 
-                {/* Logo Bloomin */}
-                <div className="ml-6 pl-6 border-l border-gray-700">
+                {/* Logo Bloomin - desktop */}
+                <div className="hidden md:block md:ml-6 md:pl-6 md:border-l md:border-gray-700">
                   <a
                     href="https://bloomin.com.br/"
                     target="_blank"
@@ -159,10 +159,31 @@ export function Footer() {
                       title="Desenvolvido por Bloomin"
                       width={150}
                       height={50}
-                      className="h-10 w-auto"
+                      className="h-10 w-auto object-contain"
                     />
                   </a>
                 </div>
+              </div>
+            </div>
+            
+            {/* Logo Bloomin - mobile (seção separada) */}
+            <div className="md:hidden pt-6 border-t border-gray-800 mt-6">
+              <div className="flex justify-center">
+                <a
+                  href="https://bloomin.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block opacity-60 hover:opacity-100 transition-opacity duration-300"
+                >
+                  <Image
+                    src="/images/logo/logo-bloomin.webp"
+                    alt="Desenvolvido por Bloomin"
+                    title="Desenvolvido por Bloomin"
+                    width={150}
+                    height={50}
+                    className="h-10 w-auto object-contain"
+                  />
+                </a>
               </div>
             </div>
         </div>
