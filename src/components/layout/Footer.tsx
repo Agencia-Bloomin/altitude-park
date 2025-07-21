@@ -135,7 +135,7 @@ export function Footer() {
               <div className="text-gray-400 text-sm text-center md:text-left">
                 © {new Date().getFullYear()} Altitude Park. Todos os direitos reservados.
               </div>
-              <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
+              <div className="flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-6">
                 <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-sm">
                   <Link href="#" className="text-gray-400 hover:text-pink-400 transition-colors text-center md:text-left">
                     Política de Privacidade
@@ -145,8 +145,8 @@ export function Footer() {
                   </Link>
                 </div>
                 
-                {/* Logo Bloomin - desktop */}
-                <div className="hidden md:block md:ml-6 md:pl-6 md:border-l md:border-gray-700">
+                {/* Logo Bloomin - desktop (lg, xl) */}
+                <div className="hidden lg:block lg:ml-6 lg:pl-6 lg:border-l lg:border-gray-700">
                   <a
                     href="https://bloomin.com.br/"
                     target="_blank"
@@ -166,8 +166,8 @@ export function Footer() {
               </div>
             </div>
             
-            {/* Logo Bloomin - mobile (seção separada) */}
-            <div className="md:hidden pt-6 border-t border-gray-800 mt-6">
+            {/* Logo Bloomin - mobile e md (seção separada) */}
+            <div className="lg:hidden pt-6 border-t border-gray-800 mt-6">
               <div className="flex justify-center">
                 <a
                   href="https://bloomin.com.br/"
