@@ -188,6 +188,7 @@ export function HeroBanner({
                   title="Banner Hero 1"
                   width={600}
                   height={600}
+                  priority
                   className="w-full h-full object-cover rounded-xl shadow-2xl"
                 />
               </div>

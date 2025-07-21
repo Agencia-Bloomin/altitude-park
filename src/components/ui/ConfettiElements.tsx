@@ -105,6 +105,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={40}
         height={40}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -121,6 +122,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={45}
         height={45}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -147,6 +149,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={25}
         height={25}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -163,6 +166,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={30}
         height={30}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -189,6 +193,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={20}
         height={20}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -205,6 +210,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={25}
         height={25}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -231,6 +237,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={15}
         height={15}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -247,6 +254,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={20}
         height={20}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
 
       {/* Confetti extras - Canto superior direito */}
@@ -273,6 +281,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={16}
         height={16}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
 
       {/* Confetti extras - Canto inferior esquerdo */}
@@ -291,6 +300,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={32}
         height={32}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -317,6 +327,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={19}
         height={19}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -335,6 +346,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={17}
         height={17}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -361,6 +373,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={27}
         height={27}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -377,6 +390,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={31}
         height={31}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
 
       {/* Confetti extras - Centro esquerdo */}
@@ -403,6 +417,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={33}
         height={33}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
 
       {/* Confetti extras - Centro direito */}
@@ -421,6 +436,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={11}
         height={11}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -447,6 +463,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={24}
         height={24}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -463,6 +480,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={26}
         height={26}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -487,6 +505,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={16}
         height={16}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -505,6 +524,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={10}
         height={10}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-orange.png"
@@ -529,6 +549,7 @@ export function ConfettiElements({ className = '' }: ConfettiElementsProps) {
         width={14}
         height={14}
         className="confetti-element absolute image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
     </div>
   );

@@ -141,6 +141,7 @@ export function FloatingElements({ className = '' }: FloatingElementsProps) {
         width={80}
         height={80}
         className="floating-element absolute top-10 right-1/3 animate-float-3 opacity-20 image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-blue.png"
@@ -149,6 +150,7 @@ export function FloatingElements({ className = '' }: FloatingElementsProps) {
         width={60}
         height={60}
         className="floating-element absolute bottom-10 left-1/3 animate-float-1 opacity-20 image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
       <Image
         src="/images/elements/radius-green.png"
@@ -157,6 +159,7 @@ export function FloatingElements({ className = '' }: FloatingElementsProps) {
         width={70}
         height={70}
         className="floating-element absolute top-1/2 right-10 animate-float-2 opacity-20 image-auto-ratio"
+        style={{ width: 'auto', height: 'auto' }}
       />
     </div>
   );
