@@ -2,6 +2,7 @@
 
 import { useFadeInAnimation, useStaggerAnimation, useScaleIn } from '@/lib/animations';
 import { Star, Quote } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const reviews = [
   {
@@ -144,14 +145,9 @@ export function ReviewsSection() {
           <p className="text-gray-600 mb-6">
             Junte-se aos nossos clientes satisfeitos e transforme seu negócio!
           </p>
-          <a
-            href="https://wa.me/5511999999999?text=Olá! Gostaria de conhecer mais sobre os serviços e ver casos de sucesso."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary text-lg px-8 py-4"
-          >
-            Solicitar Demonstração
-          </a>
+          <Button variant="default" size="xl">
+            Ver Mais Avaliações
+          </Button>
         </div>
       </div>
     </section>

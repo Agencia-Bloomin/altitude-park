@@ -125,7 +125,7 @@ export function Header() {
                 </Link>
                 
                 {/* Botão Ingressos em destaque */}
-                <Button asChild className="btn-highlight py-5 text-base transition-all duration-300 ease-out">
+                <Button asChild variant="highlight" size="xl">
                   <Link href="/">
                     Ingressos
                   </Link>
@@ -247,7 +247,7 @@ export function Header() {
 
           {/* Footer do menu mobile */}
           <div className="p-6 border-t border-gray-700">
-            <Button asChild className="btn-highlight w-full transition-all duration-300 ease-out transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-2xl hover:shadow-primary-500/25 active:scale-95">
+            <Button asChild variant="highlight" size="xl" className="w-full">
               <Link href="/ingressos" onClick={() => setIsMobileMenuOpen(false)}>
                 Ingressos
               </Link>

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { siteConfig } from '@/data/config';
 import { useEffect, useRef } from 'react';
+import { Button } from '@/components/ui/button';
 
 export function UnitsSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -115,7 +116,7 @@ export function UnitsSection() {
         {/* Elemento topo esquerdo */}
         <div className="bg-element-green absolute top-56 -left-4 w-1/2 h-64 border-2 border-quinary-400 opacity-70" style={{ borderRadius: '0 200px 200px 0' }}></div>
         {/* Elemento inferior direito */}
-        <div className="bg-element-pink absolute bottom-10 -right-4 w-1/2 h-64 border-2 border-primary-400 opacity-70" style={{ borderRadius: '200px 0 0 200px' }}></div>
+        <div className="bg-element-pink absolute bottom-10 -right-4 w-1/2 h-64 border-2 border-tertiary-400 opacity-70" style={{ borderRadius: '200px 0 0 200px' }}></div>
       </div>
       
       <div className="container-custom relative z-10">
@@ -150,6 +151,17 @@ export function UnitsSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button variant="default" size="xl">
+              Compre seu ingresso
+            </Button>
+            <Button variant="outline" size="xl">
+              Saiba mais
+            </Button>
+          </div>
         </div>
       </div>
     </section>

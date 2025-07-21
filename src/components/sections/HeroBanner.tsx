@@ -163,12 +163,12 @@ export function HeroBanner({
               {subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button asChild className="btn-highlight text-lg px-8 py-6 transition-all duration-300 ease-out">
+              <Button asChild variant="highlight" size="xl">
                 <Link href={primaryButtonLink}>
                   {primaryButtonText}
                 </Link>
               </Button>
-              <Button asChild className="btn-secondary font-semibold text-lg px-8 py-6 transition-all duration-300 ease-out">
+              <Button asChild variant="highlight-outline" size="xl">
                 <Link href={secondaryButtonLink}>
                   {secondaryButtonText}
                 </Link>

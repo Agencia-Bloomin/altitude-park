@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Phone, Mail, MessageCircle } from 'lucide-react';
 import { getWhatsAppLink, getEmailLink } from '@/data';
+import Link from 'next/link';
 // GSAP será carregado dinamicamente
 
 export function CTASection() {
@@ -126,14 +127,15 @@ export function CTASection() {
               </div>
               <h3 className="text-xl font-semibold mb-2">WhatsApp</h3>
               <p className="text-white/80 mb-4">Resposta rápida e direta</p>
-              <a
-                href={getWhatsAppLink('Olá! Gostaria de solicitar um orçamento para transformar minha presença digital.')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline border-white text-white hover:bg-white hover:text-primary-600 w-full"
-              >
-                Enviar Mensagem
-              </a>
+              <Button asChild variant="outline" size="lg" className="w-full">
+                <a
+                  href={getWhatsAppLink('Olá! Gostaria de solicitar um orçamento para transformar minha presença digital.')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Enviar Mensagem
+                </a>
+              </Button>
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
@@ -142,12 +144,11 @@ export function CTASection() {
               </div>
               <h3 className="text-xl font-semibold mb-2">Telefone</h3>
               <p className="text-white/80 mb-4">Atendimento personalizado</p>
-              <a
-                href="tel:+5511999999999"
-                className="btn-outline border-white text-white hover:bg-white hover:text-primary-600 w-full"
-              >
-                Ligar Agora
-              </a>
+              <Button asChild variant="outline" size="lg" className="w-full">
+                <a href="tel:+5511999999999">
+                  Ligar Agora
+                </a>
+              </Button>
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
@@ -156,24 +157,34 @@ export function CTASection() {
               </div>
               <h3 className="text-xl font-semibold mb-2">Email</h3>
               <p className="text-white/80 mb-4">Proposta detalhada</p>
-              <a
-                href={getEmailLink('Solicitação de Orçamento - Transformação Digital', 'Olá! Gostaria de solicitar um orçamento para transformar minha presença digital. Por favor, me envie uma proposta detalhada.')}
-                className="btn-outline border-white text-white hover:bg-white hover:text-primary-600 w-full"
-              >
-                Enviar Email
-              </a>
+              <Button asChild variant="outline" size="lg" className="w-full">
+                <a
+                  href={getEmailLink('Solicitação de Orçamento - Transformação Digital', 'Olá! Gostaria de solicitar um orçamento para transformar minha presença digital. Por favor, me envie uma proposta detalhada.')}
+                >
+                  Enviar Email
+                </a>
+              </Button>
             </div>
           </div>
 
           <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button variant="tertiary" size="lg" className="text-lg px-8 py-4">
-              Solicitar Orçamento Gratuito
-              <ArrowRight size={20} className="ml-2" />
+            <Button asChild variant="outline" size="xl" className="w-full">
+              <Link href="/contato">
+                Entre em Contato
+              </Link>
             </Button>
-            
-            <Button variant="quinary" size="lg" className="text-lg px-8 py-4">
-              Ver Portfólio
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button asChild variant="outline" size="xl" className="w-full">
+                <Link href="/precos">
+                  Ver Preços
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="xl" className="w-full">
+                <Link href="/unidades">
+                  Nossas Unidades
+                </Link>
+              </Button>
+            </div>
           </div>
 
           <div className="mt-8 text-white/70">

@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle, Users, Award, Target } from 'lucide-react';
-// GSAP será carregado dinamicamente
+import { Button } from '@/components/ui/button';
 
 const stats = [
   {
@@ -161,13 +161,17 @@ export function AboutSection() {
             </div>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/sobre" className="btn-primary">
-                Conheça Nossa História
-              </Link>
-              <Link href="/contato" className="btn-outline">
-                Fale Conosco
-              </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Button asChild variant="default" size="xl">
+                <Link href="/sobre">
+                  Saiba Mais
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="xl">
+                <Link href="/contato">
+                  Entre em Contato
+                </Link>
+              </Button>
             </div>
           </div>
 

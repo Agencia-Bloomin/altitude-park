@@ -23,9 +23,9 @@ export function PartySection() {
               Oferecemos pacotes completos para festas de aniversário, eventos corporativos e comemorações especiais. 
               Entre em contato conosco para solicitar um orçamento personalizado!
             </p>
-            <Button asChild className="btn-highlight text-lg px-8 py-4">
+            <Button asChild variant="highlight" size="xl">
               <Link href="/faca-sua-festa">
-                Solicitar Cotação
+                Faça sua Festa
               </Link>
             </Button>
           </div>

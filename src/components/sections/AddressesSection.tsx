@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { MapPin, Clock, Calendar, Phone, Mail } from 'lucide-react';
 import { getAllAddresses } from '@/data';
+import { Button } from '@/components/ui/button';
 
 export function AddressesSection() {
   const addresses = getAllAddresses();
@@ -121,12 +122,12 @@ export function AddressesSection() {
 
                 {/* Botão para expandir detalhes */}
                 {isClient && (
-                  <button
+                  <Button
                     onClick={() => toggleLocation(address.name)}
                     className="w-full text-center text-primary-600 hover:text-primary-700 font-medium text-sm transition-colors"
                   >
                     {selectedLocation === address.name ? 'Ocultar detalhes' : 'Ver mais detalhes'}
-                  </button>
+                  </Button>
                 )}
 
                 {/* Detalhes expandidos */}
@@ -166,20 +167,12 @@ export function AddressesSection() {
             Não encontrou uma unidade próxima? Entre em contato conosco!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://wa.me/5511969165905?text=Olá! Gostaria de saber mais sobre as unidades da Altitude Park."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary text-lg px-8 py-4"
-            >
-              Falar no WhatsApp
-            </a>
-            <a
-              href="tel:+551123852640"
-              className="btn-outline text-lg px-8 py-4"
-            >
-              Ligar Agora
-            </a>
+            <Button variant="default" size="xl">
+              Solicitar Orçamento
+            </Button>
+            <Button variant="outline" size="xl">
+              Ver Portfólio
+            </Button>
           </div>
         </div>
       </div>
