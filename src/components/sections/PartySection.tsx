@@ -26,7 +26,6 @@ export function PartySection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                asChild 
                 variant="default" 
                 size="xl"
                 onClick={() => {
@@ -36,9 +35,7 @@ export function PartySection() {
                   window.open(whatsappLink, '_blank');
                 }}
               >
-                <a href="#" onClick={(e) => e.preventDefault()}>
-                  Solicitar Cotação
-                </a>
+                Solicitar Cotação
               </Button>
               <Button asChild variant="outline" size="xl">
                 <Link href="/faca-sua-festa">
