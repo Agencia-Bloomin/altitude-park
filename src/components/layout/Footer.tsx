@@ -7,31 +7,7 @@ import { siteConfig } from '@/data/config';
 export function Footer() {
   return (
     <footer className="bg-gray-900 border-t border-gray-800">
-      {/* Elementos flutuantes de fundo */}
-      <div className="relative overflow-hidden">
-        <Image
-          src="/images/elements/circle-pink.png"
-          alt=""
-          width={100}
-          height={100}
-          className="floating-element floating-element-1 absolute top-10 left-10 opacity-10"
-        />
-        <Image
-          src="/images/elements/circle-blue.png"
-          alt=""
-          width={80}
-          height={80}
-          className="floating-element floating-element-2 absolute top-20 right-20 opacity-10"
-        />
-        <Image
-          src="/images/elements/circle-green.png"
-          alt=""
-          width={120}
-          height={120}
-          className="floating-element floating-element-3 absolute bottom-10 left-1/4 opacity-10"
-        />
-
-        <div className="container-custom relative z-10">
+      <div className="container-custom">
           {/* Seção principal */}
           <div className="py-16">
             <div className="flex flex-col md:flex-row lg:flex-row gap-8 justify-center md:justify-between items-center md:items-start">
@@ -88,27 +64,27 @@ export function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/sobre" className="text-gray-400 hover:text-pink-400 transition-colors">
+                    <Link href="#" className="text-gray-400 hover:text-pink-400 transition-colors">
                       Sobre Nós
                     </Link>
                   </li>
                   <li>
-                    <Link href="/precos" className="text-gray-400 hover:text-pink-400 transition-colors">
+                    <Link href="#" className="text-gray-400 hover:text-pink-400 transition-colors">
                       Preços
                     </Link>
                   </li>
                   <li>
-                    <Link href="/unidades" className="text-gray-400 hover:text-pink-400 transition-colors">
+                    <Link href="#" className="text-gray-400 hover:text-pink-400 transition-colors">
                       Unidades
                     </Link>
                   </li>
                   <li>
-                    <Link href="/faca-sua-festa" className="text-gray-400 hover:text-pink-400 transition-colors">
+                    <Link href="#" className="text-gray-400 hover:text-pink-400 transition-colors">
                       Faça sua Festa
                     </Link>
                   </li>
                   <li>
-                    <Link href="/ingressos" className="text-gray-400 hover:text-pink-400 transition-colors">
+                    <Link href="#" className="text-gray-400 hover:text-pink-400 transition-colors">
                       Ingressos
                     </Link>
                   </li>
@@ -160,10 +136,10 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-6">
                 <div className="flex space-x-6 text-sm">
-                  <Link href="/politica-privacidade" className="text-gray-400 hover:text-pink-400 transition-colors">
+                  <Link href="#" className="text-gray-400 hover:text-pink-400 transition-colors">
                     Política de Privacidade
                   </Link>
-                  <Link href="/mapa-site" className="text-gray-400 hover:text-pink-400 transition-colors">
+                  <Link href="#" className="text-gray-400 hover:text-pink-400 transition-colors">
                     Mapa do Site
                   </Link>
                 </div>
@@ -187,7 +163,6 @@ export function Footer() {
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </footer>
