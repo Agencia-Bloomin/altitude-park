@@ -1,7 +1,7 @@
 {
-  "name": "template-next-marketing",
+  "name": "altitude-park",
   "version": "1.0.0",
-  "description": "Template Next.js para agências de marketing com foco em SEO",
+  "description": "Altitude Park - Parque de Diversões",
   "private": true,
   "scripts": {
     "predev": "tsx scripts/sync-fonts.ts",
