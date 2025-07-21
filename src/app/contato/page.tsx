@@ -161,11 +161,14 @@ export default function ContatoPage() {
     }
   }
 
+  // Obter o primeiro endereço para exibir na seção de informações
+  const mainAddress = siteConfig.contact.addresses[0]
+
   return (
     <main>
       <PageHero
         title="Entre em Contato"
-        description="Estamos aqui para ajudar sua empresa a crescer. Entre em contato conosco!"
+        description="Estamos aqui para ajudar! Entre em contato conosco e venha conhecer a Altitude Park!"
         breadcrumbItems={breadcrumbItems}
         backgroundImage="/images/contact-hero-bg.jpg"
       />
@@ -179,8 +182,8 @@ export default function ContatoPage() {
                 Vamos Conversar?
               </h2>
               <p className="text-lg text-gray-300 mb-8">
-                Nossa equipe está pronta para entender suas necessidades e criar 
-                estratégias personalizadas para o sucesso do seu negócio.
+                Nossa equipe está pronta para atender você e tirar todas as suas dúvidas 
+                sobre a Altitude Park. Entre em contato conosco!
               </p>
               
               <div className="space-y-6">
@@ -190,8 +193,8 @@ export default function ContatoPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-1">Telefone</h3>
-                    <p className="text-gray-300">+55 (11) 99999-9999</p>
-                    <p className="text-gray-300">+55 (11) 88888-8888</p>
+                    <p className="text-gray-300">{siteConfig.contact.phone}</p>
+                    <p className="text-gray-300">WhatsApp: {siteConfig.contact.whatsapp}</p>
                   </div>
                 </div>
                 
@@ -201,8 +204,7 @@ export default function ContatoPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-1">Email</h3>
-                    <p className="text-gray-300">contato@agencia.com.br</p>
-                    <p className="text-gray-300">comercial@agencia.com.br</p>
+                    <p className="text-gray-300">{siteConfig.contact.email}</p>
                   </div>
                 </div>
                 
@@ -211,10 +213,10 @@ export default function ContatoPage() {
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-white mb-1">Endereço</h3>
+                    <h3 className="text-lg font-semibold text-white mb-1">Endereço Principal</h3>
                     <p className="text-gray-300">
-                      Rua das Flores, 123 - Centro<br />
-                      São Paulo - SP, 01234-567
+                      {mainAddress.street}<br />
+                      {mainAddress.city} - {mainAddress.state}, {mainAddress.zipCode}
                     </p>
                   </div>
                 </div>
@@ -225,8 +227,8 @@ export default function ContatoPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-1">Horário de Atendimento</h3>
-                    <p className="text-gray-300">Segunda a Sexta: 9h às 18h</p>
-                    <p className="text-gray-300">Sábado: 9h às 14h</p>
+                    <p className="text-gray-300">{mainAddress.workingHours.weekdays}</p>
+                    <p className="text-gray-300">{mainAddress.workingHours.weekends}</p>
                   </div>
                 </div>
               </div>
@@ -285,7 +287,7 @@ export default function ContatoPage() {
                   type="textarea"
                   value={formData.mensagem}
                   onChange={handleInputChange}
-                  placeholder="Conte-nos sobre seu projeto..."
+                  placeholder="Conte-nos sobre sua dúvida ou interesse..."
                   required
                   rows={4}
                 />
@@ -357,7 +359,7 @@ export default function ContatoPage() {
               Nossa Localização
             </h2>
             <p className="text-lg text-gray-300">
-              Venha nos visitar em nosso escritório
+              Venha nos visitar em nossa unidade principal
             </p>
           </div>
           
@@ -369,7 +371,7 @@ export default function ContatoPage() {
                   Mapa interativo será integrado aqui
                 </p>
                 <p className="text-gray-400">
-                  Rua das Flores, 123 - Centro, São Paulo - SP
+                  {mainAddress.street}, {mainAddress.city} - {mainAddress.state}
                 </p>
               </div>
             </div>
