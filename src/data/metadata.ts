@@ -19,64 +19,45 @@ export interface SiteMetadata {
 
 import { siteConfig } from './config';
 
-// Configuração global do site
-export const siteMetadata: SiteMetadata = {
-  siteName: siteConfig.siteName,
-  siteUrl: siteConfig.siteUrl,
-  defaultTitle: `${siteConfig.siteName} - Soluções em Marketing Digital`,
-  defaultDescription: 'Transforme sua presença online com nossas soluções de marketing digital. SEO, design e desenvolvimento web para resultados reais.',
-  defaultKeywords: ['marketing digital', 'SEO', 'design', 'desenvolvimento web', 'agência digital'],
-  defaultOgImage: '/images/og-default.jpg',
-  twitterHandle: '@suaempresa',
-};
-
 // Metadados por página
 export const pagesMetadata: Record<string, PageMetadata> = {
   home: {
-    title: `${siteConfig.siteName} - Marketing Digital de Resultados`,
-    description: 'Transforme sua presença online com nossas soluções de marketing digital. SEO, design e desenvolvimento web para resultados reais.',
-    keywords: ['marketing digital', 'SEO', 'design', 'desenvolvimento web', 'agência digital'],
-    h1: 'Transforme sua presença online com marketing digital de resultados',
+    title: `${siteConfig.siteName} | Diversão em Trampolins e Atrações			`,
+    description: 'Venha se divertir no Altitude Park com trampolins, brinquedos radicais e festas incríveis. Confira unidades, preços e viva essa experiência hoje!',
+    keywords: ['trampolins', 'brinquedos radicais', 'festas incríveis', 'unidades', 'preços'],
+    h1: 'Diversão em Trampolins e Atrações',
     canonical: '/',
   },
   about: {
     title: `Sobre Nós - ${siteConfig.siteName}`,
-    description: 'Conheça nossa história, valores e equipe especializada em marketing digital. Mais de 10 anos transformando negócios.',
-    keywords: ['sobre nós', 'história', 'equipe', 'valores', 'marketing digital'],
-    h1: 'Sobre Nós - Especialistas em Marketing Digital',
+    description: '',
+    keywords: ['sobre nós', 'história', 'equipe', 'valores', 'trampolins', 'brinquedos radicais'],
+    h1: 'Sobree Nós',
     canonical: '/sobre',
-  },
-  services: {
-    title: 'Nossos Serviços - Marketing Digital',
-    description: 'Oferecemos serviços completos de marketing digital: SEO, design, desenvolvimento web, mídia social e muito mais.',
-    keywords: ['serviços', 'SEO', 'design', 'desenvolvimento web', 'mídia social'],
-    h1: 'Nossos Serviços de Marketing Digital',
-    canonical: '/servicos',
   },
   contact: {
     title: `Contato - ${siteConfig.siteName}`,
-    description: 'Entre em contato conosco para transformar sua presença digital. Atendimento personalizado e soluções sob medida.',
-    keywords: ['contato', 'atendimento', 'orçamento', 'marketing digital'],
-    h1: 'Entre em Contato Conosco',
+    description: '',
+    keywords: ['contato', 'atendimento', 'orçamento', 'trampolins', 'brinquedos radicais'],
+    h1: 'Contato',
     canonical: '/contato',
   },
-  blog: {
-    title: `Blog - ${siteConfig.siteName} - Marketing Digital e Tendências`,
-    description: 'Fique por dentro das últimas tendências em marketing digital, SEO, design e tecnologia. Artigos exclusivos e insights valiosos.',
-    keywords: ['blog', 'marketing digital', 'tendências', 'SEO', 'design'],
-    h1: 'Blog - Tendências em Marketing Digital',
-    canonical: '/blog',
-  },
+};
+
+// Configuração global do site (usando metadados da home como padrão)
+export const siteMetadata: SiteMetadata = {
+  siteName: siteConfig.siteName,
+  siteUrl: siteConfig.siteUrl,
+  defaultTitle: pagesMetadata.home.title,
+  defaultDescription: pagesMetadata.home.description,
+  defaultKeywords: pagesMetadata.home.keywords,
+  defaultOgImage: '/images/og-default.jpg',
+  twitterHandle: '@suaempresa',
 };
 
 // Função para obter metadados de uma página específica
 export function getPageMetadata(page: string): PageMetadata {
-  return pagesMetadata[page] || {
-    title: siteMetadata.defaultTitle,
-    description: siteMetadata.defaultDescription,
-    keywords: siteMetadata.defaultKeywords,
-    h1: siteConfig.siteName,
-  };
+  return pagesMetadata[page] || pagesMetadata.home;
 }
 
 // Função para gerar metadados completos

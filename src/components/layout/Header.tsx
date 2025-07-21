@@ -163,7 +163,7 @@ export function Header() {
         <div className="flex flex-col h-full">
           {/* Header do menu mobile */}
           <div className="flex items-center justify-between p-6 border-b border-gray-700">
-            <h2 className="text-white text-lg font-semibold">Menu</h2>
+            <span className="text-white text-lg font-semibold">Menu</span>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-gray-400 hover:text-white transition-colors"
