@@ -107,18 +107,18 @@ export function AttractionsSection() {
         gsap.fromTo(cards,
           { 
             opacity: 0,
-            y: 20
+            y: 50
           },
           { 
             opacity: 1,
             y: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "power2.out",
+            duration: 1.2,
+            stagger: 0.15,
+            ease: "power3.out",
             scrollTrigger: {
               trigger: section,
-              start: "top 80%",
-              end: "bottom 20%",
+              start: "top 60%",
+              end: "bottom 40%",
               toggleActions: "play none none reverse"
             }
           }
@@ -132,19 +132,19 @@ export function AttractionsSection() {
           { 
             opacity: 0,
             scale: 0.8,
-            y: 20
+            y: 30
           },
           { 
             opacity: 1,
             scale: 1,
             y: 0,
-            duration: 0.5,
-            stagger: 0.1,
+            duration: 0.8,
+            stagger: 0.2,
             ease: "back.out(1.4)",
             scrollTrigger: {
               trigger: section,
-              start: "top 70%",
-              end: "bottom 30%",
+              start: "top 50%",
+              end: "bottom 50%",
               toggleActions: "play none none reverse"
             }
           }
