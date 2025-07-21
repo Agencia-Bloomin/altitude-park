@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react';
 import { MapPin, Clock, Calendar, Phone, Mail } from 'lucide-react';
 import { getAllAddresses } from '@/data';
 import { Button } from '@/components/ui/button';
+import { useSectionAnimation } from '@/lib/animations';
 
 export function AddressesSection() {
   const addresses = getAllAddresses();
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
   const [isClient, setIsClient] = useState(false);
+  const sectionRef = useSectionAnimation();
 
   useEffect(() => {
     setIsClient(true);
@@ -19,13 +21,13 @@ export function AddressesSection() {
   };
 
   return (
-    <section className="section-padding bg-gray-50">
+    <section ref={sectionRef} className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="heading-2 mb-4">
+          <h2 className="heading-2 mb-4 section-title">
             Nossas <span className="text-gradient">Unidades</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto section-description">
             Encontre a unidade mais próxima de você e confira os horários de funcionamento.
           </p>
         </div>
@@ -34,7 +36,7 @@ export function AddressesSection() {
           {addresses.map((address) => (
             <div
               key={address.name}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+              className="card address-card bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
             >
               {/* Header */}
               <div className="bg-gradient-to-r from-primary-600 to-secondary-600 p-6 text-white">
@@ -162,7 +164,7 @@ export function AddressesSection() {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 cta-buttons">
           <p className="text-gray-600 mb-6">
             Não encontrou uma unidade próxima? Entre em contato conosco!
           </p>
