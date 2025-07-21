@@ -9,6 +9,7 @@ export { FloatingWhatsApp } from './ui/floating-whatsapp';
 export { ScrollToTop } from './ui/scroll-to-top';
 export { FormField } from './ui/form-field';
 export { FloatingElements } from './ui/FloatingElements';
+export { ConfettiElements } from './ui/ConfettiElements';
 export { BackgroundElements } from './ui/BackgroundElements';
 
 // Section Components

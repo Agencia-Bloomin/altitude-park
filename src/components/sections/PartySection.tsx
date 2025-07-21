@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { FloatingElements } from '@/components/ui/FloatingElements';
+import { ConfettiElements } from '@/components/ui/ConfettiElements';
+import { siteConfig } from '@/data/config';
 
 export function PartySection() {
   return (
     <section className="section-padding section-animate relative">
-      <FloatingElements />
+      <ConfettiElements />
       <div className="container-custom relative z-10">
         <div className="text-center mb-16">
           <h2 className="heading-2 text-white mb-4">Faça sua Festa</h2>
@@ -23,11 +24,28 @@ export function PartySection() {
               Oferecemos pacotes completos para festas de aniversário, eventos corporativos e comemorações especiais. 
               Entre em contato conosco para solicitar um orçamento personalizado!
             </p>
-            <Button asChild variant="highlight" size="xl">
-              <Link href="/faca-sua-festa">
-                Faça sua Festa
-              </Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                asChild 
+                variant="default" 
+                size="xl"
+                onClick={() => {
+                  const message = "Olá, vim pelo site, gostaria de realizar uma cotação de festa.";
+                  const encodedMessage = encodeURIComponent(message);
+                  const whatsappLink = `${siteConfig.contact.whatsappLink}?text=${encodedMessage}`;
+                  window.open(whatsappLink, '_blank');
+                }}
+              >
+                <a href="#" onClick={(e) => e.preventDefault()}>
+                  Solicitar Cotação
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="xl">
+                <Link href="/faca-sua-festa">
+                  Saiba Mais
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
