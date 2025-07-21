@@ -17,6 +17,7 @@ export function Footer() {
                   <Image
                     src="/images/logo/logo.png"
                     alt="Altitude Park"
+                    title="Altitude Park"
                     width={200}
                     height={80}
                     className="h-16 w-auto"
@@ -155,6 +156,7 @@ export function Footer() {
                     <Image
                       src="/images/logo/logo-bloomin.webp"
                       alt="Desenvolvido por Bloomin"
+                      title="Desenvolvido por Bloomin"
                       width={150}
                       height={50}
                       className="h-10 w-auto"

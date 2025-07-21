@@ -181,6 +181,7 @@ export function AboutSection() {
               <Image
                 src="/images/about-us.jpg"
                 alt="Nossa equipe trabalhando"
+                title="Nossa equipe trabalhando"
                 width={600}
                 height={400}
                 className="w-full h-auto"

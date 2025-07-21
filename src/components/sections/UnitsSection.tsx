@@ -137,6 +137,7 @@ export function UnitsSection() {
                 <Image
                   src={`/images/unidades/${getImagePath(address.name)}`}
                   alt={address.name}
+                  title={address.name}
                   width={400}
                   height={300}
                   className="card-image"

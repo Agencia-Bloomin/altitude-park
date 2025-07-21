@@ -72,7 +72,6 @@ export function Header() {
         <div className="bg-gray-900/90 backdrop-blur-md border-b border-gray-700">
           <div className="container-custom">
             <div className="flex items-center justify-between h-20">
-              {/* Logo */}
               <Link href="/" className="flex items-center space-x-3">
                 <Image
                   src="/images/logo/logo.png"

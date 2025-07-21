@@ -68,35 +68,40 @@ export function FloatingElements({ className = '' }: FloatingElementsProps) {
       {/* Círculos coloridos */}
       <Image
         src="/images/elements/circle-pink.png"
-        alt=""
+        alt="Elemento decorativo rosa"
+        title="Elemento decorativo rosa"
         width={120}
         height={120}
         className="floating-element absolute top-10 left-10 animate-float-1"
       />
       <Image
         src="/images/elements/circle-blue.png"
-        alt=""
+        alt="Elemento decorativo azul"
+        title="Elemento decorativo azul"
         width={100}
         height={100}
         className="floating-element absolute top-20 right-20 animate-float-2"
       />
       <Image
         src="/images/elements/circle-green.png"
-        alt=""
+        alt="Elemento decorativo verde"
+        title="Elemento decorativo verde"
         width={140}
         height={140}
         className="floating-element absolute bottom-20 left-20 animate-float-3"
       />
       <Image
         src="/images/elements/circle-orange.png"
-        alt=""
+        alt="Elemento decorativo laranja"
+        title="Elemento decorativo laranja"
         width={90}
         height={90}
         className="floating-element absolute top-1/3 left-1/4 animate-float-1"
       />
       <Image
         src="/images/elements/circle-yellow.png"
-        alt=""
+        alt="Elemento decorativo amarelo"
+        title="Elemento decorativo amarelo"
         width={110}
         height={110}
         className="floating-element absolute bottom-1/3 right-1/4 animate-float-2"
@@ -105,21 +110,24 @@ export function FloatingElements({ className = '' }: FloatingElementsProps) {
       {/* Linhas decorativas */}
       <Image
         src="/images/elements/line-pink.png"
-        alt=""
+        alt="Linha decorativa rosa"
+        title="Linha decorativa rosa"
         width={200}
         height={20}
         className="floating-element absolute top-1/4 left-0 animate-float-3 opacity-10"
       />
       <Image
         src="/images/elements/line-blue.png"
-        alt=""
+        alt="Linha decorativa azul"
+        title="Linha decorativa azul"
         width={200}
         height={20}
         className="floating-element absolute bottom-1/4 right-0 animate-float-1 opacity-10"
       />
       <Image
         src="/images/elements/line-green.png"
-        alt=""
+        alt="Linha decorativa verde"
+        title="Linha decorativa verde"
         width={200}
         height={20}
         className="floating-element absolute top-1/2 left-0 animate-float-2 opacity-10"
@@ -128,21 +136,24 @@ export function FloatingElements({ className = '' }: FloatingElementsProps) {
       {/* Elementos de raio */}
       <Image
         src="/images/elements/radius-pink.png"
-        alt=""
+        alt="Elemento de raio rosa"
+        title="Elemento de raio rosa"
         width={80}
         height={80}
         className="floating-element absolute top-10 right-1/3 animate-float-3 opacity-20"
       />
       <Image
         src="/images/elements/radius-blue.png"
-        alt=""
+        alt="Elemento de raio azul"
+        title="Elemento de raio azul"
         width={60}
         height={60}
         className="floating-element absolute bottom-10 left-1/3 animate-float-1 opacity-20"
       />
       <Image
         src="/images/elements/radius-green.png"
-        alt=""
+        alt="Elemento de raio verde"
+        title="Elemento de raio verde"
         width={70}
         height={70}
         className="floating-element absolute top-1/2 right-10 animate-float-2 opacity-20"

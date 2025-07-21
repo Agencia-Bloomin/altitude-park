@@ -191,6 +191,7 @@ export function AttractionsSection() {
                 <Image
                   src={attraction.image}
                   alt={attraction.name}
+                  title={attraction.name}
                   width={400}
                   height={300}
                   className="card-image"
