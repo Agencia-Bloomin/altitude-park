@@ -9,6 +9,9 @@ export function CSSVariablesProvider() {
     const root = document.documentElement;
     root.style.setProperty('--font-primary', siteConfig.theme.fonts.primary);
     root.style.setProperty('--font-secondary', siteConfig.theme.fonts.secondary);
+    
+    // Definir variável de raio para border-radius
+    root.style.setProperty('--radius', '0.5rem');
   }, []);
 
   return null;

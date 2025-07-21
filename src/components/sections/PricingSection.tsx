@@ -19,7 +19,7 @@ export function PricingSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Valor Especial */}
-          <div className="card-special relative py-10 border-2 border-primary-500 rounded-lg">
+          <div className="card-special relative py-10 border-2 border-primary-500">
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
               <span className="bg-primary-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
                 SHOPPING
@@ -34,7 +34,7 @@ export function PricingSection() {
           </div>
 
           {/* Valor Semana */}
-          <div className="card-special relative py-10 border-2 border-secondary-500 rounded-lg">
+          <div className="card-special relative py-10 border-2 border-secondary-500">
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
               <span className="bg-secondary-500 text-white px-10 py-2 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
                 DURANTE A SEMANA
@@ -48,7 +48,7 @@ export function PricingSection() {
           </div>
 
           {/* Valor Fim de Semana */}
-          <div className="card-special relative py-10 border-2 border-tertiary-500 rounded-lg">
+          <div className="card-special relative py-10 border-2 border-tertiary-500">
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
               <span className="bg-tertiary-500 text-white px-10 py-2 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
                 FINAIS DE SEMANA
