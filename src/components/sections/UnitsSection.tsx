@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { siteConfig } from '@/data/config';
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { BackgroundElements } from './BackgroundElements';
+import { BackgroundElements } from '@/components/ui/BackgroundElements';
 
 export function UnitsSection() {
   const sectionRef = useRef<HTMLElement>(null);

@@ -1,4 +1,4 @@
-import { FloatingElements } from './FloatingElements';
+import { FloatingElements } from '@/components/ui/FloatingElements';
 import { Button } from '@/components/ui/button';
 import { getWhatsAppLink } from '@/data/config';
 

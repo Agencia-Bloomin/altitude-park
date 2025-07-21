@@ -1,6 +1,6 @@
 'use client';
 
-import { FloatingElements } from './FloatingElements';
+import { FloatingElements } from '@/components/ui/FloatingElements';
 
 const faqItems = [
   {

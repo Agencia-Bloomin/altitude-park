@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { FloatingElements } from './FloatingElements';
+import { FloatingElements } from '@/components/ui/FloatingElements';
 
 export function PartySection() {
   return (

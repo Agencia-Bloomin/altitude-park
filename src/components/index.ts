@@ -8,6 +8,8 @@ export { Card } from './ui/card';
 export { FloatingWhatsApp } from './ui/floating-whatsapp';
 export { ScrollToTop } from './ui/scroll-to-top';
 export { FormField } from './ui/form-field';
+export { FloatingElements } from './ui/FloatingElements';
+export { BackgroundElements } from './ui/BackgroundElements';
 
 // Section Components
 export { HeroBanner } from './sections/HeroBanner';
@@ -16,7 +18,6 @@ export { PricingSection } from './sections/PricingSection';
 export { AttractionsSection } from './sections/AttractionsSection';
 export { FAQSection } from './sections/FAQSection';
 export { PartySection } from './sections/PartySection';
-export { FloatingElements } from './sections/FloatingElements';
 
 // Other Components
 export { default as GoogleTagManager } from './GoogleTagManager';

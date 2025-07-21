@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { BackgroundElements } from './BackgroundElements';
+import { BackgroundElements } from '@/components/ui/BackgroundElements';
 import { Button } from '@/components/ui/button';
 import { useEffect, useRef } from 'react';
 
