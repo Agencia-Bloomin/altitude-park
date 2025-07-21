@@ -85,48 +85,52 @@ export function Header() {
                 
                 {/* Dropdown Sobre Nós */}
                 <div className="relative group">
-                  <button className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base flex items-center space-x-1 relative">
-                    <span className="relative">
-                      Sobre Nós
-                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
-                    </span>
-                    <ChevronDown className="w-4 h-4" />
-                  </button>
+                  <div className="flex items-center space-x-1 relative">
+                    <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base relative group">
+                      <span className="relative">
+                        Sobre Nós
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                      </span>
+                    </Link>
+                    <button className="text-white hover:text-pink-400 transition-colors">
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </div>
                   <div className="absolute top-full left-0 mt-2 w-56 bg-gray-800 rounded-lg shadow-xl border border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     <div className="py-2">
-                      <Link href="/trabalhe-conosco" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-gray-700 transition-colors">
+                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-gray-700 transition-colors">
                         Trabalhe Conosco
                       </Link>
-                      <Link href="/faq" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-gray-700 transition-colors">
+                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-gray-700 transition-colors">
                         Perguntas Frequentes
                       </Link>
-                      <Link href="/galeria" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-gray-700 transition-colors">
+                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-gray-700 transition-colors">
                         Galeria
                       </Link>
                     </div>
                   </div>
                 </div>
 
-                <Link href="/precos" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
+                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
                   <span>Preços</span>
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
-                <Link href="/unidades" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
+                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
                   <span>Unidades</span>
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
-                <Link href="/faca-sua-festa" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
+                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
                   <span>Faça sua Festa</span>
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
-                <Link href="/contato" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
+                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
                   <span>Contato</span>
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
                 
                 {/* Botão Ingressos em destaque */}
                 <Button asChild variant="highlight" size="xl">
-                  <Link href="/">
+                  <Link href="#">
                     Ingressos
                   </Link>
                 </Button>
