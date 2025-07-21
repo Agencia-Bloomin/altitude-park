@@ -21,7 +21,9 @@ const buttonVariants = cva(
         quaternary:
           "bg-quaternary text-white hover:bg-quaternary/90 shadow-lg hover:shadow-xl",
         quinary:
-          "bg-quinary text-white hover:bg-quinary/90 shadow-lg hover:shadow-xl",
+          "bg-quinary-700 hover:bg-quinary-600 text-white font-bold shadow-lg hover:shadow-xl",
+        green:
+          "bg-green-600 hover:bg-green-700 text-white font-bold shadow-lg hover:shadow-xl",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         highlight: "bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white font-bold shadow-lg hover:shadow-xl hover:shadow-primary-500/25",

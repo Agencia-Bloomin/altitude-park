@@ -1,6 +1,11 @@
 import { FloatingElements } from './FloatingElements';
+import { Button } from '@/components/ui/button';
+import { getWhatsAppLink } from '@/data/config';
 
 export function PricingSection() {
+  const whatsappMessage = "Olá, vim pelo site. Gostaria de saber mais sobre os valores dos ingressos.";
+  const whatsappLink = getWhatsAppLink(whatsappMessage);
+
   return (
     <section className="section-padding section-animate bg-gray-800 relative">
       <FloatingElements />
@@ -14,10 +19,10 @@ export function PricingSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Valor Especial */}
-          <div className="card-special relative pt-12">
+          <div className="card-special relative py-10 border-2 border-primary-500 rounded-lg">
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
               <span className="bg-primary-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
-                ESPECIAL
+                SHOPPING
               </span>
             </div>
             <div className="p-8 text-center">
@@ -29,7 +34,12 @@ export function PricingSection() {
           </div>
 
           {/* Valor Semana */}
-          <div className="card">
+          <div className="card-special relative py-10 border-2 border-secondary-500 rounded-lg">
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+              <span className="bg-secondary-500 text-white px-10 py-2 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
+                DURANTE A SEMANA
+              </span>
+            </div>
             <div className="p-8 text-center">
               <div className="text-4xl font-bold text-secondary-400 mb-2">R$ 79,99</div>
               <div className="text-lg text-gray-300 mb-4">por hora</div>
@@ -38,7 +48,12 @@ export function PricingSection() {
           </div>
 
           {/* Valor Fim de Semana */}
-          <div className="card">
+          <div className="card-special relative py-10 border-2 border-tertiary-500 rounded-lg">
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+              <span className="bg-tertiary-500 text-white px-10 py-2 rounded-full text-sm font-bold shadow-lg whitespace-nowrap">
+                FINAIS DE SEMANA
+              </span>
+            </div>
             <div className="p-8 text-center">
               <div className="text-4xl font-bold text-tertiary-400 mb-2">R$ 89,99</div>
               <div className="text-lg text-gray-300 mb-4">por hora</div>
@@ -57,6 +72,32 @@ export function PricingSection() {
               <p>O acompanhante da PCD é cortesia.</p>
             </div>
           </div>
+        </div>
+
+        {/* Botões de ação */}
+        <div className="mt-12 text-center space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
+          <Button 
+            variant="quinary" 
+            size="xl" 
+            asChild
+          >
+            <a href="#">
+              Compre seu ingresso
+            </a>
+          </Button>
+          <Button 
+            variant="outline" 
+            size="xl" 
+            asChild
+          >
+            <a 
+              href={whatsappLink}
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              Entre em contato
+            </a>
+          </Button>
         </div>
       </div>
     </section>
