@@ -111,6 +111,22 @@ module.exports = {
             transform: "translateY(-25px) rotate(270deg)",
           },
         },
+        "float-left": {
+          "0%, 100%": {
+            transform: "translateX(0px)",
+          },
+          "50%": {
+            transform: "translateX(-20px)",
+          },
+        },
+        "float-right": {
+          "0%, 100%": {
+            transform: "translateX(0px)",
+          },
+          "50%": {
+            transform: "translateX(20px)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -119,6 +135,8 @@ module.exports = {
         "float-1": "float-1 6s ease-in-out infinite",
         "float-2": "float-2 8s ease-in-out infinite",
         "float-3": "float-3 10s ease-in-out infinite",
+        "float-left": "float-left 4s ease-in-out infinite",
+        "float-right": "float-right 5s ease-in-out infinite",
       },
     },
   },

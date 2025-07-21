@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { siteConfig } from '@/data/config';
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
+import { BackgroundElements } from './BackgroundElements';
 
 export function UnitsSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -112,12 +113,14 @@ export function UnitsSection() {
   return (
     <section ref={sectionRef} className="section-padding section-animate relative overflow-hidden">
       {/* Background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Elemento topo esquerdo */}
-        <div className="bg-element-green absolute top-56 -left-4 w-1/2 h-64 border-2 border-quinary-400 opacity-70" style={{ borderRadius: '0 200px 200px 0' }}></div>
-        {/* Elemento inferior direito */}
-        <div className="bg-element-pink absolute bottom-10 -right-4 w-1/2 h-64 border-2 border-tertiary-400 opacity-70" style={{ borderRadius: '200px 0 0 200px' }}></div>
-      </div>
+      <BackgroundElements 
+        firstElementPosition="top-left"
+        secondElementPosition="bottom-right"
+        firstElementColor="quinary-400"
+        secondElementColor="tertiary-400"
+        firstElementClass="bg-element-green"
+        secondElementClass="bg-element-pink"
+      />
       
       <div className="container-custom relative z-10">
         <div className="text-center mb-16">

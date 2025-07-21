@@ -15,11 +15,11 @@ const buttonVariants = cva(
         outline:
           "bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-bold",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-lg hover:shadow-xl",
+          "bg-secondary-500 hover:bg-secondary-600 text-white font-bold shadow-lg hover:shadow-xl",
         tertiary:
-          "bg-tertiary text-white hover:bg-tertiary/90 shadow-lg hover:shadow-xl",
+          "bg-tertiary-500 hover:bg-tertiary-800 text-white font-bold shadow-lg hover:shadow-xl",
         quaternary:
-          "bg-quaternary text-white hover:bg-quaternary/90 shadow-lg hover:shadow-xl",
+          "bg-quaternary-500 hover:bg-quaternary-600 text-white font-bold shadow-lg hover:shadow-xl",
         quinary:
           "bg-quinary-700 hover:bg-quinary-600 text-white font-bold shadow-lg hover:shadow-xl",
         green:
