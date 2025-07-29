@@ -299,11 +299,11 @@ export const siteConfig: SiteConfig = {
       quinary: '#7ed957',
     },
     fonts: {
-      primary: 'Itim',
+      primary: 'FontPrincipal',
       secondary: 'Poppins',
     },
     googleFonts: {
-      primary: 'https://fonts.googleapis.com/css2?family=Itim&display=swap',
+      primary: '', // Fonte local - não precisa de Google Fonts
       secondary: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap',
     },
   },
@@ -388,10 +388,17 @@ export function getCanonicalUrl(path: string = ''): string {
 
 // Função para obter todas as fontes do Google Fonts
 export function getGoogleFontsLinks(): string[] {
-  return [
-    siteConfig.theme.googleFonts.primary,
-    siteConfig.theme.googleFonts.secondary,
-  ];
+  const links = [];
+  
+  if (siteConfig.theme.googleFonts.primary) {
+    links.push(siteConfig.theme.googleFonts.primary);
+  }
+  
+  if (siteConfig.theme.googleFonts.secondary) {
+    links.push(siteConfig.theme.googleFonts.secondary);
+  }
+  
+  return links;
 }
 
 // Função para obter o nome da fonte primária

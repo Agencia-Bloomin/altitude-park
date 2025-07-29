@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Declaração da fonte local */
+@font-face {
+  font-family: 'FontPrincipal';
+  src: url('/fonts/font-principal.woff2') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     /* CSS Variables que podem ser alteradas dinamicamente */
@@ -172,7 +181,7 @@
 
   /* Headings com fonte primária */
   .heading-1 {
-    font-family: 'Itim', cursive !important;
+    font-family: 'FontPrincipal', cursive !important;
     font-size: 2.25rem;
     line-height: 2.5rem;
     font-weight: 700;
@@ -193,7 +202,7 @@
   }
 
   .heading-2 {
-    font-family: 'Itim', cursive !important;
+    font-family: 'FontPrincipal', cursive !important;
     font-size: 1.875rem;
     line-height: 2.25rem;
     font-weight: 700;
@@ -214,7 +223,7 @@
   }
 
   .heading-3 {
-    font-family: 'Itim', cursive !important;
+    font-family: 'FontPrincipal', cursive !important;
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 700;
@@ -228,7 +237,7 @@
   }
 
   .heading-4 {
-    font-family: 'Itim', cursive !important;
+    font-family: 'FontPrincipal', cursive !important;
     font-size: 1.25rem;
     line-height: 1.75rem;
     font-weight: 600;
