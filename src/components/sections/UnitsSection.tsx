@@ -111,7 +111,7 @@ export function UnitsSection() {
   };
 
   return (
-    <section ref={sectionRef} className="section-padding section-animate relative overflow-hidden">
+    <section ref={sectionRef} className="section-padding section-animate relative overflow-hidden bg-custom-background">
       {/* Background elements */}
       <BackgroundElements 
         firstElementPosition="top-left"

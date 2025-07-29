@@ -171,7 +171,7 @@ export default function ContatoPage() {
         breadcrumbItems={breadcrumbItems}
       />
       
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-custom-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
             {/* Informações de Contato */}
@@ -350,7 +350,7 @@ export default function ContatoPage() {
       </section>
       
       {/* Mapa */}
-      <section className="py-20 bg-gray-800">
+      <section className="py-20 bg-custom-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">

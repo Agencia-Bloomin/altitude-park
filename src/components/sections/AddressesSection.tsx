@@ -21,7 +21,7 @@ export function AddressesSection() {
   };
 
   return (
-    <section ref={sectionRef} className="section-padding bg-gray-50">
+    <section ref={sectionRef} className="section-padding bg-custom-background">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="heading-2 mb-4 section-title">

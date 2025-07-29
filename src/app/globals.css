@@ -8,7 +8,8 @@
   }
   
   body {
-    @apply bg-gray-900 text-white;
+    background-color: #153258;
+    @apply text-white;
     font-family: 'Poppins', sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
@@ -350,6 +351,11 @@
   .image-auto-ratio {
     width: auto !important;
     height: auto !important;
+  }
+
+  /* Classe para background customizado */
+  .bg-custom-background {
+    background-color: #153258;
   }
 }
 

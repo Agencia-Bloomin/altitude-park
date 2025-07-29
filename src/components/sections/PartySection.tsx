@@ -23,7 +23,7 @@ export function PartySection() {
   };
 
   return (
-    <section className="section-padding section-animate relative">
+    <section className="section-padding section-animate relative bg-custom-background">
       <ConfettiElements />
       <div className="container-custom relative z-10">
         <div className="text-center mb-16">

@@ -23,7 +23,7 @@ export default function SobrePage() {
         backgroundImage="/images/about-hero-bg.jpg"
       />
       
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-custom-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -55,7 +55,7 @@ export default function SobrePage() {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-800">
+      <section className="py-20 bg-custom-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
@@ -100,7 +100,7 @@ export default function SobrePage() {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-custom-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">

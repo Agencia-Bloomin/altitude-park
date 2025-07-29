@@ -34,7 +34,7 @@ export function FAQSection() {
   };
 
   return (
-    <section className="section-padding section-animate bg-gray-800 relative">
+    <section className="section-padding section-animate bg-custom-background relative">
       <FloatingElements />
       <div className="container-custom relative z-10">
         <div className="text-center mb-16">

@@ -31,6 +31,10 @@ module.exports = {
         tertiary: themeColors.tertiary,
         quaternary: themeColors.quaternary,
         quinary: themeColors.quinary,
+        // Cor de background customizada
+        custom: {
+          background: '#153258',
+        },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",

@@ -122,7 +122,7 @@ export function AboutSection() {
   }, []);
 
   return (
-    <section className="section-padding bg-gray-50">
+    <section className="section-padding bg-custom-background">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
