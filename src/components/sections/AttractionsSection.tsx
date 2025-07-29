@@ -169,7 +169,7 @@ export function AttractionsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="section-padding section-animate relative overflow-hidden">
+    <section ref={sectionRef} className="section-padding section-animate relative overflow-hidden bg-custom-background">
       <BackgroundElements 
         firstElementPosition="top-right"
         secondElementPosition="bottom-left"

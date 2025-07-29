@@ -6,7 +6,7 @@ import { siteConfig } from '@/data/config';
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 border-t border-gray-800">
+    <footer className="bg-custom-background border-t border-gray-800">
       <div className="container-custom">
           {/* Seção principal */}
           <div className="py-16">
@@ -23,9 +23,7 @@ export function Footer() {
                     className="h-16 w-auto"
                   />
                 </Link>
-                <p className="text-gray-400 mb-6 leading-relaxed">
-                  O melhor parque de trampolim do Brasil! Diversão garantida para toda a família com as melhores atrações e segurança.
-                </p>
+                <p className="text-gray-400 mb-6 leading-relaxed">Aqui na Altitude Park você encontra diversão garantida para toda a família! Tudo com as melhores atrações e alta segurança.</p>
                 <div className="flex space-x-4">
                   {siteConfig.social.facebook && (
                     <a
@@ -57,7 +55,7 @@ export function Footer() {
               {/* Links rápidos */}
               <div className="flex flex-col items-center justify-center flex-1">
                 <div className="w-fit">
-                  <span className="text-white font-bold text-lg mb-6 text-center md:text-left block">Links Rápidos</span>
+                  <span className="text-white font-bold font-primary text-xl mb-6 text-center md:text-left block">Links Rápidos</span>
                   <ul className="space-y-3 text-center md:text-left">
                   <li>
                     <Link href="/" className="text-gray-400 hover:text-pink-400 transition-colors">
@@ -95,7 +93,7 @@ export function Footer() {
 
               {/* Contato */}
               <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-                <span className="text-white font-bold text-lg mb-6 block">Contato</span>
+                <span className="text-white font-bold font-primary text-xl mb-6 block">Contato</span>
                 <div className="space-y-4">
                   <div>
                     <span className="text-pink-400 font-semibold mb-2 block">Central de Atendimento</span>

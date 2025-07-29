@@ -5,9 +5,17 @@ import { siteConfig } from '@/data/config';
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { BackgroundElements } from '@/components/ui/BackgroundElements';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+// Importar estilos do Swiper
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 export function UnitsSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const swiperRef = useRef<any>(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -63,32 +71,6 @@ export function UnitsSection() {
             }
           );
         }
-
-        // Animação para os cards
-        const cards = sectionRef.current?.querySelectorAll('.card');
-        cards?.forEach((card, index) => {
-          gsap.fromTo(card,
-            { 
-              opacity: 0,
-              y: 50,
-              scale: 0.9
-            },
-            { 
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              duration: 1.2,
-              delay: 0.2 + (index * 0.3),
-              ease: "back.out(1.7)",
-              scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top 80%",
-                end: "bottom 20%",
-                toggleActions: "play none none reverse"
-              }
-            }
-          );
-        });
       }
     };
 
@@ -124,42 +106,88 @@ export function UnitsSection() {
       
       <div className="container-custom relative z-10">
         <div className="text-center mb-16">
-          <h2 className="heading-2 text-white mb-4">Nossas Unidades</h2>
+          <h2 className="heading-2 text-white mb-4">Unidades</h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Encontre a unidade mais próxima de você e venha se divertir!
+            Escolha uma das nossas unidades para mais informações.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {siteConfig.contact.addresses.map((address) => (
-            <div key={address.name} className="card">
-              <div className="card-image-container">
-                <Image
-                  src={`/images/unidades/${getImagePath(address.name)}`}
-                  alt={address.name}
-                  title={address.name}
-                  width={400}
-                  height={300}
-                  className="card-image"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2">{address.name}</h3>
-                <p className="text-gray-400 text-sm mb-3">{address.street}</p>
-                <p className="text-gray-400 text-sm mb-4">{address.city} - {address.state}</p>
-                <div className="text-xs text-gray-500">
-                  <p>{address.workingHours.weekdays}</p>
-                  <p>{address.workingHours.weekends}</p>
-                </div>
-              </div>
+        {/* Carrossel Container */}
+        <div className="relative">
+          {/* Swiper */}
+          <Swiper
+            ref={swiperRef}
+            modules={[Navigation, Autoplay]}
+            spaceBetween={32}
+            slidesPerView={1}
+            navigation={{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 24,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 32,
+              },
+            }}
+            className="units-swiper"
+          >
+            {siteConfig.contact.addresses.map((address) => (
+              <SwiperSlide key={address.name}>
+                <a href="" className="block h-full group">
+                  <div className="rounded-xl overflow-hidden bg-none p-0 m-0">
+                    <div className="relative h-[200px] overflow-hidden p-0 m-0">
+                      <Image
+                        src={`/images/unidades/${getImagePath(address.name)}`}
+                        alt={address.name}
+                        title={address.name}
+                        width={400}
+                        height={300}
+                        className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                      />
+                    </div>
+                    <div className="p-6 flex items-center justify-center min-h-[80px] lg:min-h-[110px]" style={{ backgroundColor: siteConfig.theme.colors.primary }}>
+                      <h3 className="text-xl font-bold text-white text-center uppercase">
+                        {address.name}
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Controles de Navegação */}
+          <div className="flex justify-end items-center mt-6">
+            <div className="p-3 flex items-center gap-3">
+              <button
+                className="bg-white/20 hover:bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 border border-white/20"
+                onClick={() => swiperRef.current?.swiper.slidePrev()}
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                className="bg-white/20 hover:bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 border border-white/20"
+                onClick={() => swiperRef.current?.swiper.slideNext()}
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
             </div>
-          ))}
+          </div>
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button variant="default" size="xl">
+            <Button variant="secondary" size="xl">
               Compre seu ingresso
             </Button>
             <Button variant="outline" size="xl">
@@ -168,6 +196,56 @@ export function UnitsSection() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .units-swiper {
+          padding-bottom: 20px;
+        }
+        
+        .units-swiper .swiper-slide {
+          height: auto;
+          background: none;
+          padding: 0;
+          margin: 0;
+        }
+        
+        .card {
+          border-radius: 12px;
+          overflow: hidden;
+          background: none;
+          padding: 0;
+          margin: 0;
+        }
+        
+        .card-image-container {
+          position: relative;
+          height: 200px;
+          overflow: hidden;
+          padding: 0;
+          margin: 0;
+        }
+        
+        .card-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        
+        /* Remover qualquer background do Swiper */
+        .units-swiper .swiper-wrapper {
+          background: none;
+        }
+        
+        .units-swiper .swiper-container {
+          background: none;
+        }
+        
+        /* Garantir que não há espaços */
+        .units-swiper .swiper-slide > * {
+          margin: 0;
+          padding: 0;
+        }
+      `}</style>
     </section>
   );
 } 

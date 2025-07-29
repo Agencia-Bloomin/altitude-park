@@ -94,7 +94,7 @@ const FormField = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, FormF
             rows={rows}
             disabled={disabled}
             className={cn(
-              "flex min-h-[80px] w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+              "flex min-h-[80px] w-full rounded-md border border-gray-600 bg-custom-background px-3 py-2 text-sm text-white placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
             )}
             ref={ref as React.Ref<HTMLTextAreaElement>}
             {...filteredProps}
@@ -110,7 +110,7 @@ const FormField = React.forwardRef<HTMLInputElement | HTMLTextAreaElement, FormF
             required={required}
             disabled={disabled}
             className={cn(
-              "flex h-10 w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+              "flex h-10 w-full rounded-md border border-gray-600 bg-custom-background px-3 py-2 text-sm text-white placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
             )}
             ref={ref as React.Ref<HTMLInputElement>}
             {...filteredProps}

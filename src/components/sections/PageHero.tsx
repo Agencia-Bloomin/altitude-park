@@ -28,7 +28,7 @@ const PageHero: React.FC<PageHeroProps> = ({
   const heroTitle = h1 || pageMetadata?.h1 || title || 'Altitude Park'
   return (
     <section 
-      className={`relative h-[500px] flex items-center pt-32 pb-20 lg:pt-56 lg:pb-32 bg-gray-900 ${className}`}
+      className={`relative h-[500px] flex items-center pt-32 pb-20 lg:pt-56 lg:pb-32 bg-custom-background ${className}`}
       style={{
         backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined,
         backgroundSize: 'cover',

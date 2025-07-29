@@ -49,10 +49,10 @@ export function Header() {
         isScrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}>
         {/* Faixa superior */}
-        <div className="bg-gray-800 border-b border-gray-700">
+        <div className="bg-custom-background">
           <div className="container-custom">
-            <div className="flex items-center justify-between h-10 text-sm">
-              <div className="flex items-center space-x-4">
+            <div className="flex items-center justify-end h-10 text-sm">
+              <div className="flex items-center space-x-4 mr-4">
                 <Link href="/login" className="text-gray-300 hover:text-pink-400 transition-colors flex items-center space-x-1">
                   <User className="w-4 h-4" />
                   <span>Acesse sua conta</span>
@@ -69,24 +69,24 @@ export function Header() {
         </div>
 
         {/* Header principal */}
-        <div className="bg-gray-900/90 backdrop-blur-md border-b border-gray-700">
+        <div className="bg-custom-background/90 backdrop-blur-md">
           <div className="container-custom">
-            <div className="flex items-center justify-between h-20">
+            <div className="flex items-center justify-center h-24">
               <Link href="/" className="flex items-center space-x-3">
                 <Image
                   src="/images/logo/logo.png"
                   alt="Altitude Park"
                   title="Altitude Park"
-                  width={180}
-                  height={60}
-                  className="h-16 lg:h-14 xl:h-16 w-auto"
+                  width={300}
+                  height={80}
+                  className="h-20 lg:h-14 xl:h-20 w-auto mr-4"
                   priority
                 />
               </Link>
 
               {/* Menu desktop */}
               <nav className="hidden lg:flex items-center space-x-8">
-                <Link href="/" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base relative group">
+                <Link href="/" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium uppercase relative group">
                   <span>Home</span>
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
@@ -94,7 +94,7 @@ export function Header() {
                 {/* Dropdown Sobre Nós */}
                 <div className="relative group">
                   <div className="flex items-center space-x-1 relative">
-                    <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base relative group">
+                    <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium uppercase relative group">
                       <span className="relative">
                         Sobre Nós
                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
@@ -104,40 +104,40 @@ export function Header() {
                       <ChevronDown className="w-4 h-4" />
                     </button>
                   </div>
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-gray-800 rounded-lg shadow-xl border border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-custom-background rounded-lg shadow-xl border border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     <div className="py-2">
-                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-gray-700 transition-colors">
+                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base uppercase text-gray-300 hover:text-pink-400 hover:bg-custom-background transition-colors">
                         Trabalhe Conosco
                       </Link>
-                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-gray-700 transition-colors">
+                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base uppercase text-gray-300 hover:text-pink-400 hover:bg-custom-background transition-colors">
                         Perguntas Frequentes
                       </Link>
-                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-gray-700 transition-colors">
+                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base uppercase text-gray-300 hover:text-pink-400 hover:bg-custom-background transition-colors">
                         Galeria
                       </Link>
                     </div>
                   </div>
                 </div>
 
-                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
+                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium uppercase relative group">
                   <span>Preços</span>
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
-                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
+                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium uppercase relative group">
                   <span>Unidades</span>
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
-                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
+                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium uppercase relative group">
                   <span>Faça sua Festa</span>
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
-                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium relative group">
+                <Link href="#" className="text-white hover:text-pink-400 transition-colors text:base lg:text-sm xl:text-base font-medium uppercase relative group">
                   <span>Contato</span>
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
                 
                 {/* Botão Ingressos em destaque */}
-                <Button asChild variant="highlight" size="xl">
+                <Button asChild size="xl" className="px-8 lg:px-4 lg:text-sm xl:px-8 xl:text-base uppercase">
                   <Link href="#">
                     Ingressos
                   </Link>
@@ -165,7 +165,7 @@ export function Header() {
       )}
 
       {/* Menu mobile lateral */}
-      <div className={`fixed top-0 right-0 h-full w-80 bg-gray-900 shadow-2xl z-[60] transform transition-transform duration-300 ease-in-out lg:hidden ${
+      <div className={`fixed top-0 right-0 h-full w-80 bg-custom-background shadow-2xl z-[60] transform transition-transform duration-300 ease-in-out lg:hidden ${
         isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
         <div className="flex flex-col h-full">
@@ -185,7 +185,7 @@ export function Header() {
             <nav className="p-6 space-y-6">
               <Link 
                 href="/" 
-                className="block text-white hover:text-pink-400 transition-colors font-medium text-lg"
+                className="block text-white hover:text-pink-400 transition-colors font-medium uppercase text-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Home
@@ -194,7 +194,7 @@ export function Header() {
               <div>
                 <button
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="text-white hover:text-pink-400 transition-colors font-medium flex items-center justify-between w-full text-lg"
+                  className="text-white hover:text-pink-400 transition-colors font-medium uppercase flex items-center justify-between w-full text-lg"
                 >
                   <span>Sobre Nós</span>
                   <ChevronDown className={`w-5 h-5 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
@@ -228,28 +228,28 @@ export function Header() {
 
               <Link 
                 href="/precos" 
-                className="block text-white hover:text-pink-400 transition-colors font-medium text-lg"
+                className="block text-white hover:text-pink-400 transition-colors font-medium uppercase text-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Preços
               </Link>
               <Link 
                 href="/unidades" 
-                className="block text-white hover:text-pink-400 transition-colors font-medium text-lg"
+                className="block text-white hover:text-pink-400 transition-colors font-medium uppercase text-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Unidades
               </Link>
               <Link 
                 href="/faca-sua-festa" 
-                className="block text-white hover:text-pink-400 transition-colors font-medium text-lg"
+                className="block text-white hover:text-pink-400 transition-colors font-medium uppercase text-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Faça sua Festa
               </Link>
               <Link 
                 href="/contato" 
-                className="block text-white hover:text-pink-400 transition-colors font-medium text-lg"
+                className="block text-white hover:text-pink-400 transition-colors font-medium uppercase text-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Contato
@@ -259,7 +259,7 @@ export function Header() {
 
           {/* Footer do menu mobile */}
           <div className="p-6 border-t border-gray-700">
-            <Button asChild variant="highlight" size="xl" className="w-full">
+            <Button asChild size="xl" className="w-full">
               <Link href="/ingressos" onClick={() => setIsMobileMenuOpen(false)}>
                 Ingressos
               </Link>

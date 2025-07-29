@@ -23,7 +23,7 @@ export default function SobrePage() {
         backgroundImage="/images/about-hero-bg.jpg"
       />
       
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-custom-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -55,7 +55,7 @@ export default function SobrePage() {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-800">
+      <section className="py-20 bg-custom-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
@@ -67,7 +67,7 @@ export default function SobrePage() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="text-center p-8 bg-gray-700 rounded-xl shadow-lg border border-gray-600">
+            <div className="text-center p-8 bg-custom-background rounded-xl shadow-lg border border-gray-600">
               <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">✓</span>
               </div>
@@ -77,7 +77,7 @@ export default function SobrePage() {
               </p>
             </div>
             
-            <div className="text-center p-8 bg-gray-700 rounded-xl shadow-lg border border-gray-600">
+            <div className="text-center p-8 bg-custom-background rounded-xl shadow-lg border border-gray-600">
               <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">⚡</span>
               </div>
@@ -87,7 +87,7 @@ export default function SobrePage() {
               </p>
             </div>
             
-            <div className="text-center p-8 bg-gray-700 rounded-xl shadow-lg border border-gray-600">
+            <div className="text-center p-8 bg-custom-background rounded-xl shadow-lg border border-gray-600">
               <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">🎯</span>
               </div>
@@ -100,7 +100,7 @@ export default function SobrePage() {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-custom-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">

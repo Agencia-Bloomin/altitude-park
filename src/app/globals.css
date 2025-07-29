@@ -2,13 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Declaração da fonte local */
+@font-face {
+  font-family: 'FontPrincipal';
+  src: url('/fonts/font-principal.woff2') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
+  :root {
+    /* CSS Variables que podem ser alteradas dinamicamente */
+    --color-primary: #ea258e;
+    --color-secondary: #00b4f5;
+    --color-tertiary: #fe8d35;
+    --color-quaternary: #f0e410;
+    --color-quinary: #a1da00;
+  }
+
   * {
     @apply border-gray-700;
   }
   
   body {
-    @apply bg-gray-900 text-white;
+    background-color: #153258;
+    @apply text-white;
     font-family: 'Poppins', sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
@@ -43,11 +62,11 @@
 
   /* Cards */
   .card {
-    @apply bg-gray-800 rounded-xl shadow-lg border border-gray-700 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2;
+    @apply bg-custom-background rounded-xl shadow-lg border border-gray-700 overflow-hidden;
   }
 
   .card-special {
-    @apply bg-gray-800 rounded-lg shadow-lg border-2 border-blue-600 overflow-visible hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2;
+    @apply bg-custom-background rounded-lg shadow-lg border-2 border-blue-600 overflow-visible hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2;
   }
 
   /* Imagens dentro dos cards */
@@ -56,12 +75,7 @@
   }
 
   .card-image {
-    @apply w-full h-48 object-cover transition-transform duration-300;
-    transform: translateZ(0); /* Força aceleração de hardware */
-  }
-
-  .card:hover .card-image {
-    @apply scale-110;
+    @apply w-full h-48 object-cover;
   }
 
   .card:hover .card-image-container .absolute {
@@ -72,29 +86,92 @@
     @apply transform hover:-translate-y-1 transition-all duration-200;
   }
 
-  /* Gradientes */
+  /* Gradientes usando CSS Variables */
   .gradient-primary {
-    @apply bg-gradient-to-r from-blue-600 to-blue-700;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #be185d 50%, var(--color-primary) 100%);
   }
 
   .gradient-secondary {
-    @apply bg-gradient-to-r from-green-600 to-green-700;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, #0ea5e9 30%, #38bdf8 50%, #0ea5e9 70%, var(--color-secondary) 100%);
   }
 
   .gradient-tertiary {
-    @apply bg-gradient-to-r from-orange-600 to-orange-700;
+    background: linear-gradient(135deg, var(--color-tertiary) 0%, #ea580c 30%, #fb923c 50%, #ea580c 70%, var(--color-tertiary) 100%);
   }
 
   .gradient-quaternary {
-    @apply bg-gradient-to-r from-yellow-500 to-yellow-600;
+    background: linear-gradient(135deg, var(--color-quaternary) 0%, #eab308 50%, var(--color-quaternary) 100%);
   }
 
   .gradient-quinary {
-    @apply bg-gradient-to-r from-lime-600 to-lime-700;
+    background: linear-gradient(135deg, var(--color-quinary) 0%, #4ade80 50%, var(--color-quinary) 100%);
   }
 
   .gradient-hero {
-    @apply bg-gradient-to-br from-blue-600 via-green-600 to-orange-600;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-quinary) 50%, var(--color-tertiary) 100%);
+  }
+
+  /* Gradientes com transparência para cards de informação */
+  .gradient-primary-soft {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 50%, transparent) 0%, color-mix(in srgb, #be185d 50%, transparent) 50%, color-mix(in srgb, var(--color-primary) 50%, transparent) 100%);
+  }
+
+  .gradient-secondary-soft {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-secondary) 50%, transparent) 0%, color-mix(in srgb, #38bdf8 50%, transparent) 50%, color-mix(in srgb, var(--color-secondary) 50%, transparent) 100%);
+  }
+
+  .gradient-tertiary-soft {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-tertiary) 50%, transparent) 0%, color-mix(in srgb, #fb923c 50%, transparent) 50%, color-mix(in srgb, var(--color-tertiary) 50%, transparent) 100%);
+  }
+
+  .gradient-quaternary-soft {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-quaternary) 50%, transparent) 0%, color-mix(in srgb, #eab308 50%, transparent) 50%, color-mix(in srgb, var(--color-quaternary) 50%, transparent) 100%);
+  }
+
+  .gradient-quinary-soft {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-quinary) 50%, transparent) 0%, color-mix(in srgb, #4ade80 50%, transparent) 50%, color-mix(in srgb, var(--color-quinary) 50%, transparent) 100%);
+  }
+
+  /* Cores de texto usando CSS Variables */
+  .text-primary {
+    color: var(--color-primary);
+  }
+
+  .text-secondary {
+    color: var(--color-secondary);
+  }
+
+  .text-tertiary {
+    color: var(--color-tertiary);
+  }
+
+  .text-quaternary {
+    color: var(--color-quaternary);
+  }
+
+  .text-quinary {
+    color: var(--color-quinary);
+  }
+
+  /* Bordas usando CSS Variables */
+  .border-primary {
+    border-color: color-mix(in srgb, var(--color-primary) 25%, transparent);
+  }
+
+  .border-secondary {
+    border-color: color-mix(in srgb, var(--color-secondary) 25%, transparent);
+  }
+
+  .border-tertiary {
+    border-color: color-mix(in srgb, var(--color-tertiary) 25%, transparent);
+  }
+
+  .border-quaternary {
+    border-color: color-mix(in srgb, var(--color-quaternary) 25%, transparent);
+  }
+
+  .border-quinary {
+    border-color: color-mix(in srgb, var(--color-quinary) 25%, transparent);
   }
 
   /* Textos */
@@ -104,7 +181,7 @@
 
   /* Headings com fonte primária */
   .heading-1 {
-    font-family: 'Itim', cursive !important;
+    font-family: 'FontPrincipal', cursive !important;
     font-size: 2.25rem;
     line-height: 2.5rem;
     font-weight: 700;
@@ -125,28 +202,28 @@
   }
 
   .heading-2 {
-    font-family: 'Itim', cursive !important;
-    font-size: 1.875rem;
+    font-family: 'FontPrincipal', cursive !important;
+    font-size: 3rem;
     line-height: 2.25rem;
     font-weight: 700;
   }
   
   @media (min-width: 640px) {
     .heading-2 {
-      font-size: 2.25rem;
+      font-size: 3.5rem;
       line-height: 2.5rem;
     }
   }
   
   @media (min-width: 1024px) {
     .heading-2 {
-      font-size: 3rem;
+      font-size: 4rem;
       line-height: 1;
     }
   }
 
   .heading-3 {
-    font-family: 'Itim', cursive !important;
+    font-family: 'FontPrincipal', cursive !important;
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 700;
@@ -160,7 +237,7 @@
   }
 
   .heading-4 {
-    font-family: 'Itim', cursive !important;
+    font-family: 'FontPrincipal', cursive !important;
     font-size: 1.25rem;
     line-height: 1.75rem;
     font-weight: 600;
@@ -230,11 +307,7 @@
   }
 
   /* Swiper customizations */
-  .swiper-slide-active .heading-1,
-  .swiper-slide-active .text-xl,
-  .swiper-slide-active .text-lg {
-    animation: fadeInUp 0.8s ease-out;
-  }
+
 
   .swiper-pagination-bullet {
     @apply bg-gray-400 opacity-50;
@@ -350,6 +423,11 @@
   .image-auto-ratio {
     width: auto !important;
     height: auto !important;
+  }
+
+  /* Classe para background customizado */
+  .bg-custom-background {
+    background-color: #153258;
   }
 }
 
@@ -476,4 +554,16 @@
     max-width: 100% !important;
     height: auto !important;
   }
+}
+
+/* Estilos customizados para o Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-white;
+}
+
+/* Esconder navegação padrão do Swiper */
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  @apply hidden;
 } 

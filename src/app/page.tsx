@@ -17,11 +17,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-custom-background">
       <GSAPAnimations />
       <HeroBanner
-        title="Altitude Park"
-        subtitle="O melhor parque de trampolim do Brasil! Diversão garantida para toda a família com as melhores atrações e segurança."
         primaryButtonText="Compre seu Ingresso"
         primaryButtonLink="/ingressos"
         secondaryButtonText="Faça sua Festa"

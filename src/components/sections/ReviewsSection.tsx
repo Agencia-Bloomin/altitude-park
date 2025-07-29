@@ -61,7 +61,7 @@ export function ReviewsSection() {
   const statsRef = useScaleIn(0.5);
 
   return (
-    <section className="section-padding bg-gray-50">
+    <section className="section-padding bg-custom-background">
       <div className="container-custom">
         {/* Header */}
         <div ref={headerRef} className="text-center mb-16">
