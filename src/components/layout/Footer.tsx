@@ -57,7 +57,7 @@ export function Footer() {
               {/* Links rápidos */}
               <div className="flex flex-col items-center justify-center flex-1">
                 <div className="w-fit">
-                  <span className="text-white font-bold text-lg mb-6 text-center md:text-left block">Links Rápidos</span>
+                  <span className="text-white font-bold font-primary text-xl mb-6 text-center md:text-left block">Links Rápidos</span>
                   <ul className="space-y-3 text-center md:text-left">
                   <li>
                     <Link href="/" className="text-gray-400 hover:text-pink-400 transition-colors">
@@ -95,7 +95,7 @@ export function Footer() {
 
               {/* Contato */}
               <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-                <span className="text-white font-bold text-lg mb-6 block">Contato</span>
+                <span className="text-white font-bold font-primary text-xl mb-6 block">Contato</span>
                 <div className="space-y-4">
                   <div>
                     <span className="text-pink-400 font-semibold mb-2 block">Central de Atendimento</span>
