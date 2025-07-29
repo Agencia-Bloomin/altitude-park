@@ -143,7 +143,7 @@ export function UnitsSection() {
           >
             {siteConfig.contact.addresses.map((address) => (
               <SwiperSlide key={address.name}>
-                <a href="" className="block h-full">
+                <a href="" className="block h-full group">
                   <div className="rounded-xl overflow-hidden bg-none p-0 m-0">
                     <div className="relative h-[200px] overflow-hidden p-0 m-0">
                       <Image
@@ -152,7 +152,7 @@ export function UnitsSection() {
                         title={address.name}
                         width={400}
                         height={300}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
                       />
                     </div>
                     <div className="p-6 flex items-center justify-center min-h-[80px] lg:min-h-[110px]" style={{ backgroundColor: siteConfig.theme.colors.primary }}>
