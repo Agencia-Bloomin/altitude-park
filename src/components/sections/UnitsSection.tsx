@@ -106,6 +106,9 @@ export function UnitsSection() {
       
       <div className="container-custom relative z-10">
         <div className="text-center mb-16">
+          <h1 className="text-sm md:text-base font-bold text-gray-400 uppercase mb-2">
+            Altitude Park
+          </h1>
           <h2 className="heading-2 text-white mb-4">Unidades</h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Escolha uma das nossas unidades para mais informações.
