@@ -68,29 +68,92 @@
     @apply transform hover:-translate-y-1 transition-all duration-200;
   }
 
-  /* Gradientes */
+  /* Gradientes usando cores do config.ts */
   .gradient-primary {
-    @apply bg-gradient-to-r from-blue-600 to-blue-700;
+    background: linear-gradient(135deg, #ea258e 0%, #be185d 50%, #ea258e 100%);
   }
 
   .gradient-secondary {
-    @apply bg-gradient-to-r from-green-600 to-green-700;
+    background: linear-gradient(135deg, #00b4f5 0%, #0ea5e9 30%, #38bdf8 50%, #0ea5e9 70%, #00b4f5 100%);
   }
 
   .gradient-tertiary {
-    @apply bg-gradient-to-r from-orange-600 to-orange-700;
+    background: linear-gradient(135deg, #fe8d35 0%, #ea580c 30%, #fb923c 50%, #ea580c 70%, #fe8d35 100%);
   }
 
   .gradient-quaternary {
-    @apply bg-gradient-to-r from-yellow-500 to-yellow-600;
+    background: linear-gradient(135deg, #f0e410 0%, #eab308 50%, #f0e410 100%);
   }
 
   .gradient-quinary {
-    @apply bg-gradient-to-r from-lime-600 to-lime-700;
+    background: linear-gradient(135deg, #a1da00 0%, #4ade80 50%, #a1da00 100%);
   }
 
   .gradient-hero {
-    @apply bg-gradient-to-br from-blue-600 via-green-600 to-orange-600;
+    background: linear-gradient(135deg, #00b4f5 0%, #a1da00 50%, #fe8d35 100%);
+  }
+
+  /* Gradientes com transparência para cards de informação */
+  .gradient-primary-soft {
+    background: linear-gradient(135deg, #ea258e80 0%, #be185d80 50%, #ea258e80 100%);
+  }
+
+  .gradient-secondary-soft {
+    background: linear-gradient(135deg, #00b4f580 0%, #38bdf880 50%, #00b4f580 100%);
+  }
+
+  .gradient-tertiary-soft {
+    background: linear-gradient(135deg, #fe8d3580 0%, #fb923c80 50%, #fe8d3580 100%);
+  }
+
+  .gradient-quaternary-soft {
+    background: linear-gradient(135deg, #f0e41080 0%, #eab30880 50%, #f0e41080 100%);
+  }
+
+  .gradient-quinary-soft {
+    background: linear-gradient(135deg, #a1da0080 0%, #4ade8080 50%, #a1da0080 100%);
+  }
+
+  /* Cores de texto usando config.ts */
+  .text-primary {
+    color: #ea258e;
+  }
+
+  .text-secondary {
+    color: #00b4f5;
+  }
+
+  .text-tertiary {
+    color: #fe8d35;
+  }
+
+  .text-quaternary {
+    color: #f0e410;
+  }
+
+  .text-quinary {
+    color: #a1da00;
+  }
+
+  /* Bordas usando config.ts */
+  .border-primary {
+    border-color: #ea258e40;
+  }
+
+  .border-secondary {
+    border-color: #00b4f540;
+  }
+
+  .border-tertiary {
+    border-color: #fe8d3540;
+  }
+
+  .border-quaternary {
+    border-color: #f0e41040;
+  }
+
+  .border-quinary {
+    border-color: #a1da0040;
   }
 
   /* Textos */
