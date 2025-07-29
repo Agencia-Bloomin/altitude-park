@@ -20,8 +20,6 @@ export default function HomePage() {
     <div className="min-h-screen bg-custom-background">
       <GSAPAnimations />
       <HeroBanner
-        title="Altitude Park"
-        subtitle="O melhor parque de trampolim do Brasil! Diversão garantida para toda a família com as melhores atrações e segurança."
         primaryButtonText="Compre seu Ingresso"
         primaryButtonLink="/ingressos"
         secondaryButtonText="Faça sua Festa"
