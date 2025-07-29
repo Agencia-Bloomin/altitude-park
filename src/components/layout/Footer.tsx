@@ -6,7 +6,7 @@ import { siteConfig } from '@/data/config';
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 border-t border-gray-800">
+    <footer className="bg-custom-background border-t border-gray-800">
       <div className="container-custom">
           {/* Seção principal */}
           <div className="py-16">

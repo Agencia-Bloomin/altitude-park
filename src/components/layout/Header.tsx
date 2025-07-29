@@ -49,7 +49,7 @@ export function Header() {
         isScrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}>
         {/* Faixa superior */}
-        <div className="bg-gray-800">
+        <div className="bg-custom-background">
           <div className="container-custom">
             <div className="flex items-center justify-between h-10 text-sm">
               <div className="flex items-center space-x-4">
@@ -69,7 +69,7 @@ export function Header() {
         </div>
 
         {/* Header principal */}
-        <div className="bg-gray-900/90 backdrop-blur-md">
+        <div className="bg-custom-background/90 backdrop-blur-md">
           <div className="container-custom">
             <div className="flex items-center justify-between h-20">
               <Link href="/" className="flex items-center space-x-3">
@@ -104,15 +104,15 @@ export function Header() {
                       <ChevronDown className="w-4 h-4" />
                     </button>
                   </div>
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-gray-800 rounded-lg shadow-xl border border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-custom-background rounded-lg shadow-xl border border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     <div className="py-2">
-                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-gray-700 transition-colors">
+                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-custom-background transition-colors">
                         Trabalhe Conosco
                       </Link>
-                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-gray-700 transition-colors">
+                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-custom-background transition-colors">
                         Perguntas Frequentes
                       </Link>
-                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-gray-700 transition-colors">
+                      <Link href="#" className="block px-4 py-2 text:base lg:text-sm xl:text-base text-gray-300 hover:text-pink-400 hover:bg-custom-background transition-colors">
                         Galeria
                       </Link>
                     </div>
@@ -165,7 +165,7 @@ export function Header() {
       )}
 
       {/* Menu mobile lateral */}
-      <div className={`fixed top-0 right-0 h-full w-80 bg-gray-900 shadow-2xl z-[60] transform transition-transform duration-300 ease-in-out lg:hidden ${
+      <div className={`fixed top-0 right-0 h-full w-80 bg-custom-background shadow-2xl z-[60] transform transition-transform duration-300 ease-in-out lg:hidden ${
         isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
         <div className="flex flex-col h-full">

@@ -233,7 +233,7 @@ export default function ContatoPage() {
             </div>
             
             {/* Formulário de Contato */}
-            <div className="bg-gray-800 p-8 rounded-2xl border border-gray-700">
+            <div className="bg-custom-background p-8 rounded-2xl border border-gray-700">
               <h3 className="text-2xl font-bold text-white mb-6">
                 Envie sua Mensagem
               </h3>
@@ -362,7 +362,7 @@ export default function ContatoPage() {
           </div>
           
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gray-700 h-96 rounded-2xl flex items-center justify-center border border-gray-600">
+            <div className="bg-custom-background h-96 rounded-2xl flex items-center justify-center border border-gray-600">
               <div className="text-center">
                 <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                 <p className="text-gray-300 text-lg">

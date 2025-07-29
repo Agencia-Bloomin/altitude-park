@@ -83,7 +83,7 @@ export function ReCaptcha({ siteKey, onVerify, onExpired, onError }: ReCaptchaPr
     return (
       <div className="mt-4">
         <div className="flex justify-center">
-          <div className="w-64 h-12 bg-gray-700 rounded animate-pulse"></div>
+          <div className="w-64 h-12 bg-custom-background rounded animate-pulse"></div>
         </div>
       </div>
     )

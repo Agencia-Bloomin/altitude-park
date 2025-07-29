@@ -64,7 +64,7 @@ export function PricingSection() {
 
         {/* Informações adicionais */}
         <div className="mt-12 text-center">
-          <div className="bg-gray-700 rounded-lg p-6 max-w-2xl mx-auto">
+          <div className="bg-custom-background rounded-lg p-6 max-w-2xl mx-auto">
             <h3 className="text-xl font-bold text-white mb-4">Informações Importantes</h3>
             <div className="space-y-2 text-gray-300">
               <p><strong>MEIA ANTIDERRAPANTE:</strong> R$ 35,00</p>

@@ -67,7 +67,7 @@ export default function SobrePage() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="text-center p-8 bg-gray-700 rounded-xl shadow-lg border border-gray-600">
+            <div className="text-center p-8 bg-custom-background rounded-xl shadow-lg border border-gray-600">
               <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">✓</span>
               </div>
@@ -77,7 +77,7 @@ export default function SobrePage() {
               </p>
             </div>
             
-            <div className="text-center p-8 bg-gray-700 rounded-xl shadow-lg border border-gray-600">
+            <div className="text-center p-8 bg-custom-background rounded-xl shadow-lg border border-gray-600">
               <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">⚡</span>
               </div>
@@ -87,7 +87,7 @@ export default function SobrePage() {
               </p>
             </div>
             
-            <div className="text-center p-8 bg-gray-700 rounded-xl shadow-lg border border-gray-600">
+            <div className="text-center p-8 bg-custom-background rounded-xl shadow-lg border border-gray-600">
               <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">🎯</span>
               </div>
