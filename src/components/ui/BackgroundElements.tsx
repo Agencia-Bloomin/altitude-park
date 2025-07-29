@@ -18,7 +18,7 @@ export function BackgroundElements({
   const getPositionClasses = (position: string) => {
     switch (position) {
       case 'top-left':
-        return 'top-56 -left-6';
+        return 'top-64 -left-6';
       case 'top-right':
         return 'top-56 -right-6';
       case 'bottom-left':
