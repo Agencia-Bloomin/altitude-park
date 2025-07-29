@@ -152,11 +152,11 @@ export function UnitsSection() {
                         title={address.name}
                         width={400}
                         height={300}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="p-6 flex items-center justify-center min-h-[80px] lg:min-h-[110px]" style={{ backgroundColor: siteConfig.theme.colors.primary }}>
-                      <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'white', textAlign: 'center', textTransform: 'uppercase' }}>
+                      <h3 className="text-xl font-bold text-white text-center uppercase">
                         {address.name}
                       </h3>
                     </div>
