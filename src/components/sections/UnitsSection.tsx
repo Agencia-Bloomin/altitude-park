@@ -143,9 +143,9 @@ export function UnitsSection() {
           >
             {siteConfig.contact.addresses.map((address) => (
               <SwiperSlide key={address.name}>
-                <a href="" style={{ display: 'block', height: '100%' }}>
-                  <div style={{ borderRadius: '12px', overflow: 'hidden', background: 'none', padding: 0, margin: 0 }}>
-                    <div style={{ position: 'relative', height: '200px', overflow: 'hidden', padding: 0, margin: 0 }}>
+                <a href="" className="block h-full">
+                  <div className="rounded-xl overflow-hidden bg-none p-0 m-0">
+                    <div className="relative h-[200px] overflow-hidden p-0 m-0">
                       <Image
                         src={`/images/unidades/${getImagePath(address.name)}`}
                         alt={address.name}
@@ -155,7 +155,7 @@ export function UnitsSection() {
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
                     </div>
-                    <div style={{ padding: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '80px', backgroundColor: siteConfig.theme.colors.primary }}>
+                    <div className="p-6 flex items-center justify-center min-h-[80px] lg:min-h-[110px]" style={{ backgroundColor: siteConfig.theme.colors.primary }}>
                       <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'white', textAlign: 'center', textTransform: 'uppercase' }}>
                         {address.name}
                       </h3>
@@ -185,7 +185,7 @@ export function UnitsSection() {
           </div>
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button variant="secondary" size="xl">
               Compre seu ingresso
