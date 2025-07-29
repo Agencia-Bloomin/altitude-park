@@ -23,9 +23,7 @@ export function Footer() {
                     className="h-16 w-auto"
                   />
                 </Link>
-                <p className="text-gray-400 mb-6 leading-relaxed">
-                  O melhor parque de trampolim do Brasil! Diversão garantida para toda a família com as melhores atrações e segurança.
-                </p>
+                <p className="text-gray-400 mb-6 leading-relaxed">Aqui na Altitude Park você encontra diversão garantida para toda a família! Tudo com as melhores atrações e alta segurança.</p>
                 <div className="flex space-x-4">
                   {siteConfig.social.facebook && (
                     <a

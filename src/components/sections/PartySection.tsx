@@ -36,12 +36,10 @@ export function PartySection() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-8 md:p-12">
             <h3 className="text-3xl font-bold text-white mb-6">
-              Festas Inesquecíveis
+            Faça o seu evento ser inesquecível
             </h3>
             <p className="text-xl text-white/90 mb-8">
-              Oferecemos pacotes completos para festas de aniversário, eventos corporativos e comemorações especiais. 
-              Entre em contato conosco para solicitar um orçamento personalizado!
-            </p>
+            Oferecemos pacotes completos para festas de aniversário, eventos corporativos e comemorações especiais. Entre em contato conosco para solicitar um orçamento personalizado!</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 variant="default" 
