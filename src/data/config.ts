@@ -292,11 +292,11 @@ export const siteConfig: SiteConfig = {
   // Configurações de cores e fontes (para Tailwind)
   theme: {
     colors: {
-      primary: '#ea258e', 
-      secondary: '#00b4f5', 
-      tertiary: '#fe8d35',
-      quaternary: '#f0e410',
-      quinary: '#a1da00',
+      primary: '#ec108e', 
+      secondary: '#16b0ef', 
+      tertiary: '#ff914d',
+      quaternary: '#ffde59',
+      quinary: '#7ed957',
     },
     fonts: {
       primary: 'Itim',
