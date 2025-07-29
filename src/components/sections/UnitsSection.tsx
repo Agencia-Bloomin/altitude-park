@@ -93,7 +93,7 @@ export function UnitsSection() {
   };
 
   return (
-    <section ref={sectionRef} className="section-padding section-animate relative overflow-hidden bg-custom-background">
+    <section ref={sectionRef} className="section-padding section-animate relative overflow-hidden">
       {/* Background elements */}
       <BackgroundElements 
         firstElementPosition="top-left"
@@ -143,21 +143,20 @@ export function UnitsSection() {
           >
             {siteConfig.contact.addresses.map((address) => (
               <SwiperSlide key={address.name}>
-                <a href="" className="block h-full">
-                  <div className="card h-full" style={{ backgroundColor: siteConfig.theme.colors.primary }}>
-                    <div className="card-image-container">
+                <a href="" style={{ display: 'block', height: '100%' }}>
+                  <div style={{ borderRadius: '12px', overflow: 'hidden', background: 'none', padding: 0, margin: 0 }}>
+                    <div style={{ position: 'relative', height: '200px', overflow: 'hidden', padding: 0, margin: 0 }}>
                       <Image
                         src={`/images/unidades/${getImagePath(address.name)}`}
                         alt={address.name}
                         title={address.name}
                         width={400}
                         height={300}
-                        className="card-image"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </div>
-                    <div className="p-6 flex items-center justify-center min-h-[80px]">
-                      <h3 className="text-xl font-bold text-white text-center uppercase">
+                    <div style={{ padding: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '80px', backgroundColor: siteConfig.theme.colors.primary }}>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'white', textAlign: 'center', textTransform: 'uppercase' }}>
                         {address.name}
                       </h3>
                     </div>
@@ -205,26 +204,46 @@ export function UnitsSection() {
         
         .units-swiper .swiper-slide {
           height: auto;
+          background: none;
+          padding: 0;
+          margin: 0;
         }
         
         .card {
           border-radius: 12px;
           overflow: hidden;
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          background: none;
+          padding: 0;
+          margin: 0;
         }
         
         .card-image-container {
           position: relative;
           height: 200px;
           overflow: hidden;
+          padding: 0;
+          margin: 0;
         }
         
         .card-image {
           width: 100%;
           height: 100%;
           object-fit: cover;
+        }
+        
+        /* Remover qualquer background do Swiper */
+        .units-swiper .swiper-wrapper {
+          background: none;
+        }
+        
+        .units-swiper .swiper-container {
+          background: none;
+        }
+        
+        /* Garantir que não há espaços */
+        .units-swiper .swiper-slide > * {
+          margin: 0;
+          padding: 0;
         }
       `}</style>
     </section>
