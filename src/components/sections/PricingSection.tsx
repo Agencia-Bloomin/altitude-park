@@ -30,7 +30,7 @@ export function PricingSection() {
               <div className="relative p-8 text-center h-full flex flex-col justify-between pt-20">
                 {/* Header */}
                 <div className="mb-8 mt-6">
-                  <h3 className="text-3xl font-black mb-3 text-white drop-shadow-lg">30 MINUTOS</h3>
+                  <h3 className="text-3xl font-black font-primary mb-3 text-white drop-shadow-lg">TRINTA MINUTOS</h3>
                   <p className="text-sm font-semibold text-white/90">TODAS AS IDADES</p>
                 </div>
 
@@ -85,7 +85,7 @@ export function PricingSection() {
               <div className="relative p-8 text-center h-full flex flex-col justify-between pt-20">
                 {/* Header */}
                 <div className="mb-8 mt-6">
-                  <h3 className="text-3xl font-black mb-3 text-white drop-shadow-lg">1 HORA</h3>
+                  <h3 className="text-3xl font-black font-primary mb-3 text-white drop-shadow-lg">UMA HORA</h3>
                   <p className="text-sm font-semibold text-white/90">TODAS AS IDADES</p>
                 </div>
 
@@ -140,7 +140,7 @@ export function PricingSection() {
               <div className="relative p-8 text-center h-full flex flex-col justify-between pt-20">
                 {/* Header */}
                 <div className="mb-8 mt-6">
-                  <h3 className="text-2xl font-black mb-3 text-white drop-shadow-lg">MEIA ANTIDERRAPANTE</h3>
+                  <h3 className="text-3xl font-black font-primary mb-3 text-white drop-shadow-lg">MEIA ANTIDERRAPANTE</h3>
                   <p className="text-sm font-semibold text-white/90">SEGURANÇA GARANTIDA</p>
                 </div>
 
