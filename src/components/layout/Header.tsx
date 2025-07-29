@@ -49,7 +49,7 @@ export function Header() {
         isScrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}>
         {/* Faixa superior */}
-        <div className="bg-gray-800 border-b border-gray-700">
+        <div className="bg-gray-800">
           <div className="container-custom">
             <div className="flex items-center justify-between h-10 text-sm">
               <div className="flex items-center space-x-4">
@@ -69,7 +69,7 @@ export function Header() {
         </div>
 
         {/* Header principal */}
-        <div className="bg-gray-900/90 backdrop-blur-md border-b border-gray-700">
+        <div className="bg-gray-900/90 backdrop-blur-md">
           <div className="container-custom">
             <div className="flex items-center justify-between h-20">
               <Link href="/" className="flex items-center space-x-3">
