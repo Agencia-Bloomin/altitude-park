@@ -168,19 +168,21 @@ export function UnitsSection() {
           </Swiper>
 
           {/* Controles de Navegação */}
-          <div className="flex justify-center items-center gap-4 mt-8 lg:mt-0 lg:absolute lg:inset-y-0 lg:left-0 lg:right-0 lg:pointer-events-none">
-            <button
-              className="swiper-button-prev bg-primary hover:bg-primary/90 text-white rounded-full w-12 h-12 flex items-center justify-center transition-colors duration-200 lg:pointer-events-auto"
-              onClick={() => swiperRef.current?.swiper.slidePrev()}
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              className="swiper-button-next bg-primary hover:bg-primary/90 text-white rounded-full w-12 h-12 flex items-center justify-center transition-colors duration-200 lg:pointer-events-auto"
-              onClick={() => swiperRef.current?.swiper.slideNext()}
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
+          <div className="flex justify-end items-center mt-6">
+            <div className="p-3 flex items-center gap-3">
+              <button
+                className="bg-white/20 hover:bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 border border-white/20"
+                onClick={() => swiperRef.current?.swiper.slidePrev()}
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                className="bg-white/20 hover:bg-white/30 text-white rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 border border-white/20"
+                onClick={() => swiperRef.current?.swiper.slideNext()}
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </div>
           </div>
         </div>
 
