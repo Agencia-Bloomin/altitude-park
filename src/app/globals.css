@@ -44,7 +44,7 @@
 
   /* Cards */
   .card {
-    @apply bg-custom-background rounded-xl shadow-lg border border-gray-700 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2;
+    @apply bg-custom-background rounded-xl shadow-lg border border-gray-700 overflow-hidden;
   }
 
   .card-special {
@@ -57,12 +57,7 @@
   }
 
   .card-image {
-    @apply w-full h-48 object-cover transition-transform duration-300;
-    transform: translateZ(0); /* Força aceleração de hardware */
-  }
-
-  .card:hover .card-image {
-    @apply scale-110;
+    @apply w-full h-48 object-cover;
   }
 
   .card:hover .card-image-container .absolute {
@@ -231,11 +226,7 @@
   }
 
   /* Swiper customizations */
-  .swiper-slide-active .heading-1,
-  .swiper-slide-active .text-xl,
-  .swiper-slide-active .text-lg {
-    animation: fadeInUp 0.8s ease-out;
-  }
+
 
   .swiper-pagination-bullet {
     @apply bg-gray-400 opacity-50;
