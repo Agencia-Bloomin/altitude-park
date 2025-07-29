@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* CSS Variables que podem ser alteradas dinamicamente */
+    --color-primary: #ea258e;
+    --color-secondary: #00b4f5;
+    --color-tertiary: #fe8d35;
+    --color-quaternary: #f0e410;
+    --color-quinary: #a1da00;
+  }
+
   * {
     @apply border-gray-700;
   }
@@ -68,92 +77,92 @@
     @apply transform hover:-translate-y-1 transition-all duration-200;
   }
 
-  /* Gradientes usando cores do config.ts */
+  /* Gradientes usando CSS Variables */
   .gradient-primary {
-    background: linear-gradient(135deg, #ea258e 0%, #be185d 50%, #ea258e 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, #be185d 50%, var(--color-primary) 100%);
   }
 
   .gradient-secondary {
-    background: linear-gradient(135deg, #00b4f5 0%, #0ea5e9 30%, #38bdf8 50%, #0ea5e9 70%, #00b4f5 100%);
+    background: linear-gradient(135deg, var(--color-secondary) 0%, #0ea5e9 30%, #38bdf8 50%, #0ea5e9 70%, var(--color-secondary) 100%);
   }
 
   .gradient-tertiary {
-    background: linear-gradient(135deg, #fe8d35 0%, #ea580c 30%, #fb923c 50%, #ea580c 70%, #fe8d35 100%);
+    background: linear-gradient(135deg, var(--color-tertiary) 0%, #ea580c 30%, #fb923c 50%, #ea580c 70%, var(--color-tertiary) 100%);
   }
 
   .gradient-quaternary {
-    background: linear-gradient(135deg, #f0e410 0%, #eab308 50%, #f0e410 100%);
+    background: linear-gradient(135deg, var(--color-quaternary) 0%, #eab308 50%, var(--color-quaternary) 100%);
   }
 
   .gradient-quinary {
-    background: linear-gradient(135deg, #a1da00 0%, #4ade80 50%, #a1da00 100%);
+    background: linear-gradient(135deg, var(--color-quinary) 0%, #4ade80 50%, var(--color-quinary) 100%);
   }
 
   .gradient-hero {
-    background: linear-gradient(135deg, #00b4f5 0%, #a1da00 50%, #fe8d35 100%);
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-quinary) 50%, var(--color-tertiary) 100%);
   }
 
   /* Gradientes com transparência para cards de informação */
   .gradient-primary-soft {
-    background: linear-gradient(135deg, #ea258e80 0%, #be185d80 50%, #ea258e80 100%);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 50%, transparent) 0%, color-mix(in srgb, #be185d 50%, transparent) 50%, color-mix(in srgb, var(--color-primary) 50%, transparent) 100%);
   }
 
   .gradient-secondary-soft {
-    background: linear-gradient(135deg, #00b4f580 0%, #38bdf880 50%, #00b4f580 100%);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-secondary) 50%, transparent) 0%, color-mix(in srgb, #38bdf8 50%, transparent) 50%, color-mix(in srgb, var(--color-secondary) 50%, transparent) 100%);
   }
 
   .gradient-tertiary-soft {
-    background: linear-gradient(135deg, #fe8d3580 0%, #fb923c80 50%, #fe8d3580 100%);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-tertiary) 50%, transparent) 0%, color-mix(in srgb, #fb923c 50%, transparent) 50%, color-mix(in srgb, var(--color-tertiary) 50%, transparent) 100%);
   }
 
   .gradient-quaternary-soft {
-    background: linear-gradient(135deg, #f0e41080 0%, #eab30880 50%, #f0e41080 100%);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-quaternary) 50%, transparent) 0%, color-mix(in srgb, #eab308 50%, transparent) 50%, color-mix(in srgb, var(--color-quaternary) 50%, transparent) 100%);
   }
 
   .gradient-quinary-soft {
-    background: linear-gradient(135deg, #a1da0080 0%, #4ade8080 50%, #a1da0080 100%);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-quinary) 50%, transparent) 0%, color-mix(in srgb, #4ade80 50%, transparent) 50%, color-mix(in srgb, var(--color-quinary) 50%, transparent) 100%);
   }
 
-  /* Cores de texto usando config.ts */
+  /* Cores de texto usando CSS Variables */
   .text-primary {
-    color: #ea258e;
+    color: var(--color-primary);
   }
 
   .text-secondary {
-    color: #00b4f5;
+    color: var(--color-secondary);
   }
 
   .text-tertiary {
-    color: #fe8d35;
+    color: var(--color-tertiary);
   }
 
   .text-quaternary {
-    color: #f0e410;
+    color: var(--color-quaternary);
   }
 
   .text-quinary {
-    color: #a1da00;
+    color: var(--color-quinary);
   }
 
-  /* Bordas usando config.ts */
+  /* Bordas usando CSS Variables */
   .border-primary {
-    border-color: #ea258e40;
+    border-color: color-mix(in srgb, var(--color-primary) 25%, transparent);
   }
 
   .border-secondary {
-    border-color: #00b4f540;
+    border-color: color-mix(in srgb, var(--color-secondary) 25%, transparent);
   }
 
   .border-tertiary {
-    border-color: #fe8d3540;
+    border-color: color-mix(in srgb, var(--color-tertiary) 25%, transparent);
   }
 
   .border-quaternary {
-    border-color: #f0e41040;
+    border-color: color-mix(in srgb, var(--color-quaternary) 25%, transparent);
   }
 
   .border-quinary {
-    border-color: #a1da0040;
+    border-color: color-mix(in srgb, var(--color-quinary) 25%, transparent);
   }
 
   /* Textos */

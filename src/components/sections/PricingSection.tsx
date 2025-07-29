@@ -151,7 +151,6 @@ export function PricingSection() {
                       <span className="text-xl text-white mr-2 font-bold">R$</span>
                       <span className="text-7xl font-black text-white drop-shadow-lg">35,00</span>
                     </div>
-                    <p className="text-xs text-white/80 mt-2 font-semibold">POR VISITA</p>
                   </div>
                 </div>
 
