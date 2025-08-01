@@ -27,19 +27,19 @@ export function HeroBanner({
   // Dados dos banners
   const banners = [
     {
-      desktop: '/images/banners/banner1.webp',
+      desktop: '/images/banners/desk-01.png',
       mobile: '/images/banners/bannermob1.webp',
       alt: 'Altitude Park - Diversão Garantida',
       title: 'Altitude Park - Diversão Garantida'
     },
     {
-      desktop: '/images/banners/banner2.webp',
+      desktop: '/images/banners/desk-02.png',
       mobile: '/images/banners/bannermob2.webp',
       alt: 'Melhor Parque de Trampolim do Brasil',
       title: 'Melhor Parque de Trampolim do Brasil'
     },
     {
-      desktop: '/images/banners/banner3.webp',
+      desktop: '/images/banners/desk-03.png',
       mobile: '/images/banners/bannermob3.webp',
       alt: 'Festa de Aniversário Inesquecível',
       title: 'Festa de Aniversário Inesquecível'
@@ -47,7 +47,7 @@ export function HeroBanner({
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col">
+    <section className="relative min-h-screen flex flex-col mt-[135px]">
       {/* Carrossel de Banners */}
       <div className="flex-1 relative">
         <Swiper
